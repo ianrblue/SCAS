@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D82ABB1216C99E8100B36EAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82ABB1116C99E8100B36EAF /* UIKit.framework */; };
+		D82ABB1416C99E8100B36EAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82ABB1316C99E8100B36EAF /* Foundation.framework */; };
+		D82ABB1616C99E8100B36EAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82ABB1516C99E8100B36EAF /* CoreGraphics.framework */; };
+		D82ABB1C16C99E8100B36EAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D82ABB1A16C99E8100B36EAF /* InfoPlist.strings */; };
+		D82ABB1E16C99E8100B36EAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D82ABB1D16C99E8100B36EAF /* main.m */; };
+		D82ABB2216C99E8100B36EAF /* MMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D82ABB2116C99E8100B36EAF /* MMAppDelegate.m */; };
+		D82ABB2416C99E8100B36EAF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D82ABB2316C99E8100B36EAF /* Default.png */; };
+		D82ABB2616C99E8100B36EAF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D82ABB2516C99E8100B36EAF /* Default@2x.png */; };
+		D82ABB2816C99E8100B36EAF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D82ABB2716C99E8100B36EAF /* Default-568h@2x.png */; };
+		D82ABB2B16C99E8100B36EAF /* MMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D82ABB2A16C99E8100B36EAF /* MMViewController.m */; };
+		D82ABB2E16C99E8100B36EAF /* MMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82ABB2C16C99E8100B36EAF /* MMViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D82ABB0E16C99E8100B36EAF /* DisappearingKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisappearingKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D82ABB1116C99E8100B36EAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D82ABB1316C99E8100B36EAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D82ABB1516C99E8100B36EAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D82ABB1916C99E8100B36EAF /* DisappearingKeyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DisappearingKeyboard-Info.plist"; sourceTree = "<group>"; };
+		D82ABB1B16C99E8100B36EAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D82ABB1D16C99E8100B36EAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D82ABB1F16C99E8100B36EAF /* DisappearingKeyboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DisappearingKeyboard-Prefix.pch"; sourceTree = "<group>"; };
+		D82ABB2016C99E8100B36EAF /* MMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMAppDelegate.h; sourceTree = "<group>"; };
+		D82ABB2116C99E8100B36EAF /* MMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMAppDelegate.m; sourceTree = "<group>"; };
+		D82ABB2316C99E8100B36EAF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D82ABB2516C99E8100B36EAF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D82ABB2716C99E8100B36EAF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D82ABB2916C99E8100B36EAF /* MMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMViewController.h; sourceTree = "<group>"; };
+		D82ABB2A16C99E8100B36EAF /* MMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMViewController.m; sourceTree = "<group>"; };
+		D82ABB2D16C99E8100B36EAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MMViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D82ABB0B16C99E8100B36EAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D82ABB1216C99E8100B36EAF /* UIKit.framework in Frameworks */,
+				D82ABB1416C99E8100B36EAF /* Foundation.framework in Frameworks */,
+				D82ABB1616C99E8100B36EAF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D82ABB0516C99E8100B36EAF = {
+			isa = PBXGroup;
+			children = (
+				D82ABB1716C99E8100B36EAF /* DisappearingKeyboard */,
+				D82ABB1016C99E8100B36EAF /* Frameworks */,
+				D82ABB0F16C99E8100B36EAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D82ABB0F16C99E8100B36EAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D82ABB0E16C99E8100B36EAF /* DisappearingKeyboard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D82ABB1016C99E8100B36EAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D82ABB1116C99E8100B36EAF /* UIKit.framework */,
+				D82ABB1316C99E8100B36EAF /* Foundation.framework */,
+				D82ABB1516C99E8100B36EAF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D82ABB1716C99E8100B36EAF /* DisappearingKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D82ABB2016C99E8100B36EAF /* MMAppDelegate.h */,
+				D82ABB2116C99E8100B36EAF /* MMAppDelegate.m */,
+				D82ABB2916C99E8100B36EAF /* MMViewController.h */,
+				D82ABB2A16C99E8100B36EAF /* MMViewController.m */,
+				D82ABB2C16C99E8100B36EAF /* MMViewController.xib */,
+				D82ABB1816C99E8100B36EAF /* Supporting Files */,
+			);
+			path = DisappearingKeyboard;
+			sourceTree = "<group>";
+		};
+		D82ABB1816C99E8100B36EAF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D82ABB1916C99E8100B36EAF /* DisappearingKeyboard-Info.plist */,
+				D82ABB1A16C99E8100B36EAF /* InfoPlist.strings */,
+				D82ABB1D16C99E8100B36EAF /* main.m */,
+				D82ABB1F16C99E8100B36EAF /* DisappearingKeyboard-Prefix.pch */,
+				D82ABB2316C99E8100B36EAF /* Default.png */,
+				D82ABB2516C99E8100B36EAF /* Default@2x.png */,
+				D82ABB2716C99E8100B36EAF /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D82ABB0D16C99E8100B36EAF /* DisappearingKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D82ABB3116C99E8100B36EAF /* Build configuration list for PBXNativeTarget "DisappearingKeyboard" */;
+			buildPhases = (
+				D82ABB0A16C99E8100B36EAF /* Sources */,
+				D82ABB0B16C99E8100B36EAF /* Frameworks */,
+				D82ABB0C16C99E8100B36EAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DisappearingKeyboard;
+			productName = DisappearingKeyboard;
+			productReference = D82ABB0E16C99E8100B36EAF /* DisappearingKeyboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D82ABB0616C99E8100B36EAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MM;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Nathan Levine";
+			};
+			buildConfigurationList = D82ABB0916C99E8100B36EAF /* Build configuration list for PBXProject "DisappearingKeyboard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D82ABB0516C99E8100B36EAF;
+			productRefGroup = D82ABB0F16C99E8100B36EAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D82ABB0D16C99E8100B36EAF /* DisappearingKeyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D82ABB0C16C99E8100B36EAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D82ABB1C16C99E8100B36EAF /* InfoPlist.strings in Resources */,
+				D82ABB2416C99E8100B36EAF /* Default.png in Resources */,
+				D82ABB2616C99E8100B36EAF /* Default@2x.png in Resources */,
+				D82ABB2816C99E8100B36EAF /* Default-568h@2x.png in Resources */,
+				D82ABB2E16C99E8100B36EAF /* MMViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D82ABB0A16C99E8100B36EAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D82ABB1E16C99E8100B36EAF /* main.m in Sources */,
+				D82ABB2216C99E8100B36EAF /* MMAppDelegate.m in Sources */,
+				D82ABB2B16C99E8100B36EAF /* MMViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D82ABB1A16C99E8100B36EAF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D82ABB1B16C99E8100B36EAF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D82ABB2C16C99E8100B36EAF /* MMViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D82ABB2D16C99E8100B36EAF /* en */,
+			);
+			name = MMViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D82ABB2F16C99E8100B36EAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D82ABB3016C99E8100B36EAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D82ABB3216C99E8100B36EAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DisappearingKeyboard/DisappearingKeyboard-Prefix.pch";
+				INFOPLIST_FILE = "DisappearingKeyboard/DisappearingKeyboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D82ABB3316C99E8100B36EAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DisappearingKeyboard/DisappearingKeyboard-Prefix.pch";
+				INFOPLIST_FILE = "DisappearingKeyboard/DisappearingKeyboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D82ABB0916C99E8100B36EAF /* Build configuration list for PBXProject "DisappearingKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D82ABB2F16C99E8100B36EAF /* Debug */,
+				D82ABB3016C99E8100B36EAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D82ABB3116C99E8100B36EAF /* Build configuration list for PBXNativeTarget "DisappearingKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D82ABB3216C99E8100B36EAF /* Debug */,
+				D82ABB3316C99E8100B36EAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D82ABB0616C99E8100B36EAF /* Project object */;
+}
