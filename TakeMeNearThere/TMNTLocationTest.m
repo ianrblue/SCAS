@@ -20,14 +20,14 @@
 @synthesize coordinate;
 
 //make our own version of cllocation, that currently is hard coded to MM
-//- (TMNTLocationTest *)init
-//{
-//    self = [super init];
-//    
-//    coordinate.latitude = 41.894032;
-//    coordinate.longitude = -87.634742;
-//    return self;
-//}
+- (TMNTLocationTest *)init
+{
+    self = [super init];
+    
+    coordinate.latitude = 41.894032;
+    coordinate.longitude = -87.634742;
+    return self;
+}
 
 //- (TMNTLocationTest *)initWithLatitude:(float)latitude andLongitude:(float)longitude
 //{
@@ -83,26 +83,26 @@
     [alert show];
 } */
 
-- (void)startLocationUpdates
-{
-    if (locationManager==nil) {
-        locationManager = [[CLLocationManager alloc]init];
-    }
-    locationManager.delegate = self;
-    
-    //firehose of updates
-    [locationManager startUpdatingLocation];
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"lat:%f - long:%f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
-   // [self updatePersonalCoordinates:newLocation.coordinate];
-    newLatitude=newLocation.coordinate.latitude;
-    newLongitude=newLocation.coordinate.longitude;
-}
+//- (void)startLocationUpdates
+//{
+//    if (locationManager==nil) {
+//        locationManager = [[CLLocationManager alloc]init];
+//    }
+//    locationManager.delegate = self;
+//    
+//    //firehose of updates
+//    [locationManager startUpdatingLocation];
+//}
+//
+//- (void)locationManager:(CLLocationManager *)manager
+//	didUpdateToLocation:(CLLocation *)newLocation
+//		   fromLocation:(CLLocation *)oldLocation
+//{
+//    NSLog(@"lat:%f - long:%f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+//   // [self updatePersonalCoordinates:newLocation.coordinate];
+//    newLatitude=newLocation.coordinate.latitude;
+//    newLongitude=newLocation.coordinate.longitude;
+//}
 
 //- (void)updatePersonalCoordinates:(CLLocationCoordinate2D)newCoordinate
 //{

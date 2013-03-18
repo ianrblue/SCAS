@@ -74,38 +74,69 @@ const CGFloat scrollObjWidth	= 280.0;
 
 - (NSMutableArray *)grabPhotosArray: (NSArray *)flickData
 {
+    //set up array to add photos too
     arrayOfPhotoStrings = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < flickData.count; i++)
+
+    //use Fast enumeration to go through our array of dictionarys taht we get from flikr and pull out the string that we can then make our photo from and add that to the above array
+    for (NSDictionary *dictionary in flickData)
     {
-        NSDictionary *actualPhotoDictionary = [flickData objectAtIndex:i];
-        NSString *farmString = [actualPhotoDictionary valueForKey:@"farm"];
-        NSString *serverString = [actualPhotoDictionary valueForKey:@"server"];
-        NSString *idString = [actualPhotoDictionary valueForKey:@"id"];
-        NSString *secretString = [actualPhotoDictionary valueForKey:@"secret"];
+        NSString *farmString = [dictionary valueForKey:@"farm"];
+        NSString *serverString = [dictionary valueForKey:@"server"];
+        NSString *idString = [dictionary valueForKey:@"id"];
+        NSString *secretString = [dictionary valueForKey:@"secret"];
         NSString *fullPhotoString = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_n.jpg" ,farmString,serverString, idString, secretString];
         
         NSURL *photoURL;
         photoURL= [NSURL URLWithString:fullPhotoString];
-        
         [arrayOfPhotoStrings addObject:photoURL];
     }
-
     
-//    for (NSDictionary *dictionary in flickData)
-//    {
-//        NSString *farmString = [flickData valueForKey:@"farm"];
-//        NSString *serverString = [flickData valueForKey:@"server"];
-//        NSString *idString = [flickData valueForKey:@"id"];
-//        NSString *secretString = [flickData valueForKey:@"secret"];
-//        NSString *fullPhotoString = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_n.jpg" ,farmString,serverString, idString, secretString];
-//        
-//        NSURL *photoURL;
-//        photoURL= [NSURL URLWithString:fullPhotoString];
-//        
-//        [testArray addObject:fullPhotoString];
-//    }
+    //after you grab the array run the scroll view setup
+    [self scrollViewSetUp];
+    
     return arrayOfPhotoStrings;
+}
+
+
+-(void)scrollViewSetUp
+{
+    //make little bar white. (UI)
+    myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    
+    //set the number of objects in the array as the number of pictures
+    const NSUInteger numImages	= arrayOfPhotoStrings.count;
+    [myScrollView setContentSize:CGSizeMake((numImages * scrollObjWidth),   [myScrollView bounds].size.height)];
+    
+    //using fast enumeration take every URL we bring over and convert it to an image and then add that image to the imageview
+    
+  
+    CGFloat xOrigin = 0.0f;
+    for (NSURL *url in arrayOfPhotoStrings)
+    {
+        NSData *photoData = [NSData dataWithContentsOfURL:url];
+        photoImage = [UIImage imageWithData:photoData];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:photoImage];
+        
+        // setup each frame to a default height and width
+       
+        CGRect rect = imageView.frame;
+        rect.origin = CGPointMake(xOrigin, 0);
+        rect.size.height = scrollObjHeight;
+        rect.size.width = scrollObjWidth;
+        [myScrollView addSubview:imageView];
+        
+        imageView.frame = rect;
+        
+//        imageView.frame = CGRectOffset(imageView.frame, xOrigin, 0.0);
+        xOrigin += scrollObjWidth;
+        
+        NSLog(@"IMHEREEEEE%@", arrayOfPhotoStrings);
+
+    }
+
+//    [myScrollView addSubview:myPageControl];
+//    myPageControl.numberOfPages = arrayOfPhotoStrings.count -1;
+//    myPageControl.currentPage = 0;
 }
 
 - (NSMutableArray *)createPlacesArray:(NSArray *)placesData
@@ -165,10 +196,10 @@ const CGFloat scrollObjWidth	= 280.0;
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     [view setHighlighted:YES];
-//    for (UIView *view in myScrollView.subviews)
-//    {
-//        [view removeFromSuperview];
-//    }
+    for (UIView *view in myScrollView.subviews)
+    {
+        [view removeFromSuperview];
+    }
     //persist stuff
     [self createPlaceVisitedFromMKAnnotation:view];
     
@@ -180,79 +211,9 @@ const CGFloat scrollObjWidth	= 280.0;
     flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:@"pizza" andLatitude:latnum andLongitude:longnum];
     flickrProcess.delegate = self;
     [flickrProcess getFlickrJSON];
-    
-    [self scrollViewSetUp];
  
-    
+    NSLog(@"sup bro");
 }
-
- 
--(void)scrollViewSetUp
-{
-    //allow for the number of images as we have
-    const NSUInteger numImages	= arrayOfPhotoStrings.count;
-    
-    myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    
-    for (NSURL *url in arrayOfPhotoStrings)
-    {
-        NSData *photoData = [NSData dataWithContentsOfURL:url];
-        photoImage = [UIImage imageWithData:photoData];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:photoImage];
-   
-    
-    NSUInteger i;
-	NSLog(@"IMHEREEEEE%@", arrayOfPhotoStrings);
-    for (i = 1; i < numImages; i++)
-	{
-       
-		// setup each frame to a default height and width, it will be properly placed when we call "updateScrollList"
-		CGRect rect = imageView.frame;
-		rect.size.height = scrollObjHeight;
-		rect.size.width = scrollObjWidth;
-		imageView.frame = rect;
-		imageView.tag = i;	// tag our images for later use when we place them in serial fashion
-		[myScrollView addSubview:imageView];
-	}
-	}
-	[self layoutScrollImages];	// now place the photos i
-
-}
-
-- (void)layoutScrollImages
-{
-
-	const NSUInteger numImages	= arrayOfPhotoStrings.count;
-    
-    UIImageView *view = nil;
-	
-    NSArray *subviews = [myScrollView subviews];
-    
-	// reposition all image subviews in a horizontal serial fashion
-	CGFloat xOrigin = 0;
-	for (view in subviews)
-	{
-		if ([view isKindOfClass:[UIImageView class]] && view.tag > 0)
-		{
-			CGRect frame = view.frame;
-			frame.origin = CGPointMake(xOrigin, 0);
-			view.frame = frame;
-			
-			xOrigin += (scrollObjWidth);
-		}
-	}
-	
-	// set the content size so it can be scrollable
-	[myScrollView setContentSize:CGSizeMake((numImages * scrollObjWidth), [myScrollView bounds].size.height)];
-    
-    myPageControl.numberOfPages = arrayOfPhotoStrings.count -1;
-    myPageControl.currentPage = 0;
-    
-    [myScrollView addSubview:myPageControl];
-    
-}
-
-
 
 //
 //CRUDS IS BELOW
