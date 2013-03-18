@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="TMNTViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-ne-8v2">
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="SNS-DY-fqi"/>
+                                </connections>
+                            </scrollView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-DT-Tqj">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="312" id="9DN-BO-kMp"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="MS3-gt-tzT"/>
+                                </connections>
+                            </mapView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-z7-3Kd">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="PDy-aY-r8F"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="clickPageControl:" destination="2" eventType="valueChanged" id="lHt-p5-aem"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="LVE-mf-NwW"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Nhs-ZV-wGZ"/>
+                            <constraint firstItem="AnV-z7-3Kd" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="130" id="Oqz-9Z-WlB"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="329" id="QHz-CP-hsj"/>
+                            <constraint firstAttribute="bottom" secondItem="AnV-z7-3Kd" secondAttribute="bottom" constant="210" id="Xoy-vZ-6Rd"/>
+                            <constraint firstAttribute="bottom" secondItem="LaZ-ne-8v2" secondAttribute="bottom" constant="19" id="ZgQ-pj-1eV"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="asR-Ct-A3O"/>
+                            <constraint firstAttribute="trailing" secondItem="LaZ-ne-8v2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="i0b-1U-e70"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="neL-nc-4na"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myMapView" destination="ufj-DT-Tqj" id="0YV-xR-xMr"/>
+                        <outlet property="myPageControl" destination="AnV-z7-3Kd" id="gkz-Vx-TwH"/>
+                        <outlet property="myScrollView" destination="LaZ-ne-8v2" id="bh7-UG-bRJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
