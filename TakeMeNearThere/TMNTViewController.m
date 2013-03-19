@@ -20,6 +20,7 @@
     TMNTAPIProcessor *yelpProcess;
     NSMutableArray *yelpData;
     TMNTLocationTest *mobileMakersLocation;
+    TMNTLocationTest *currentLocation;
     
     TMNTAPIProcessor *flickrProcess;
     NSMutableArray *flickrData;
@@ -39,9 +40,17 @@ const CGFloat scrollObjWidth	= 280.0;
 {
     [super viewDidLoad];
     
+    currentLocation = [[TMNTLocationTest alloc] initWithCurrentLocationAndUpdates];
+    [self updateMapViewWithNewCenter:currentLocation.coordinate];
+    NSLog(@"JHJKHGAKLGLD%f", currentLocation.coordinate.latitude);
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     //make ourselves the delegate for the coredata stuff
     TMNTAppDelegate *tmntAppDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
-     self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
+    self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
     
     //get our location
     mobileMakersLocation = [[TMNTLocationTest alloc] init];
@@ -51,14 +60,14 @@ const CGFloat scrollObjWidth	= 280.0;
     
     //set ourselves as the delgeate
     yelpProcess.delegate = self;
-
+    
     //perfom some method
     [yelpProcess getYelpJSON];
     
     //start with hidden page control
     //[myPageControl setHidden:YES];
-    
 }
+
 //refactor delegate for yelp
 - (void)grabYelpArray:(NSArray *)data
 {
@@ -97,6 +106,11 @@ const CGFloat scrollObjWidth	= 280.0;
     return arrayOfPhotoStrings;
 }
 
+- (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
+{
+    MKCoordinateRegion newRegion = {newCoodinate, myMapView.region.span};
+    [myMapView setRegion:newRegion];
+}
 
 -(void)scrollViewSetUp
 {

@@ -19,13 +19,15 @@
 //- (id)initWithCurrentLocationAndUpdates;
 
 //ians stuff
+
+- (id)initWithCurrentLocationAndUpdates;
 - (void)startLocationUpdates;
 
 - (void)locationManager:(CLLocationManager *)manager
 	didUpdateToLocation:(CLLocation *)newLocation
 		   fromLocation:(CLLocation *)oldLocation;
 
-- (void)updatePersonalCoordinates:(CLLocationCoordinate2D)newCoordinate;
+//- (void)updatePersonalCoordinates:(CLLocationCoordinate2D)newCoordinate;
 
 @end
 

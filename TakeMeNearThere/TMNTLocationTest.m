@@ -36,18 +36,18 @@
 //    coordinate.longitude = longitude;
 //    return self;
 //}
-/*
+
 - (id)initWithCurrentLocationAndUpdates
 {
     self = [super init];
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     
-    [self startUpdatingLocations];
-    
+    [self startLocationUpdates];
+    coordinate = CLLocationCoordinate2DMake(newLatitude, newLongitude);
     return self;
 }
-
+/*
 - (BOOL) locationKnown
 {
     
@@ -83,39 +83,34 @@
     [alert show];
 } */
 
-//- (void)startLocationUpdates
-//{
-//    if (locationManager==nil) {
-//        locationManager = [[CLLocationManager alloc]init];
-//    }
-//    locationManager.delegate = self;
-//    
-//    //firehose of updates
-//    [locationManager startUpdatingLocation];
-//}
-//
-//- (void)locationManager:(CLLocationManager *)manager
-//	didUpdateToLocation:(CLLocation *)newLocation
-//		   fromLocation:(CLLocation *)oldLocation
-//{
-//    NSLog(@"lat:%f - long:%f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
-//   // [self updatePersonalCoordinates:newLocation.coordinate];
-//    newLatitude=newLocation.coordinate.latitude;
-//    newLongitude=newLocation.coordinate.longitude;
-//}
+- (void)startLocationUpdates
+{
+    if (locationManager==nil) {
+        locationManager = [[CLLocationManager alloc]init];
+    }
+    locationManager.delegate = self;
+    
+    //firehose of updates
+    [locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+	didUpdateToLocation:(CLLocation *)newLocation
+		   fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"lat:%f - long:%f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+   // [self updatePersonalCoordinates:newLocation.coordinate];
+    newLatitude=newLocation.coordinate.latitude;
+    newLongitude=newLocation.coordinate.longitude;
+}
 
 //- (void)updatePersonalCoordinates:(CLLocationCoordinate2D)newCoordinate
 //{
 //    myAnnotation.coordinate = newCoordinate;
-//    //    NSLog(@"updatePersonalCoordinates: Lat:%f - Long:%f", newCoordinate.latitude,newCoordinate.longitude);
-//    [self updateMapViewWithNewCenter:newCoordinate];
 //}
-//
-//- (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
-//{
-//    MKCoordinateRegion newRegion = {newCoodinate, myMapView.region.span};
-//    [myMapView setRegion:newRegion];
-//}
+
+
+
 
 @end
 
