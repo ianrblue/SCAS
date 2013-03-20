@@ -13,6 +13,7 @@
 #import "TMNTAnnotation.h"
 #import "PlaceVisited.h"
 #import <CoreLocation/CoreLocation.h>
+#import "TMNTDetailViewController.h"
 
 
 @interface TMNTViewController ()
@@ -27,7 +28,9 @@
     
     UIImage *photoImage;
     __weak IBOutlet UISearchBar *searchField;
+    TMNTDetailViewController *detailViewController;
 }
+
 @end
 
 @implementation TMNTViewController
@@ -56,20 +59,33 @@ const CGFloat scrollObjWidth	= 320.0;
     //get our location
     mobileMakersLocation = [[TMNTLocationTest alloc] init];
     
-    //perform yelp api call based on our location
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:@"pizza" andLocation:mobileMakersLocation];
-    
-    //set ourselves as the delgeate
-    yelpProcess.delegate = self;
-    
-    //perfom some method
-    [yelpProcess getYelpJSON];
+  
     
     //start with hidden page control
     //[myPageControl setHidden:YES];
     
     [self updateMapViewWithNewCenter:currentLocation.coordinate];
 }
+
+-(void)submitYelpSearch
+{
+    //perform yelp api call based on our location
+    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:mobileMakersLocation];
+    
+    //set ourselves as the delgeate
+    yelpProcess.delegate = self;
+    
+    //perfom some method
+    [yelpProcess getYelpJSON];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [myMapView removeAnnotations:myMapView.annotations];
+    [self submitYelpSearch];
+    [searchBar resignFirstResponder];
+}
+
 
 //refactor delegate for yelp
 - (void)grabYelpArray:(NSArray *)data
@@ -239,7 +255,7 @@ const CGFloat scrollObjWidth	= 320.0;
 -(MKPinAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     //creating new button, button type diclusure button
-    //UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     if ([annotation isKindOfClass:[MKUserLocation class]])
     {
         return nil;
@@ -255,11 +271,10 @@ const CGFloat scrollObjWidth	= 320.0;
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                       reuseIdentifier:@"myAnnotation"];
         
-        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        annotationView.rightCalloutAccessoryView = detailButton;
     }
     //replace showDetail with segue or whatever you like to make it more functional
-    //[detailButton addTarget:self action:@selector(showDetail) forControlEvents:UIControlEventTouchUpInside];
-    
+    [detailButton addTarget:self action:@selector(pressDisclosureButton) forControlEvents:UIControlEventTouchUpInside];
     
     annotationView.canShowCallout = YES;
     annotationView.enabled = YES;
@@ -269,7 +284,10 @@ const CGFloat scrollObjWidth	= 320.0;
     return annotationView;
 }
 
-
+-(void)pressDisclosureButton
+{
+    [self performSegueWithIdentifier:@"annotationToDetail" sender:self];
+}
 
 //
 //CRUDS IS BELOW
@@ -345,6 +363,10 @@ const CGFloat scrollObjWidth	= 320.0;
     myPageControl.currentPage = page;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    detailViewController = [segue destinationViewController];
+}
 
 - (void)didReceiveMemoryWarning
 {
