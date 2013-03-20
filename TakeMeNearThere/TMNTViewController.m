@@ -7,7 +7,7 @@
 //
 
 #import "TMNTViewController.h"
-#import "TMNTLocationTest.h"
+//#import "TMNTLocationTest.h"
 #import "TMNTAPIProcessor.h"
 #import "TMNTPlace.h"
 #import "TMNTAnnotation.h"
@@ -20,8 +20,13 @@
 {
     TMNTAPIProcessor *yelpProcess;
     NSMutableArray *yelpData;
-    TMNTLocationTest *mobileMakersLocation;
-    TMNTLocationTest *currentLocation;
+    //TMNTLocationTest *mobileMakersLocation;
+    //TMNTLocationTest *currentLocation;
+    
+    //Create a CLLocationManager object which we will use to start updates
+    CLLocationManager *myLocationManager;
+    //also create a CLLocation instance variable that will hold our current location
+    CLLocation *userCurrentLocation;
     
     TMNTAPIProcessor *flickrProcess;
     NSMutableArray *flickrData;
@@ -39,14 +44,51 @@
 const CGFloat scrollObjHeight	= 200.0;
 const CGFloat scrollObjWidth	= 320.0;
 
+- (void)startLocationUpdates
+{
+    //if we dont have an instantiated clloactionmanager object make one
+    if (myLocationManager==nil) {
+        myLocationManager = [[CLLocationManager alloc]init];
+    }
+    myLocationManager.delegate = self;
+    
+    //get location that is decently close
+    myLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
+    //update location, firehose of updates, no longer
+    //[myLocationManager startMonitoringSignificantLocationChanges];
+    [myLocationManager startUpdatingLocation];
+
+}
+-(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error"
+                               message:@"Failed to Get Your Location"
+                               delegate:nil
+                               cancelButtonTitle:@"OK"
+                               otherButtonTitles:nil];
+    [errorAlert show];
+}
+//when we get the new location do this
+- (void)locationManager:(CLLocationManager *)manager
+	didUpdateToLocation:(CLLocation *)newLocation
+		   fromLocation:(CLLocation *)oldLocation
+{
+    userCurrentLocation = newLocation;
+    NSLog(@"lat:%f - long:%f",userCurrentLocation.coordinate.latitude, userCurrentLocation.coordinate.longitude);
+    
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    currentLocation = [[TMNTLocationTest alloc] initWithCurrentLocationAndUpdates];
-    
-    NSLog(@"JHJKHGAKLGLD%f", currentLocation.coordinate.latitude);
+    //location work here
+    [self startLocationUpdates];
+    NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
+    //currentLocation = [[TMNTLocationTest alloc] initWithCurrentLocationAndUpdates];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -57,21 +99,22 @@ const CGFloat scrollObjWidth	= 320.0;
     self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
     
     //get our location
-    mobileMakersLocation = [[TMNTLocationTest alloc] init];
+    //mobileMakersLocation = [[TMNTLocationTest alloc] init];
     
   
     
     //start with hidden page control
     //[myPageControl setHidden:YES];
     
-    [self updateMapViewWithNewCenter:currentLocation.coordinate];
+    [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
 }
 
 -(void)submitYelpSearch
 {
+    NSLog(@"in submitYelpSearch User location lat is%f",userCurrentLocation.coordinate.latitude);
     //perform yelp api call based on our location
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:mobileMakersLocation];
-    
+    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:userCurrentLocation];
+    //NSLog(@"tets%f",currentLocation.coordinate.latitude);
     //set ourselves as the delgeate
     yelpProcess.delegate = self;
     
@@ -200,7 +243,7 @@ const CGFloat scrollObjWidth	= 320.0;
         .longitudeDelta = 0.01810686f
     };
     
-    MKCoordinateRegion myRegion = {mobileMakersLocation.coordinate, span};
+    MKCoordinateRegion myRegion = {userCurrentLocation.coordinate, span};
     //set region to mapview
     [myMapView setRegion:myRegion];
     

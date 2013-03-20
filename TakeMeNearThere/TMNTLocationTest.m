@@ -40,11 +40,11 @@
 - (id)initWithCurrentLocationAndUpdates
 {
     self = [super init];
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
     
     [self startLocationUpdates];
-    coordinate = CLLocationCoordinate2DMake(newLatitude, newLongitude);
+    //coordinate = CLLocationCoordinate2DMake(newLatitude, newLongitude);
+    coordinate.latitude = newLatitude;
+    coordinate.longitude = newLongitude;
     return self;
 }
 /*
@@ -90,18 +90,19 @@
     }
     locationManager.delegate = self;
     
-    //firehose of updates
-    [locationManager startUpdatingLocation];
+    //firehose of updates, no longer
+    [locationManager startMonitoringSignificantLocationChanges];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
 	didUpdateToLocation:(CLLocation *)newLocation
 		   fromLocation:(CLLocation *)oldLocation
 {
-    //NSLog(@"lat:%f - long:%f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
    // [self updatePersonalCoordinates:newLocation.coordinate];
-    newLatitude=newLocation.coordinate.latitude;
-    newLongitude=newLocation.coordinate.longitude;
+    newLatitude = newLocation.coordinate.latitude;
+    newLongitude = newLocation.coordinate.longitude;
+    NSLog(@"lat:%f - long:%f",newLatitude, newLongitude);
+
 }
 
 //- (void)updatePersonalCoordinates:(CLLocationCoordinate2D)newCoordinate
