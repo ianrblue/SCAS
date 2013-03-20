@@ -98,8 +98,8 @@
 	didUpdateToLocation:(CLLocation *)newLocation
 		   fromLocation:(CLLocation *)oldLocation
 {
-    //NSLog(@"lat:%f - long:%f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
-   // [self updatePersonalCoordinates:newLocation.coordinate];
+    NSLog(@"lat:%f - long:%f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    //[self updatePersonalCoordinates:newLocation.coordinate];
     newLatitude=newLocation.coordinate.latitude;
     newLongitude=newLocation.coordinate.longitude;
 }
