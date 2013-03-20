@@ -39,16 +39,23 @@
                                     <outlet property="delegate" destination="2" id="TZU-Jx-4Vg"/>
                                 </connections>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbH-M0-gzz">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="50W-uh-EZp"/>
+                            <constraint firstAttribute="bottom" secondItem="pbH-M0-gzz" secondAttribute="bottom" constant="201" id="6dJ-Xa-xCB"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="MP6-Y3-bxl"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Nre-iF-Ak3"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="centerX" secondItem="AnV-z7-3Kd" secondAttribute="centerX" type="default" id="OdH-Vw-gmw"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="OyA-HG-UhU"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="top" secondItem="3" secondAttribute="top" constant="47" id="RS7-G7-jAI"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Sbu-2R-3U7"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Sk5-mm-JXK"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="WJL-Gh-jCy"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="WOs-0r-AK5"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dHq-Cx-web"/>
                             <constraint firstAttribute="bottom" secondItem="AnV-z7-3Kd" secondAttribute="bottom" constant="52" id="fal-ga-Tdg"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="mwI-6F-QnQ"/>
@@ -64,6 +71,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapBlackViewCover" destination="pbH-M0-gzz" id="3kJ-zc-VEr"/>
                         <outlet property="myMapView" destination="ufj-DT-Tqj" id="0YV-xR-xMr"/>
                         <outlet property="myPageControl" destination="AnV-z7-3Kd" id="gkz-Vx-TwH"/>
                         <outlet property="myScrollView" destination="LaZ-ne-8v2" id="bh7-UG-bRJ"/>
@@ -112,9 +120,27 @@
                     <view key="view" contentMode="scaleToFill" id="QL8-a9-TZ0">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsM-qz-SIR">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="7Mj-Yi-0zp"/>
+                                    <constraint firstAttribute="width" constant="289" id="Umy-SK-1Ik"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OsM-qz-SIR" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="47" id="Wc1-Gu-o7A"/>
+                            <constraint firstItem="OsM-qz-SIR" firstAttribute="centerX" secondItem="QL8-a9-TZ0" secondAttribute="centerX" type="default" id="d56-aN-lOv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ddG-fF-bjJ"/>
+                    <connections>
+                        <outlet property="businessNameLabel" destination="OsM-qz-SIR" id="8VK-pF-1ok"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlK-Mc-jTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,24 +165,6 @@
             <point key="canvasLocation" x="684" y="109"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TMNTDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTDetailViewController.h"/>
-        </class>
-        <class className="TMNTViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clickPageControl:"/>
-                <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="myPageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchField" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

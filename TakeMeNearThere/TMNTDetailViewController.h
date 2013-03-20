@@ -10,4 +10,6 @@
 
 @interface TMNTDetailViewController : UIViewController
 
+@property (strong, nonatomic) NSString *businessNameForLabel;
+
 @end
