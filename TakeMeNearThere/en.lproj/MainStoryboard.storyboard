@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DEP-kv-39I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="2" customClass="TMNTViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-ne-8v2">
@@ -19,10 +19,10 @@
                             </scrollView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-DT-Tqj">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="312" id="9DN-BO-kMp"/>
+                                    <constraint firstAttribute="height" constant="261" id="qGw-rE-UOG"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="delegate" destination="2" id="MS3-gt-tzT"/>
+                                    <outlet property="delegate" destination="2" id="M0p-9K-ph3"/>
                                 </connections>
                             </mapView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-z7-3Kd">
@@ -33,28 +33,105 @@
                                     <action selector="clickPageControl:" destination="2" eventType="valueChanged" id="lHt-p5-aem"/>
                                 </connections>
                             </pageControl>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gf1-P7-nzs">
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="LVE-mf-NwW"/>
-                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Nhs-ZV-wGZ"/>
-                            <constraint firstItem="AnV-z7-3Kd" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="130" id="Oqz-9Z-WlB"/>
-                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="329" id="QHz-CP-hsj"/>
-                            <constraint firstAttribute="bottom" secondItem="AnV-z7-3Kd" secondAttribute="bottom" constant="210" id="Xoy-vZ-6Rd"/>
-                            <constraint firstAttribute="bottom" secondItem="LaZ-ne-8v2" secondAttribute="bottom" constant="19" id="ZgQ-pj-1eV"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="asR-Ct-A3O"/>
-                            <constraint firstAttribute="trailing" secondItem="LaZ-ne-8v2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="i0b-1U-e70"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="neL-nc-4na"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="DUx-a6-VR4"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="MP6-Y3-bxl"/>
+                            <constraint firstItem="Gf1-P7-nzs" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Nre-iF-Ak3"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="centerX" secondItem="AnV-z7-3Kd" secondAttribute="centerX" type="default" id="OdH-Vw-gmw"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Sbu-2R-3U7"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Sk5-mm-JXK"/>
+                            <constraint firstItem="Gf1-P7-nzs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="WJL-Gh-jCy"/>
+                            <constraint firstItem="Gf1-P7-nzs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="dHq-Cx-web"/>
+                            <constraint firstAttribute="bottom" secondItem="AnV-z7-3Kd" secondAttribute="bottom" constant="52" id="fal-ga-Tdg"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="mwI-6F-QnQ"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="303" id="pwp-p5-IQc"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="xc3-nj-fUV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9iw-xz-BuA">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="MEU-2c-5CU">
+                            <connections>
+                                <segue destination="MtE-PB-qQR" kind="push" id="PtE-DV-sNh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myMapView" destination="ufj-DT-Tqj" id="0YV-xR-xMr"/>
                         <outlet property="myPageControl" destination="AnV-z7-3Kd" id="gkz-Vx-TwH"/>
                         <outlet property="myScrollView" destination="LaZ-ne-8v2" id="bh7-UG-bRJ"/>
+                        <outlet property="searchField" destination="Gf1-P7-nzs" id="zEi-HA-Nt9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1145" y="109"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="sPe-K9-zVz">
+            <objects>
+                <tableViewController id="MtE-PB-qQR" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wl1-WO-ZKJ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QTn-JP-lVz">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MtE-PB-qQR" id="wPC-uu-Lun"/>
+                            <outlet property="delegate" destination="MtE-PB-qQR" id="lyF-AV-pZZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="EMJ-9t-nkL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pW-9I-iPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="583"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JuD-af-W9m">
+            <objects>
+                <viewController id="Idb-qu-XXf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QL8-a9-TZ0">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GlK-Mc-jTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="-97"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="juI-sF-fon">
+            <objects>
+                <navigationController id="DEP-kv-39I" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Esr-99-ZrD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="znW-sH-XFS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2nn-01-hLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="109"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

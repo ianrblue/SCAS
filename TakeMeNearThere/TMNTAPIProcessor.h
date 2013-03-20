@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSArray *yelpBusinessesArray;
 @property (strong, nonatomic) id <TMNTDataSourceDelegate> delegate;
 
-- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude;
+- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude andRadius: (float)radius;
 
 - (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(TMNTLocationTest*)userLocation;
 

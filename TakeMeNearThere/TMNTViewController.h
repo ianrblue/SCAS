@@ -12,7 +12,7 @@
 #import "TMNTAppDelegate.h"
 
 
-@interface TMNTViewController : UIViewController <TMNTDataSourceDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, UIScrollViewDelegate>
+@interface TMNTViewController : UIViewController <TMNTDataSourceDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, UIScrollViewDelegate, UISearchBarDelegate>
 {
     __weak IBOutlet MKMapView *myMapView;
     __weak IBOutlet UIScrollView *myScrollView;

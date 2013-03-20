@@ -26,6 +26,7 @@
     NSMutableArray *flickrData;
     
     UIImage *photoImage;
+    __weak IBOutlet UISearchBar *searchField;
 }
 @end
 
@@ -33,7 +34,7 @@
 @synthesize returnedArray, myManagedObjectContext, arrayOfPhotoStrings;
 
 const CGFloat scrollObjHeight	= 200.0;
-const CGFloat scrollObjWidth	= 280.0;
+const CGFloat scrollObjWidth	= 320.0;
 
 
 - (void)viewDidLoad
@@ -41,7 +42,7 @@ const CGFloat scrollObjWidth	= 280.0;
     [super viewDidLoad];
     
     currentLocation = [[TMNTLocationTest alloc] initWithCurrentLocationAndUpdates];
-    [self updateMapViewWithNewCenter:currentLocation.coordinate];
+    
     NSLog(@"JHJKHGAKLGLD%f", currentLocation.coordinate.latitude);
 }
 
@@ -66,6 +67,8 @@ const CGFloat scrollObjWidth	= 280.0;
     
     //start with hidden page control
     //[myPageControl setHidden:YES];
+    
+    [self updateMapViewWithNewCenter:currentLocation.coordinate];
 }
 
 //refactor delegate for yelp
@@ -197,7 +200,10 @@ const CGFloat scrollObjWidth	= 280.0;
         placeCoordinate.latitude = locationOfPlace.coordinate.latitude;
         
         //annotation make
-        TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
+        MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
+        myAnnotation.coordinate = placeCoordinate;
+        NSLog(@"stuff: %f", placeCoordinate.latitude);
+        // TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
         myAnnotation.title = nameOfPlace;
         
         //add to map
@@ -222,12 +228,48 @@ const CGFloat scrollObjWidth	= 280.0;
     NSNumber *latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
     
     //get a flickrcall based on the location of the yelp places
-    flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:@"pizza" andLatitude:latnum andLongitude:longnum];
+    flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:.25];
+    [searchField resignFirstResponder];
     flickrProcess.delegate = self;
     [flickrProcess getFlickrJSON];
- 
+    
     NSLog(@"sup bro");
 }
+
+-(MKPinAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    //creating new button, button type diclusure button
+    //UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        return nil;
+    }
+    
+    
+    NSLog(@"mapViewForAnnotation: %f", annotation.coordinate.latitude);
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"myAnnotation"];
+    
+    if (annotationView == nil) {
+        
+        
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                      reuseIdentifier:@"myAnnotation"];
+        
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
+    //replace showDetail with segue or whatever you like to make it more functional
+    //[detailButton addTarget:self action:@selector(showDetail) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    annotationView.canShowCallout = YES;
+    annotationView.enabled = YES;
+    //annotationView.image = [UIImage imageNamed:@"burger.png"];
+    //annotationView.rightCalloutAccessoryView = detailButton;
+    
+    return annotationView;
+}
+
+
 
 //
 //CRUDS IS BELOW
