@@ -31,9 +31,13 @@
     TMNTAPIProcessor *flickrProcess;
     NSMutableArray *flickrData;
     
+    NSString *nameOfPlace;
+    NSString *pickles;
+    
     UIImage *photoImage;
     __weak IBOutlet UISearchBar *searchField;
     TMNTDetailViewController *detailViewController;
+    __weak IBOutlet UIView *mapBlackViewCover;
 }
 
 @end
@@ -85,6 +89,7 @@ const CGFloat scrollObjWidth	= 320.0;
 {
     [super viewDidLoad];
     
+
     //location work here
     [self startLocationUpdates];
     NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
@@ -94,6 +99,10 @@ const CGFloat scrollObjWidth	= 320.0;
 -(void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    mapBlackViewCover.alpha = 0;
+    [UIView commitAnimations];
     //make ourselves the delegate for the coredata stuff
     TMNTAppDelegate *tmntAppDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
     self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
@@ -251,7 +260,7 @@ const CGFloat scrollObjWidth	= 320.0;
     for (int i = 0; i < returnedArray.count; i++)
     {
         CLLocation *locationOfPlace = [[returnedArray objectAtIndex:i] location];
-        NSString *nameOfPlace = [[returnedArray objectAtIndex:i] name];
+        nameOfPlace = [[returnedArray objectAtIndex:i] name];
         
         //coordinate make
         CLLocationCoordinate2D placeCoordinate;
@@ -408,7 +417,16 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    detailViewController = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"annotationToDetail"])
+    {
+        
+        detailViewController = [segue destinationViewController];
+        detailViewController.businessNameForLabel = nameOfPlace;
+        
+    }
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
