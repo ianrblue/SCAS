@@ -17,6 +17,8 @@
     __weak IBOutlet MKMapView *myMapView;
     __weak IBOutlet UIScrollView *myScrollView;
     __weak IBOutlet UIPageControl *myPageControl;
+    __weak IBOutlet UIActivityIndicatorView *yelpSearchActivityIndicator;
+    __weak IBOutlet UIActivityIndicatorView *flickrPicsAcitivityIndicator;
 }
 
 @property (strong, nonatomic) NSMutableArray *returnedArray;

@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *subtitle;
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+@property (assign, nonatomic) int indexInArray;
 
 - initWithPosition:(CLLocationCoordinate2D *)coords;
 

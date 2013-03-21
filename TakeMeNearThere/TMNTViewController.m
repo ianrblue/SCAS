@@ -25,6 +25,7 @@
     NSMutableArray *flickrData;
     UIImage *photoImage;
     NSString *nameOfPlace;
+    NSString *businessName;
     
     //Create a CLLocationManager object which we will use to start updates
     CLLocationManager *myLocationManager;
@@ -71,6 +72,12 @@ const CGFloat scrollObjWidth	= 320.0;
     self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
 
     [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+    
+    //hide yelpacitvityindicator till it is used
+    yelpSearchActivityIndicator.hidesWhenStopped = YES;
+    myPageControl.hidesForSinglePage = YES;
+    myPageControl.hidden = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +159,7 @@ const CGFloat scrollObjWidth	= 320.0;
         place.name = [placeDictionary valueForKey:@"name"];
         place.location = placeLocation;
         place.dictionaryPlace = placeDictionary;
+        
         [returnedArray addObject:place];
     }
     return returnedArray;
@@ -159,7 +167,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)submitYelpSearch
 {
-    NSLog(@"in submitYelpSearch User location lat is%f",userCurrentLocation.coordinate.latitude);
+    [yelpSearchActivityIndicator startAnimating];
     //perform yelp api call based on our location
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:userCurrentLocation];
     //NSLog(@"tets%f",currentLocation.coordinate.latitude);
@@ -224,7 +232,10 @@ const CGFloat scrollObjWidth	= 320.0;
     NSNumber *longnum = [NSNumber numberWithFloat:view.annotation.coordinate.longitude];
     NSNumber *latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
     
+    businessName = view.annotation.title;
+    
     //get a flickrcall based on the location of the yelp places
+    [flickrPicsAcitivityIndicator startAnimating];
     flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:.25];
     [searchField resignFirstResponder];
     flickrProcess.delegate = self;
@@ -235,6 +246,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
 {
+    
     MKCoordinateRegion newRegion = {newCoodinate, myMapView.region.span};
     [myMapView setRegion:newRegion];
 }
@@ -275,6 +287,7 @@ const CGFloat scrollObjWidth	= 320.0;
         //add to map
         [myMapView addAnnotation:myAnnotation];
     }
+    [yelpSearchActivityIndicator stopAnimating];
 }
 
 -(MKPinAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -318,6 +331,9 @@ const CGFloat scrollObjWidth	= 320.0;
     //make little bar white. (UI)
     myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     
+    //unhide pagecontrol
+    myPageControl.hidden = NO;
+    
     //set the number of objects in the array as the number of pictures
     const NSUInteger numImages	= arrayOfPhotoStrings.count;
     [myScrollView setContentSize:CGSizeMake((numImages * scrollObjWidth),   [myScrollView bounds].size.height)];
@@ -347,9 +363,9 @@ const CGFloat scrollObjWidth	= 320.0;
         NSLog(@"IMHEREEEEE%@", arrayOfPhotoStrings);
         
     }
-    
+    [flickrPicsAcitivityIndicator stopAnimating];
     //    [myScrollView addSubview:myPageControl];
-    //    myPageControl.numberOfPages = arrayOfPhotoStrings.count -1;
+        myPageControl.numberOfPages = arrayOfPhotoStrings.count;
     //    myPageControl.currentPage = 0;
 }
 
@@ -431,7 +447,7 @@ const CGFloat scrollObjWidth	= 320.0;
     if ([segue.identifier isEqualToString:@"annotationToDetail"])
     {
         detailViewController = [segue destinationViewController];
-        detailViewController.businessNameForLabel = nameOfPlace;
+        detailViewController.businessNameForLabel = businessName;
     }
 }
 
