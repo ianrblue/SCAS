@@ -7,7 +7,6 @@
 //
 
 #import "TMNTViewController.h"
-//#import "TMNTLocationTest.h"
 #import "TMNTAPIProcessor.h"
 #import "TMNTPlace.h"
 #import "TMNTAnnotation.h"
@@ -20,22 +19,20 @@
 {
     TMNTAPIProcessor *yelpProcess;
     NSMutableArray *yelpData;
-    //TMNTLocationTest *mobileMakersLocation;
-    //TMNTLocationTest *currentLocation;
+    
+    
+    TMNTAPIProcessor *flickrProcess;
+    NSMutableArray *flickrData;
+    UIImage *photoImage;
+    NSString *nameOfPlace;
     
     //Create a CLLocationManager object which we will use to start updates
     CLLocationManager *myLocationManager;
     //also create a CLLocation instance variable that will hold our current location
     CLLocation *userCurrentLocation;
     
-    TMNTAPIProcessor *flickrProcess;
-    NSMutableArray *flickrData;
-    
-    NSString *nameOfPlace;
-    NSString *pickles;
-    
-    UIImage *photoImage;
     __weak IBOutlet UISearchBar *searchField;
+   
     TMNTDetailViewController *detailViewController;
     __weak IBOutlet UIView *mapBlackViewCover;
 }
@@ -47,6 +44,44 @@
 
 const CGFloat scrollObjHeight	= 200.0;
 const CGFloat scrollObjWidth	= 320.0;
+
+#pragma mark -
+#pragma mark ViewsDidLoad/Appear/receiveMemWarn
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //location work here
+    [self startLocationUpdates];
+    NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
+    //currentLocation = [[TMNTLocationTest alloc] initWithCurrentLocationAndUpdates];
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    mapBlackViewCover.alpha = 0;
+    [UIView commitAnimations];
+   
+    //make ourselves the delegate for the coredata stuff
+    TMNTAppDelegate *tmntAppDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
+    self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
+
+    [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark Location Handler
+//LOCATION STUFF
 
 - (void)startLocationUpdates
 {
@@ -62,7 +97,7 @@ const CGFloat scrollObjWidth	= 320.0;
     //update location, firehose of updates, no longer
     //[myLocationManager startMonitoringSignificantLocationChanges];
     [myLocationManager startUpdatingLocation];
-
+    
 }
 -(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -74,63 +109,18 @@ const CGFloat scrollObjWidth	= 320.0;
                                otherButtonTitles:nil];
     [errorAlert show];
 }
+
 //when we get the new location do this
 - (void)locationManager:(CLLocationManager *)manager
 	didUpdateToLocation:(CLLocation *)newLocation
 		   fromLocation:(CLLocation *)oldLocation
 {
     userCurrentLocation = newLocation;
-    NSLog(@"lat:%f - long:%f",userCurrentLocation.coordinate.latitude, userCurrentLocation.coordinate.longitude);
-    
 }
 
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-
-    //location work here
-    [self startLocationUpdates];
-    NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
-    //currentLocation = [[TMNTLocationTest alloc] initWithCurrentLocationAndUpdates];
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    mapBlackViewCover.alpha = 0;
-    [UIView commitAnimations];
-    //make ourselves the delegate for the coredata stuff
-    TMNTAppDelegate *tmntAppDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
-    self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
-    
-    //get our location
-    //mobileMakersLocation = [[TMNTLocationTest alloc] init];
-    
-  
-    
-    //start with hidden page control
-    //[myPageControl setHidden:YES];
-    
-    [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
-}
-
--(void)submitYelpSearch
-{
-    NSLog(@"in submitYelpSearch User location lat is%f",userCurrentLocation.coordinate.latitude);
-    //perform yelp api call based on our location
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:userCurrentLocation];
-    //NSLog(@"tets%f",currentLocation.coordinate.latitude);
-    //set ourselves as the delgeate
-    yelpProcess.delegate = self;
-    
-    //perfom some method
-    [yelpProcess getYelpJSON];
-}
-
+#pragma mark -
+#pragma mark UX
+//UI STUFF
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [myMapView removeAnnotations:myMapView.annotations];
@@ -138,90 +128,14 @@ const CGFloat scrollObjWidth	= 320.0;
     [searchBar resignFirstResponder];
 }
 
-
+#pragma mark -
+#pragma mark Yelp
+//YELP CALL
 //refactor delegate for yelp
 - (void)grabYelpArray:(NSArray *)data
 {
     yelpData = [self createPlacesArray:data];
     [self addPinsToMap];
-}
-//refactor delegate for flickr
-- (void)grabFlickrArray:(NSArray *)data
-{
-    //grab pictures from flickr
-    flickrData = [self grabPhotosArray:data];
-}
-
-- (NSMutableArray *)grabPhotosArray: (NSArray *)flickData
-{
-    //set up array to add photos too
-    arrayOfPhotoStrings = [[NSMutableArray alloc] init];
-
-    //use Fast enumeration to go through our array of dictionarys taht we get from flikr and pull out the string that we can then make our photo from and add that to the above array
-    for (NSDictionary *dictionary in flickData)
-    {
-        NSString *farmString = [dictionary valueForKey:@"farm"];
-        NSString *serverString = [dictionary valueForKey:@"server"];
-        NSString *idString = [dictionary valueForKey:@"id"];
-        NSString *secretString = [dictionary valueForKey:@"secret"];
-        NSString *fullPhotoString = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_n.jpg" ,farmString,serverString, idString, secretString];
-        
-        NSURL *photoURL;
-        photoURL= [NSURL URLWithString:fullPhotoString];
-        [arrayOfPhotoStrings addObject:photoURL];
-    }
-    
-    //after you grab the array run the scroll view setup
-    [self scrollViewSetUp];
-    
-    return arrayOfPhotoStrings;
-}
-
-- (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
-{
-    MKCoordinateRegion newRegion = {newCoodinate, myMapView.region.span};
-    [myMapView setRegion:newRegion];
-}
-
--(void)scrollViewSetUp
-{
-    //make little bar white. (UI)
-    myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    
-    //set the number of objects in the array as the number of pictures
-    const NSUInteger numImages	= arrayOfPhotoStrings.count;
-    [myScrollView setContentSize:CGSizeMake((numImages * scrollObjWidth),   [myScrollView bounds].size.height)];
-    
-    //using fast enumeration take every URL we bring over and convert it to an image and then add that image to the imageview
-    
-  
-    CGFloat xOrigin = 0.0f;
-    for (NSURL *url in arrayOfPhotoStrings)
-    {
-        NSData *photoData = [NSData dataWithContentsOfURL:url];
-        photoImage = [UIImage imageWithData:photoData];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:photoImage];
-        
-        // setup each frame to a default height and width
-       
-        CGRect rect = imageView.frame;
-        rect.origin = CGPointMake(xOrigin, 0);
-        rect.size.height = scrollObjHeight;
-        rect.size.width = scrollObjWidth;
-        [myScrollView addSubview:imageView];
-        
-        imageView.frame = rect;
-        
-//        imageView.frame = CGRectOffset(imageView.frame, xOrigin, 0.0);
-        xOrigin += scrollObjWidth;
-        
-        NSLog(@"IMHEREEEEE%@", arrayOfPhotoStrings);
-
-    }
-
-//    [myScrollView addSubview:myPageControl];
-//    myPageControl.numberOfPages = arrayOfPhotoStrings.count -1;
-//    myPageControl.currentPage = 0;
 }
 
 - (NSMutableArray *)createPlacesArray:(NSArray *)placesData
@@ -243,6 +157,91 @@ const CGFloat scrollObjWidth	= 320.0;
     return returnedArray;
 }
 
+-(void)submitYelpSearch
+{
+    NSLog(@"in submitYelpSearch User location lat is%f",userCurrentLocation.coordinate.latitude);
+    //perform yelp api call based on our location
+    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:userCurrentLocation];
+    //NSLog(@"tets%f",currentLocation.coordinate.latitude);
+    //set ourselves as the delgeate
+    yelpProcess.delegate = self;
+    
+    //perfom some method
+    [yelpProcess getYelpJSON];
+}
+
+#pragma mark -
+#pragma mark Flickr
+//FLICKR CALL
+
+//refactor delegate for flickr
+- (void)grabFlickrArray:(NSArray *)data
+{
+    //grab pictures from flickr
+    flickrData = [self grabPhotosArray:data];
+}
+
+- (NSMutableArray *)grabPhotosArray: (NSArray *)flickData
+{
+    //set up array to add photos too
+    arrayOfPhotoStrings = [[NSMutableArray alloc] init];
+    
+    //use Fast enumeration to go through our array of dictionarys taht we get from flikr and pull out the string that we can then make our photo from and add that to the above array
+    for (NSDictionary *dictionary in flickData)
+    {
+        NSString *farmString = [dictionary valueForKey:@"farm"];
+        NSString *serverString = [dictionary valueForKey:@"server"];
+        NSString *idString = [dictionary valueForKey:@"id"];
+        NSString *secretString = [dictionary valueForKey:@"secret"];
+        NSString *fullPhotoString = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_n.jpg" ,farmString,serverString, idString, secretString];
+        
+        NSURL *photoURL;
+        photoURL= [NSURL URLWithString:fullPhotoString];
+        [arrayOfPhotoStrings addObject:photoURL];
+    }
+    
+    //after you grab the array run the scroll view setup
+    [self scrollViewSetUp];
+    
+    return arrayOfPhotoStrings;
+}
+
+#pragma mark -
+#pragma mark mapview
+//MAP STUFF
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    [view setHighlighted:YES];
+    for (UIView *view in myScrollView.subviews)
+    {
+        [view removeFromSuperview];
+    }
+    //persist stuff
+    [self createPlaceVisitedFromMKAnnotation:view];
+    
+    //get the lat and long of the yelp place clicked converted into number
+    NSNumber *longnum = [NSNumber numberWithFloat:view.annotation.coordinate.longitude];
+    NSNumber *latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
+    
+    //get a flickrcall based on the location of the yelp places
+    flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:.25];
+    [searchField resignFirstResponder];
+    flickrProcess.delegate = self;
+    [flickrProcess getFlickrJSON];
+    
+    NSLog(@"sup bro");
+}
+
+- (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
+{
+    MKCoordinateRegion newRegion = {newCoodinate, myMapView.region.span};
+    [myMapView setRegion:newRegion];
+}
+
+#pragma mark -
+#pragma mark Annotations
+//PIN STUFF
 -(void)addPinsToMap
 {
     //make region our area
@@ -270,38 +269,12 @@ const CGFloat scrollObjWidth	= 320.0;
         //annotation make
         MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = placeCoordinate;
-        NSLog(@"stuff: %f", placeCoordinate.latitude);
         // TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
         myAnnotation.title = nameOfPlace;
         
         //add to map
         [myMapView addAnnotation:myAnnotation];
-        
-        //get notification when pin is clicked
     }
-}
-
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-    [view setHighlighted:YES];
-    for (UIView *view in myScrollView.subviews)
-    {
-        [view removeFromSuperview];
-    }
-    //persist stuff
-    [self createPlaceVisitedFromMKAnnotation:view];
-    
-    //get the lat and long of the yelp place clicked converted into number
-    NSNumber *longnum = [NSNumber numberWithFloat:view.annotation.coordinate.longitude];
-    NSNumber *latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
-    
-    //get a flickrcall based on the location of the yelp places
-    flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:.25];
-    [searchField resignFirstResponder];
-    flickrProcess.delegate = self;
-    [flickrProcess getFlickrJSON];
-    
-    NSLog(@"sup bro");
 }
 
 -(MKPinAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -317,12 +290,10 @@ const CGFloat scrollObjWidth	= 320.0;
     NSLog(@"mapViewForAnnotation: %f", annotation.coordinate.latitude);
     MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"myAnnotation"];
     
-    if (annotationView == nil) {
-        
-        
+    if (annotationView == nil)
+    {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
-                                                      reuseIdentifier:@"myAnnotation"];
-        
+                                                         reuseIdentifier:@"myAnnotation"];
         annotationView.rightCalloutAccessoryView = detailButton;
     }
     //replace showDetail with segue or whatever you like to make it more functional
@@ -330,8 +301,6 @@ const CGFloat scrollObjWidth	= 320.0;
     
     annotationView.canShowCallout = YES;
     annotationView.enabled = YES;
-    //annotationView.image = [UIImage imageNamed:@"burger.png"];
-    //annotationView.rightCalloutAccessoryView = detailButton;
     
     return annotationView;
 }
@@ -341,10 +310,69 @@ const CGFloat scrollObjWidth	= 320.0;
     [self performSegueWithIdentifier:@"annotationToDetail" sender:self];
 }
 
+#pragma mark -
+#pragma mark ScrollView
+//SCROLLVIEW STUFF & PAGECNTROL
+-(void)scrollViewSetUp
+{
+    //make little bar white. (UI)
+    myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    
+    //set the number of objects in the array as the number of pictures
+    const NSUInteger numImages	= arrayOfPhotoStrings.count;
+    [myScrollView setContentSize:CGSizeMake((numImages * scrollObjWidth),   [myScrollView bounds].size.height)];
+    
+    CGFloat xOrigin = 0.0f;
+    
+    //using fast enumeration take every URL we bring over and convert it to an image and then add that image to the imageview
+    for (NSURL *url in arrayOfPhotoStrings)
+    {
+        NSData *photoData = [NSData dataWithContentsOfURL:url];
+        photoImage = [UIImage imageWithData:photoData];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:photoImage];
+        
+        // setup each frame to a default height and width
+        
+        CGRect rect = imageView.frame;
+        rect.origin = CGPointMake(xOrigin, 0);
+        rect.size.height = scrollObjHeight;
+        rect.size.width = scrollObjWidth;
+        [myScrollView addSubview:imageView];
+        
+        imageView.frame = rect;
+        
+        //imageView.frame = CGRectOffset(imageView.frame, xOrigin, 0.0);
+        xOrigin += scrollObjWidth;
+        
+        NSLog(@"IMHEREEEEE%@", arrayOfPhotoStrings);
+        
+    }
+    
+    //    [myScrollView addSubview:myPageControl];
+    //    myPageControl.numberOfPages = arrayOfPhotoStrings.count -1;
+    //    myPageControl.currentPage = 0;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int page = myScrollView.contentOffset.x / myScrollView.frame.size.width;
+    myPageControl.currentPage = page;
+}
+
+- (IBAction)clickPageControl:(id)sender
+{
+    int page = myPageControl.currentPage;
+    CGRect frame = myScrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    [myScrollView scrollRectToVisible:frame animated:YES];
+}
+
 //
 //CRUDS IS BELOW
 //
-
+#pragma mark -
+#pragma mark Core Data
 //SAVE!!!
 -(void)saveData
 {
@@ -395,45 +423,16 @@ const CGFloat scrollObjWidth	= 320.0;
     [self saveData];
 }
 
-//
-//add a fetch here
-//
-
-
-- (IBAction)clickPageControl:(id)sender
-{
-    int page = myPageControl.currentPage;
-    CGRect frame = myScrollView.frame;
-    frame.origin.x = frame.size.width * page;
-    frame.origin.y = 0;
-    [myScrollView scrollRectToVisible:frame animated:YES];
-}
-
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    int page = myScrollView.contentOffset.x / myScrollView.frame.size.width;
-    myPageControl.currentPage = page;
-}
-
+//SEGUE STUFF
+#pragma mark -
+#pragma mark Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"annotationToDetail"])
     {
-        
         detailViewController = [segue destinationViewController];
         detailViewController.businessNameForLabel = nameOfPlace;
-        
     }
-    
-    
-    
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
