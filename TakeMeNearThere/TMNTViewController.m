@@ -9,10 +9,10 @@
 #import "TMNTViewController.h"
 #import "TMNTAPIProcessor.h"
 #import "TMNTPlace.h"
-#import "TMNTAnnotation.h"
 #import "PlaceVisited.h"
 #import <CoreLocation/CoreLocation.h>
 #import "TMNTDetailViewController.h"
+#import "TMNTAnnotationTwo.h"
 
 
 @interface TMNTViewController ()
@@ -26,6 +26,19 @@
     UIImage *photoImage;
     NSString *nameOfPlace;
     NSString *businessName;
+    NSNumber *longnum;
+    NSNumber *latnum;
+    NSString *zipOfPlace;
+    NSString *zipToSegue;
+    NSString *stateOfPlace;
+    NSString *stateToSegue;
+    NSString *addressOfPlace;
+    NSString *addressToSegue;
+    NSString *phoneOfPlace;
+    NSString *phoneToSegue;
+    NSString *ratingImageOfPlace;
+    NSString *ratingToSegue;
+    
     
     //Create a CLLocationManager object which we will use to start updates
     CLLocationManager *myLocationManager;
@@ -159,6 +172,12 @@ const CGFloat scrollObjWidth	= 320.0;
         place.name = [placeDictionary valueForKey:@"name"];
         place.location = placeLocation;
         place.dictionaryPlace = placeDictionary;
+        place.zip = [placeDictionary valueForKey:@"zip"];
+        place.stateForBusiness = [placeDictionary valueForKey:@"state"];
+        place.addressForBusiness = [placeDictionary valueForKey:@"address1"];
+        place.phoneNumber = [placeDictionary valueForKey:@"phone"];
+        place.ratingImage = [placeDictionary valueForKey:@"rating_img_url_small"];
+        
         
         [returnedArray addObject:place];
     }
@@ -229,10 +248,16 @@ const CGFloat scrollObjWidth	= 320.0;
     [self createPlaceVisitedFromMKAnnotation:view];
     
     //get the lat and long of the yelp place clicked converted into number
-    NSNumber *longnum = [NSNumber numberWithFloat:view.annotation.coordinate.longitude];
-    NSNumber *latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
+    longnum = [NSNumber numberWithFloat:view.annotation.coordinate.longitude];
+    latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
     
     businessName = view.annotation.title;
+    zipToSegue = ((TMNTAnnotationTwo*)(view.annotation)).zip;
+    
+    stateToSegue = ((TMNTAnnotationTwo*)(view.annotation)).state;
+    phoneToSegue = ((TMNTAnnotationTwo*)(view.annotation)).phoneNumber;
+    addressToSegue = ((TMNTAnnotationTwo*)(view.annotation)).address;
+    ratingToSegue = ((TMNTAnnotationTwo*)(view.annotation)).ratingImage;
     
     //get a flickrcall based on the location of the yelp places
     [flickrPicsAcitivityIndicator startAnimating];
@@ -272,6 +297,12 @@ const CGFloat scrollObjWidth	= 320.0;
     {
         CLLocation *locationOfPlace = [[returnedArray objectAtIndex:i] location];
         nameOfPlace = [[returnedArray objectAtIndex:i] name];
+        zipOfPlace = [[returnedArray objectAtIndex:i] zip];
+        stateOfPlace = [[returnedArray objectAtIndex:i] stateForBusiness];
+        addressOfPlace = [[returnedArray objectAtIndex:i] addressForBusiness];
+        phoneOfPlace = [[returnedArray objectAtIndex:i] phoneNumber];
+        ratingImageOfPlace = [[returnedArray objectAtIndex:i] ratingImage];
+        
         
         //coordinate make
         CLLocationCoordinate2D placeCoordinate;
@@ -279,10 +310,16 @@ const CGFloat scrollObjWidth	= 320.0;
         placeCoordinate.latitude = locationOfPlace.coordinate.latitude;
         
         //annotation make
-        MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
+        TMNTAnnotationTwo *myAnnotation = [[TMNTAnnotationTwo alloc]initWithPosition:&placeCoordinate
+                                                                              andZip:zipOfPlace
+                                                                            andState:stateOfPlace
+                                                                          andAddress:addressOfPlace
+                                                                      andPhoneNumber:phoneOfPlace andRatingImage:ratingImageOfPlace];
+        //MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = placeCoordinate;
         // TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
         myAnnotation.title = nameOfPlace;
+        myAnnotation.zip = zipOfPlace;
         
         //add to map
         [myMapView addAnnotation:myAnnotation];
@@ -404,11 +441,11 @@ const CGFloat scrollObjWidth	= 320.0;
 {
     PlaceVisited *placeVisited = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceVisited" inManagedObjectContext:myManagedObjectContext];
    
-    NSNumber *longnum = [NSNumber numberWithFloat:pin.annotation.coordinate.longitude];
-    NSNumber *latnum = [NSNumber numberWithFloat:pin.annotation.coordinate.latitude];
+    NSNumber *longitudenum = [NSNumber numberWithFloat:pin.annotation.coordinate.longitude];
+    NSNumber *latitudenum = [NSNumber numberWithFloat:pin.annotation.coordinate.latitude];
     
-    placeVisited.latitude = latnum;
-    placeVisited.longitude = longnum;
+    placeVisited.latitude = latitudenum;
+    placeVisited.longitude = longitudenum;
     placeVisited.title = pin.annotation.title;
 
     [self saveData];
@@ -448,6 +485,13 @@ const CGFloat scrollObjWidth	= 320.0;
     {
         detailViewController = [segue destinationViewController];
         detailViewController.businessNameForLabel = businessName;
+        detailViewController.businessLat = latnum;
+        detailViewController.businessLong = longnum;
+        detailViewController.businessZip = zipToSegue;
+        detailViewController.businessState = stateToSegue;
+        detailViewController.businessPhoneNumber = phoneToSegue;
+        detailViewController.businessImageRating = ratingToSegue;
+        detailViewController.businessAddress = addressToSegue;
     }
 }
 

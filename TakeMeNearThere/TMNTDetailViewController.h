@@ -11,5 +11,13 @@
 @interface TMNTDetailViewController : UIViewController
 
 @property (strong, nonatomic) NSString *businessNameForLabel;
+@property (strong, nonatomic) NSNumber *businessLat;
+@property (strong, nonatomic) NSNumber *businessLong;
+@property (strong, nonatomic) NSString *businessZip;
+
+@property (strong, nonatomic) NSString *businessState;
+@property (strong, nonatomic) NSString *businessAddress;
+@property (strong, nonatomic) NSString *businessPhoneNumber;
+@property (strong, nonatomic) NSString *businessImageRating;
 
 @end

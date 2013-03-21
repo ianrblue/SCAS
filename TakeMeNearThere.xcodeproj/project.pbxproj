@@ -26,7 +26,7 @@
 		8FBF3BC516EE976900308CBD /* TMNTAPIProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */; };
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
-		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
+		D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */; };
 		D85E45C316F22D2600E9E3C7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */; };
 		D85E45C416F22D4100E9E3C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
 		D85E45C716F22E3C00E9E3C7 /* PlaceVisited.m in Sources */ = {isa = PBXBuildFile; fileRef = D85E45C616F22E3C00E9E3C7 /* PlaceVisited.m */; };
@@ -86,8 +86,8 @@
 		8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAppDelegate.m; sourceTree = "<group>"; };
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
-		D843BC5016EED236008291FC /* TMNTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotation.h; sourceTree = "<group>"; };
-		D843BC5116EED236008291FC /* TMNTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotation.m; sourceTree = "<group>"; };
+		D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotationTwo.h; sourceTree = "<group>"; };
+		D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotationTwo.m; sourceTree = "<group>"; };
 		D85E45C216F22D2600E9E3C7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D85E45C516F22E3C00E9E3C7 /* PlaceVisited.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceVisited.h; sourceTree = "<group>"; };
 		D85E45C616F22E3C00E9E3C7 /* PlaceVisited.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceVisited.m; sourceTree = "<group>"; };
@@ -162,8 +162,8 @@
 				8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */,
 				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
 				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
-				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
-				D843BC5116EED236008291FC /* TMNTAnnotation.m */,
+				D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */,
+				D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */,
 				8FBF3B8E16EE94E500308CBD /* Supporting Files */,
 			);
 			path = TakeMeNearThere;
@@ -290,10 +290,10 @@
 				8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */,
 				8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */,
 				1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */,
-				D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */,
 				D85E45C316F22D2600E9E3C7 /* Model.xcdatamodeld in Sources */,
 				D85E45C716F22E3C00E9E3C7 /* PlaceVisited.m in Sources */,
 				25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */,
+				D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
