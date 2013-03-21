@@ -56,7 +56,7 @@
 @implementation TMNTViewController
 @synthesize returnedArray, myManagedObjectContext, arrayOfPhotoStrings;
 
-const CGFloat scrollObjHeight	= 200.0;
+const CGFloat scrollObjHeight	= 240.0;
 const CGFloat scrollObjWidth	= 320.0;
 
 #pragma mark -
@@ -90,7 +90,6 @@ const CGFloat scrollObjWidth	= 320.0;
     yelpSearchActivityIndicator.hidesWhenStopped = YES;
     myPageControl.hidesForSinglePage = YES;
     myPageControl.hidden = YES;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -186,6 +185,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)submitYelpSearch
 {
+    [self expandMapView];
     [yelpSearchActivityIndicator startAnimating];
     //perform yelp api call based on our location
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:userCurrentLocation];
@@ -230,6 +230,7 @@ const CGFloat scrollObjWidth	= 320.0;
     //after you grab the array run the scroll view setup
     [self scrollViewSetUp];
     
+    NSLog(@"arrayOfPhotoStrings: %@", arrayOfPhotoStrings);
     return arrayOfPhotoStrings;
 }
 
@@ -239,7 +240,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    [view setHighlighted:YES];
+        [view setHighlighted:YES];
     for (UIView *view in myScrollView.subviews)
     {
         [view removeFromSuperview];
@@ -365,6 +366,7 @@ const CGFloat scrollObjWidth	= 320.0;
 //SCROLLVIEW STUFF & PAGECNTROL
 -(void)scrollViewSetUp
 {
+    [self shrinkMapView];
     //make little bar white. (UI)
     myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     
@@ -397,13 +399,31 @@ const CGFloat scrollObjWidth	= 320.0;
         //imageView.frame = CGRectOffset(imageView.frame, xOrigin, 0.0);
         xOrigin += scrollObjWidth;
         
-        NSLog(@"IMHEREEEEE%@", arrayOfPhotoStrings);
+        //NSLog(@"IMHEREEEEE%@", arrayOfPhotoStrings);
         
     }
     [flickrPicsAcitivityIndicator stopAnimating];
     //    [myScrollView addSubview:myPageControl];
         myPageControl.numberOfPages = arrayOfPhotoStrings.count;
     //    myPageControl.currentPage = 0;
+    
+    
+}
+
+-(void)shrinkMapView
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5];
+    myMapView.frame = CGRectMake(0, 44, 320, 220);
+    [UIView commitAnimations];
+}
+
+-(void)expandMapView
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5];
+    myMapView.frame = CGRectMake(0, 44, 320, 460);
+    [UIView commitAnimations];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
