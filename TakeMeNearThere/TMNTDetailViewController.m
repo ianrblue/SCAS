@@ -20,11 +20,13 @@
     __weak IBOutlet UIImageView *imageRatingView;
     __weak IBOutlet UIImageView *thumbnail;
 }
+- (IBAction)takeMeThereBtn:(UIButton *)sender;
+- (IBAction)phoneBtn:(UIButton *)sender;
 @end
 
 @implementation TMNTDetailViewController
 
-@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState, businessThumbnail, userLocation;
+@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState, businessThumbnail, userLocation, coord;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,6 +58,9 @@
     
     NSLog(@"%@",businessZip);
 	// Do any additional setup after loading the view.
+    
+    coord.longitude = (CLLocationDegrees)[businessLong doubleValue];
+    coord.latitude = (CLLocationDegrees)[businessLat doubleValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,5 +68,46 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)takeMeThereBtn:(id)sender
+{
+    Class mapItemClass = [MKMapItem class];
+    if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+    {
+        // Create an MKMapItem to pass to the Maps app
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(coord.latitude, coord.longitude);
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
+                                                       addressDictionary:nil];
+        MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        [mapItem setName:@"My Place"];
+        
+        // Set the directions mode to "Walking"
+        // Can use MKLaunchOptionsDirectionsModeDriving instead
+        NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeWalking};
+        // Get the "Current User Location" MKMapItem
+        MKMapItem *currentLocationMapItem = [MKMapItem mapItemForCurrentLocation];
+        // Pass the current location and destination map items to the Maps app
+        // Set the direction mode in the launchOptions dictionary
+        [MKMapItem openMapsWithItems:@[currentLocationMapItem, mapItem]
+                       launchOptions:launchOptions];
+    } else
+    {
+        //NSURL *url = [NSURL URLWithString:@"http://maps.google.com/?q=New+York"];
+        //[[UIApplication sharedApplication] openURL:url];
+    }
+}
+
++ (BOOL)openMapsWithItems:(NSArray *)mapItems launchOptions:(NSDictionary *)launchOptions
+{
+    return YES;
+}
+
+- (IBAction)phoneBtn:(UIButton *)sender
+{
+    NSString *telString = @"telprompt://";
+    NSString *appendedString = [NSString stringWithFormat:@"%@%@", telString, businessPhoneNumber];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:appendedString]];
+}
+
 
 @end

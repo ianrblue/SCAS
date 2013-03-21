@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface TMNTDetailViewController : UIViewController
 
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) NSString *businessImageRating;
 @property (strong, nonatomic) NSString *businessThumbnail;
 @property (assign, nonatomic) CLLocation *userLocation;
+@property (assign, nonatomic) CLLocationCoordinate2D coord;
 
 
 @end

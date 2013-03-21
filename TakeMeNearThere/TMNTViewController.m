@@ -276,7 +276,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-    //[self expandMapView];
+    [self expandMapView];
 }
 
 - (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate

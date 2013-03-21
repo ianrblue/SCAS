@@ -177,27 +177,57 @@
                                     <constraint firstAttribute="width" constant="97" id="LsE-Co-PaD"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ac-qs-8Td">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="phone Home">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="phoneBtn:" destination="Idb-qu-XXf" eventType="touchUpInside" id="Fh7-hu-hwG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx7-Rr-90r">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="take me there">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takeMeThereBtn:" destination="Idb-qu-XXf" eventType="touchUpInside" id="SgN-wR-4ku"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BKD-ab-IVS" firstAttribute="baseline" secondItem="m4x-KE-yd7" secondAttribute="baseline" type="default" id="0ag-v9-wee"/>
                             <constraint firstItem="Stu-HP-LgZ" firstAttribute="top" secondItem="BKD-ab-IVS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3Hk-Qv-gge"/>
+                            <constraint firstItem="ZLe-yi-kFY" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="227" id="4f1-Os-Fqg"/>
                             <constraint firstItem="qbW-oq-TTz" firstAttribute="leading" secondItem="m4x-KE-yd7" secondAttribute="leading" type="default" id="5ZC-9T-6i6"/>
+                            <constraint firstAttribute="bottom" secondItem="Vx7-Rr-90r" secondAttribute="bottom" constant="206" id="8mu-BL-YEN"/>
                             <constraint firstItem="Stu-HP-LgZ" firstAttribute="baseline" secondItem="qbW-oq-TTz" secondAttribute="baseline" type="default" id="CkG-is-gdu"/>
                             <constraint firstItem="Rhy-zO-cXj" firstAttribute="top" secondItem="Stu-HP-LgZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DIL-Tx-rtW"/>
+                            <constraint firstItem="Vx7-Rr-90r" firstAttribute="centerX" secondItem="7ac-qs-8Td" secondAttribute="centerX" type="default" id="Ihv-HF-0Vx"/>
+                            <constraint firstItem="Vx7-Rr-90r" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="155" id="M7B-Tf-Apg"/>
                             <constraint firstItem="BKD-ab-IVS" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="28" id="PSy-6j-rkZ"/>
+                            <constraint firstItem="7ac-qs-8Td" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="198" id="SJ8-YY-u9Q"/>
+                            <constraint firstItem="m4x-KE-yd7" firstAttribute="trailing" secondItem="7ac-qs-8Td" secondAttribute="trailing" type="default" id="SvS-GJ-wbh"/>
                             <constraint firstItem="OsM-qz-SIR" firstAttribute="top" secondItem="YwG-5b-mo5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="T7O-4q-BI2"/>
                             <constraint firstItem="ysh-mg-ZNb" firstAttribute="centerX" secondItem="Rhy-zO-cXj" secondAttribute="centerX" type="default" id="TaO-M1-3tg"/>
-                            <constraint firstItem="YwG-5b-mo5" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="13" id="WCr-ad-bys"/>
                             <constraint firstItem="ysh-mg-ZNb" firstAttribute="trailing" secondItem="YwG-5b-mo5" secondAttribute="trailing" type="default" id="XyJ-ko-98d"/>
                             <constraint firstItem="Rhy-zO-cXj" firstAttribute="centerX" secondItem="Stu-HP-LgZ" secondAttribute="centerX" type="default" id="bth-oU-6DV"/>
                             <constraint firstItem="OsM-qz-SIR" firstAttribute="centerX" secondItem="QL8-a9-TZ0" secondAttribute="centerX" type="default" id="d56-aN-lOv"/>
-                            <constraint firstAttribute="trailing" secondItem="qbW-oq-TTz" secondAttribute="trailing" constant="33" id="eMq-Rk-hCC"/>
                             <constraint firstItem="ysh-mg-ZNb" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="188" id="f9v-Ip-fD6"/>
                             <constraint firstItem="BKD-ab-IVS" firstAttribute="top" secondItem="OsM-qz-SIR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fEm-7T-f8y"/>
-                            <constraint firstItem="ZLe-yi-kFY" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="92" id="mtA-0Q-3HL"/>
+                            <constraint firstItem="BKD-ab-IVS" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="110" id="l3O-NJ-qpg"/>
+                            <constraint firstItem="ZLe-yi-kFY" firstAttribute="leading" secondItem="Stu-HP-LgZ" secondAttribute="leading" type="default" id="tmG-rD-g1X"/>
                             <constraint firstItem="YwG-5b-mo5" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ucG-Ko-pKS"/>
-                            <constraint firstItem="ZLe-yi-kFY" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="224" id="ujY-qi-SrV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ddG-fF-bjJ"/>
@@ -243,6 +273,8 @@
         <class className="TMNTDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="phoneBtn:" candidateClass="UIButton"/>
+                <relationship kind="action" name="takeMeThereBtn:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="businessNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="imageRatingView" candidateClass="UIImageView"/>
