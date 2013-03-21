@@ -242,6 +242,7 @@ const CGFloat scrollObjWidth	= 320.0;
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     [self shrinkMapView];
+    
     [view setHighlighted:YES];
     
     for (UIView *view in myScrollView.subviews)
@@ -276,7 +277,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-    //[self expandMapView];
+    [self shouldExpandMapView];
 }
 
 - (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
@@ -441,20 +442,28 @@ const CGFloat scrollObjWidth	= 320.0;
 #pragma mark Animation
 //Animation Stuff
 
+-(void)shouldExpandMapView
+{
+    [self performSelector:@selector(expandMapView) withObject:nil afterDelay:0.2];
+}
+
 -(void)shrinkMapView
 {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.5];
-    myMapView.frame = CGRectMake(0, 44, 320, 220);
-    [UIView commitAnimations];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:.5];
+        myMapView.frame = CGRectMake(0, 44, 320, 220);
+        [UIView commitAnimations];
 }
 
 -(void)expandMapView
 {
+    if (myMapView.selectedAnnotations.count == 0)
+    {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.5];
     myMapView.frame = CGRectMake(0, 44, 320, 460);
     [UIView commitAnimations];
+    }
 }
 
 //
