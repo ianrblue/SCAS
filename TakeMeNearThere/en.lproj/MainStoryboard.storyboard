@@ -17,7 +17,7 @@
                                     <outlet property="delegate" destination="2" id="SNS-DY-fqi"/>
                                 </connections>
                             </scrollView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gf1-P7-nzs">
+                            <searchBar contentMode="redraw" placeholder="e.g. pizza or architecture" translatesAutoresizingMaskIntoConstraints="NO" id="Gf1-P7-nzs">
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="TZU-Jx-4Vg"/>
@@ -122,7 +122,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsM-qz-SIR">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsM-qz-SIR">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="7Mj-Yi-0zp"/>
                                     <constraint firstAttribute="width" constant="289" id="Umy-SK-1Ik"/>
@@ -131,16 +131,73 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="lat label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4x-KE-yd7">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="long label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbW-oq-TTz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="zip label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-HP-LgZ">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="phone label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKD-ab-IVS">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="State Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhy-zO-cXj">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="address label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysh-mg-ZNb">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YwG-5b-mo5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="4XU-nG-f9r"/>
+                                    <constraint firstAttribute="width" constant="95" id="5tr-zT-301"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OsM-qz-SIR" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="47" id="Wc1-Gu-o7A"/>
+                            <constraint firstItem="BKD-ab-IVS" firstAttribute="baseline" secondItem="m4x-KE-yd7" secondAttribute="baseline" type="default" id="0ag-v9-wee"/>
+                            <constraint firstItem="Stu-HP-LgZ" firstAttribute="top" secondItem="BKD-ab-IVS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3Hk-Qv-gge"/>
+                            <constraint firstItem="qbW-oq-TTz" firstAttribute="leading" secondItem="m4x-KE-yd7" secondAttribute="leading" type="default" id="5ZC-9T-6i6"/>
+                            <constraint firstItem="Stu-HP-LgZ" firstAttribute="baseline" secondItem="qbW-oq-TTz" secondAttribute="baseline" type="default" id="CkG-is-gdu"/>
+                            <constraint firstItem="Rhy-zO-cXj" firstAttribute="top" secondItem="Stu-HP-LgZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DIL-Tx-rtW"/>
+                            <constraint firstItem="BKD-ab-IVS" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="28" id="PSy-6j-rkZ"/>
+                            <constraint firstItem="OsM-qz-SIR" firstAttribute="top" secondItem="YwG-5b-mo5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="T7O-4q-BI2"/>
+                            <constraint firstItem="ysh-mg-ZNb" firstAttribute="centerX" secondItem="Rhy-zO-cXj" secondAttribute="centerX" type="default" id="TaO-M1-3tg"/>
+                            <constraint firstItem="YwG-5b-mo5" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="13" id="WCr-ad-bys"/>
+                            <constraint firstItem="ysh-mg-ZNb" firstAttribute="trailing" secondItem="YwG-5b-mo5" secondAttribute="trailing" type="default" id="XyJ-ko-98d"/>
+                            <constraint firstItem="Rhy-zO-cXj" firstAttribute="centerX" secondItem="Stu-HP-LgZ" secondAttribute="centerX" type="default" id="bth-oU-6DV"/>
                             <constraint firstItem="OsM-qz-SIR" firstAttribute="centerX" secondItem="QL8-a9-TZ0" secondAttribute="centerX" type="default" id="d56-aN-lOv"/>
+                            <constraint firstAttribute="trailing" secondItem="qbW-oq-TTz" secondAttribute="trailing" constant="33" id="eMq-Rk-hCC"/>
+                            <constraint firstItem="ysh-mg-ZNb" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="188" id="f9v-Ip-fD6"/>
+                            <constraint firstItem="BKD-ab-IVS" firstAttribute="top" secondItem="OsM-qz-SIR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fEm-7T-f8y"/>
+                            <constraint firstItem="YwG-5b-mo5" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ucG-Ko-pKS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ddG-fF-bjJ"/>
                     <connections>
+                        <outlet property="addressLabel" destination="ysh-mg-ZNb" id="o2D-30-hU7"/>
                         <outlet property="businessNameLabel" destination="OsM-qz-SIR" id="8VK-pF-1ok"/>
+                        <outlet property="imageRatingView" destination="YwG-5b-mo5" id="xNA-0E-oZI"/>
+                        <outlet property="latLabel" destination="m4x-KE-yd7" id="HfO-Oq-w7c"/>
+                        <outlet property="longLabel" destination="qbW-oq-TTz" id="7o4-xo-LaI"/>
+                        <outlet property="phoneLabel" destination="BKD-ab-IVS" id="9pr-yw-eZk"/>
+                        <outlet property="stateLabel" destination="Rhy-zO-cXj" id="gew-id-sJO"/>
+                        <outlet property="zipLabel" destination="Stu-HP-LgZ" id="Yw7-ql-jHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlK-Mc-jTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,7 +230,14 @@
         <class className="TMNTDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTDetailViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="businessNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageRatingView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="latLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="TMNTViewController" superclassName="UIViewController">

@@ -9,9 +9,7 @@
 #import "TMNTPlace.h"
 
 @implementation TMNTPlace
-@synthesize location, name, dictionaryPlace;
+@synthesize location, name, dictionaryPlace, zip, stateForBusiness, addressForBusiness, phoneNumber, ratingImage;
 
-
-    
 
 @end
