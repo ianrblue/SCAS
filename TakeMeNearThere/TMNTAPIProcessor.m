@@ -8,6 +8,7 @@
 
 #import "TMNTAPIProcessor.h"
 #import <YelpKit/YelpKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @implementation TMNTAPIProcessor
 

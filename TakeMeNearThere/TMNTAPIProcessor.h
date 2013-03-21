@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TMNTLocationTest.h"
 #import <YelpKit/YelpKit.h>
 #import "TMNTDataSourceDelegate.h"
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface TMNTAPIProcessor : NSObject
