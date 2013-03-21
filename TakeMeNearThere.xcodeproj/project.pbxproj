@@ -25,7 +25,6 @@
 		8FBF3BBC16EE96C300308CBD /* libYelpKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB116EE964900308CBD /* libYelpKit.a */; };
 		8FBF3BC516EE976900308CBD /* TMNTAPIProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */; };
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
-		8FBF3BC716EE976900308CBD /* TMNTLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC216EE976900308CBD /* TMNTLocationTest.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
 		D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D843BC5116EED236008291FC /* TMNTAnnotation.m */; };
 		D85E45C316F22D2600E9E3C7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */; };
@@ -85,8 +84,6 @@
 		8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAPIProcessor.m; sourceTree = "<group>"; };
 		8FBF3BBF16EE976900308CBD /* TMNTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAppDelegate.h; sourceTree = "<group>"; };
 		8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAppDelegate.m; sourceTree = "<group>"; };
-		8FBF3BC116EE976900308CBD /* TMNTLocationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTLocationTest.h; sourceTree = "<group>"; };
-		8FBF3BC216EE976900308CBD /* TMNTLocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTLocationTest.m; sourceTree = "<group>"; };
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
 		D843BC5016EED236008291FC /* TMNTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotation.h; sourceTree = "<group>"; };
@@ -163,8 +160,6 @@
 				8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */,
 				8FBF3BBF16EE976900308CBD /* TMNTAppDelegate.h */,
 				8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */,
-				8FBF3BC116EE976900308CBD /* TMNTLocationTest.h */,
-				8FBF3BC216EE976900308CBD /* TMNTLocationTest.m */,
 				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
 				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
 				D843BC5016EED236008291FC /* TMNTAnnotation.h */,
@@ -293,7 +288,6 @@
 				8FBF3B9416EE94E500308CBD /* main.m in Sources */,
 				8FBF3BC516EE976900308CBD /* TMNTAPIProcessor.m in Sources */,
 				8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */,
-				8FBF3BC716EE976900308CBD /* TMNTLocationTest.m in Sources */,
 				8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */,
 				1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */,
 				D843BC5216EED236008291FC /* TMNTAnnotation.m in Sources */,

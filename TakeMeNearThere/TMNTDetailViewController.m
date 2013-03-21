@@ -9,10 +9,15 @@
 #import "TMNTDetailViewController.h"
 
 @interface TMNTDetailViewController ()
-
+{
+    __weak IBOutlet UILabel *businessNameLabel;
+    
+}
 @end
 
 @implementation TMNTDetailViewController
+
+@synthesize businessNameForLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    businessNameLabel.text = businessNameForLabel;
 	// Do any additional setup after loading the view.
 }
 

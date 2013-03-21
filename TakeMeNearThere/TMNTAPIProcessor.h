@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TMNTLocationTest.h"
 #import <YelpKit/YelpKit.h>
 #import "TMNTDataSourceDelegate.h"
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface TMNTAPIProcessor : NSObject
@@ -21,7 +21,7 @@
 
 - (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude andRadius: (float)radius;
 
-- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(TMNTLocationTest*)userLocation;
+- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation*)userLocation;
 
 //the getter and the setting of the json from flickr
 - (void)getFlickrJSON;

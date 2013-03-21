@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "TMNTDataSourceDelegate.h"
-#import "TMNTLocationTest.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface TMNTPlace : NSObject
 
