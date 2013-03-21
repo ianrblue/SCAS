@@ -18,12 +18,13 @@
     __weak IBOutlet UILabel *stateLabel;
     __weak IBOutlet UILabel *addressLabel;
     __weak IBOutlet UIImageView *imageRatingView;
+    __weak IBOutlet UIImageView *thumbnail;
 }
 @end
 
 @implementation TMNTDetailViewController
 
-@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState;
+@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState, businessThumbnail, userLocation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,9 +46,13 @@
     stateLabel.text = businessState;
     addressLabel.text = businessAddress;
     
-    NSURL *urlString = [NSURL URLWithString:businessImageRating];
-    UIImage *ratingImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlString]];
+    NSURL *urlStringForRating = [NSURL URLWithString:businessImageRating];
+    UIImage *ratingImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlStringForRating]];
     [imageRatingView setImage:ratingImage];
+    
+    NSURL *urlStringForThumbnail = [NSURL URLWithString:businessThumbnail];
+    UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlStringForThumbnail]];
+    [thumbnail setImage:thumbnailImage];
     
     NSLog(@"%@",businessZip);
 	// Do any additional setup after loading the view.

@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSString *addressForBusiness;
 @property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSString *ratingImage;
+@property (strong, nonatomic) NSString *thumbnail;
+
 
 @property (strong, nonatomic) NSDictionary *dictionaryPlace;
 

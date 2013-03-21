@@ -10,14 +10,15 @@
 
 @implementation TMNTAnnotationTwo
 
-@synthesize coordinate,title,subtitle, zip, state, address, phoneNumber, ratingImage;
+@synthesize coordinate,title,subtitle, zip, state, address, phoneNumber, ratingImage, thumbnail;
 
 - initWithPosition:(CLLocationCoordinate2D *)coords
             andZip: (NSString*)zip2
           andState: (NSString *)state2
         andAddress: (NSString *)address2
-    andPhoneNumber:(NSString*)phone2
-    andRatingImage:(NSString*)ratingImage2
+    andPhoneNumber: (NSString*)phone2
+    andRatingImage: (NSString*)ratingImage2
+      andThumbnail: (NSString*)thumbnail2;
 {
     if (self = [super init])
     {
@@ -27,6 +28,7 @@
         address = address2;
         phoneNumber = phone2;
         ratingImage = ratingImage2;
+        thumbnail = thumbnail2;
     }
     return self;
 }

@@ -19,12 +19,15 @@
 @property (assign, nonatomic) NSString *address;
 @property (assign, nonatomic) NSString *phoneNumber;
 @property (assign, nonatomic) NSString *ratingImage;
+@property (assign, nonatomic) NSString *thumbnail;
+
 
 - initWithPosition:(CLLocationCoordinate2D *)coords
             andZip: (NSString*)zip2
           andState: (NSString *)state2
         andAddress: (NSString *)address2
-    andPhoneNumber:(NSString*)phone2
-    andRatingImage:(NSString*)RatingImage2;
+    andPhoneNumber: (NSString*)phone2
+    andRatingImage: (NSString*)RatingImage2
+      andThumbnail: (NSString*)thumbnail2;
 
 @end

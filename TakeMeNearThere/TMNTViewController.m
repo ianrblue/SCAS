@@ -38,7 +38,8 @@
     NSString *phoneToSegue;
     NSString *ratingImageOfPlace;
     NSString *ratingToSegue;
-    
+    NSString *thumbnailOfPlace;
+    NSString *thumbnailToSegue;
     
     //Create a CLLocationManager object which we will use to start updates
     CLLocationManager *myLocationManager;
@@ -175,8 +176,8 @@ const CGFloat scrollObjWidth	= 320.0;
         place.stateForBusiness = [placeDictionary valueForKey:@"state"];
         place.addressForBusiness = [placeDictionary valueForKey:@"address1"];
         place.phoneNumber = [placeDictionary valueForKey:@"phone"];
-        place.ratingImage = [placeDictionary valueForKey:@"rating_img_url_small"];
-        
+        place.ratingImage = [placeDictionary valueForKey:@"rating_img_url"];
+        place.thumbnail = [placeDictionary valueForKey:@"photo_url"];
         
         [returnedArray addObject:place];
     }
@@ -259,6 +260,7 @@ const CGFloat scrollObjWidth	= 320.0;
     phoneToSegue = ((TMNTAnnotationTwo*)(view.annotation)).phoneNumber;
     addressToSegue = ((TMNTAnnotationTwo*)(view.annotation)).address;
     ratingToSegue = ((TMNTAnnotationTwo*)(view.annotation)).ratingImage;
+    thumbnailToSegue = ((TMNTAnnotationTwo*)(view.annotation)).thumbnail;
     
     //get a flickrcall based on the location of the yelp places
     [flickrPicsAcitivityIndicator startAnimating];
@@ -303,6 +305,7 @@ const CGFloat scrollObjWidth	= 320.0;
         addressOfPlace = [[returnedArray objectAtIndex:i] addressForBusiness];
         phoneOfPlace = [[returnedArray objectAtIndex:i] phoneNumber];
         ratingImageOfPlace = [[returnedArray objectAtIndex:i] ratingImage];
+        thumbnailOfPlace = [[returnedArray objectAtIndex:i] thumbnail];
         
         
         //coordinate make
@@ -315,7 +318,9 @@ const CGFloat scrollObjWidth	= 320.0;
                                                                               andZip:zipOfPlace
                                                                             andState:stateOfPlace
                                                                           andAddress:addressOfPlace
-                                                                      andPhoneNumber:phoneOfPlace andRatingImage:ratingImageOfPlace];
+                                                                      andPhoneNumber:phoneOfPlace
+                                                                      andRatingImage:ratingImageOfPlace
+                                                                        andThumbnail:thumbnailOfPlace];
         //MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = placeCoordinate;
         // TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
@@ -512,6 +517,8 @@ const CGFloat scrollObjWidth	= 320.0;
         detailViewController.businessPhoneNumber = phoneToSegue;
         detailViewController.businessImageRating = ratingToSegue;
         detailViewController.businessAddress = addressToSegue;
+        detailViewController.businessThumbnail = thumbnailToSegue;
+        detailViewController.userLocation = userCurrentLocation;
     }
 }
 

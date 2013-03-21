@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DEP-kv-39I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DEP-kv-39I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -17,7 +17,6 @@
                                     <outlet property="delegate" destination="2" id="SNS-DY-fqi"/>
                                 </connections>
                             </scrollView>
-
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rjf-O9-R4x"/>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-DT-Tqj">
                                 <connections>
@@ -166,6 +165,12 @@
                                     <constraint firstAttribute="width" constant="95" id="5tr-zT-301"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLe-yi-kFY">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="AkI-tL-MRj"/>
+                                    <constraint firstAttribute="width" constant="97" id="LsE-Co-PaD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -184,7 +189,9 @@
                             <constraint firstAttribute="trailing" secondItem="qbW-oq-TTz" secondAttribute="trailing" constant="33" id="eMq-Rk-hCC"/>
                             <constraint firstItem="ysh-mg-ZNb" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="188" id="f9v-Ip-fD6"/>
                             <constraint firstItem="BKD-ab-IVS" firstAttribute="top" secondItem="OsM-qz-SIR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fEm-7T-f8y"/>
+                            <constraint firstItem="ZLe-yi-kFY" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="92" id="mtA-0Q-3HL"/>
                             <constraint firstItem="YwG-5b-mo5" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ucG-Ko-pKS"/>
+                            <constraint firstItem="ZLe-yi-kFY" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="224" id="ujY-qi-SrV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ddG-fF-bjJ"/>
@@ -196,6 +203,7 @@
                         <outlet property="longLabel" destination="qbW-oq-TTz" id="7o4-xo-LaI"/>
                         <outlet property="phoneLabel" destination="BKD-ab-IVS" id="9pr-yw-eZk"/>
                         <outlet property="stateLabel" destination="Rhy-zO-cXj" id="gew-id-sJO"/>
+                        <outlet property="thumbnail" destination="ZLe-yi-kFY" id="LGm-eW-TW2"/>
                         <outlet property="zipLabel" destination="Stu-HP-LgZ" id="Yw7-ql-jHV"/>
                     </connections>
                 </viewController>
@@ -236,6 +244,7 @@
                 <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

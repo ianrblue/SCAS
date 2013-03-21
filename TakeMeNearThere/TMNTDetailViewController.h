@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface TMNTDetailViewController : UIViewController
 
@@ -19,5 +20,8 @@
 @property (strong, nonatomic) NSString *businessAddress;
 @property (strong, nonatomic) NSString *businessPhoneNumber;
 @property (strong, nonatomic) NSString *businessImageRating;
+@property (strong, nonatomic) NSString *businessThumbnail;
+@property (assign, nonatomic) CLLocation *userLocation;
+
 
 @end
