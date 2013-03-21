@@ -23,9 +23,15 @@
                                     <outlet property="delegate" destination="2" id="M0p-9K-ph3"/>
                                 </connections>
                             </mapView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-7k-WDb"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-7k-WDb">
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <searchBar contentMode="redraw" placeholder="e.g. pizza or architecture" translatesAutoresizingMaskIntoConstraints="NO" id="Gf1-P7-nzs">
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="TZU-Jx-4Vg"/>
                                 </connections>

@@ -241,7 +241,9 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-        [view setHighlighted:YES];
+    [self shrinkMapView];
+    [view setHighlighted:YES];
+    
     for (UIView *view in myScrollView.subviews)
     {
         [view removeFromSuperview];
@@ -270,6 +272,11 @@ const CGFloat scrollObjWidth	= 320.0;
     [flickrProcess getFlickrJSON];
     
     NSLog(@"sup bro");
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    //[self expandMapView];
 }
 
 - (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
@@ -371,7 +378,7 @@ const CGFloat scrollObjWidth	= 320.0;
 //SCROLLVIEW STUFF & PAGECNTROL
 -(void)scrollViewSetUp
 {
-    [self shrinkMapView];
+    
     //make little bar white. (UI)
     myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     
@@ -415,6 +422,25 @@ const CGFloat scrollObjWidth	= 320.0;
     
 }
 
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int page = myScrollView.contentOffset.x / myScrollView.frame.size.width;
+    myPageControl.currentPage = page;
+}
+
+- (IBAction)clickPageControl:(id)sender
+{
+    int page = myPageControl.currentPage;
+    CGRect frame = myScrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    [myScrollView scrollRectToVisible:frame animated:YES];
+}
+
+#pragma mark -
+#pragma mark Animation
+//Animation Stuff
+
 -(void)shrinkMapView
 {
     [UIView beginAnimations:nil context:nil];
@@ -429,21 +455,6 @@ const CGFloat scrollObjWidth	= 320.0;
     [UIView setAnimationDuration:.5];
     myMapView.frame = CGRectMake(0, 44, 320, 460);
     [UIView commitAnimations];
-}
-
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    int page = myScrollView.contentOffset.x / myScrollView.frame.size.width;
-    myPageControl.currentPage = page;
-}
-
-- (IBAction)clickPageControl:(id)sender
-{
-    int page = myPageControl.currentPage;
-    CGRect frame = myScrollView.frame;
-    frame.origin.x = frame.size.width * page;
-    frame.origin.y = 0;
-    [myScrollView scrollRectToVisible:frame animated:YES];
 }
 
 //

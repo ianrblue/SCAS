@@ -47,6 +47,7 @@
 //MAP STUFF
 - (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate;
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view;
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view;
 
 //PIN STUFF
 
@@ -59,6 +60,9 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 - (IBAction)clickPageControl:(id)sender;
 
+//ANIMATION
+-(void)shrinkMapView;
+-(void)expandMapView;
 
 //SEQUE STUFF
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
