@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DEP-kv-39I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DEP-kv-39I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -17,48 +17,46 @@
                                     <outlet property="delegate" destination="2" id="SNS-DY-fqi"/>
                                 </connections>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rjf-O9-R4x"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-DT-Tqj">
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="M0p-9K-ph3"/>
+                                </connections>
+                            </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-7k-WDb"/>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Gf1-P7-nzs">
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="TZU-Jx-4Vg"/>
                                 </connections>
                             </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-DT-Tqj">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="261" id="Z3I-kk-uv1"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="2" id="M0p-9K-ph3"/>
-                                </connections>
-                            </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="arr-hJ-THN"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbH-M0-gzz">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="arr-hJ-THN"/>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-7k-WDb"/>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rjf-O9-R4x"/>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="50W-uh-EZp"/>
-                            <constraint firstAttribute="bottom" secondItem="pbH-M0-gzz" secondAttribute="bottom" constant="201" id="6dJ-Xa-xCB"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="0Eb-v7-swm"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="429-OG-pXB"/>
+                            <constraint firstItem="Rjf-O9-R4x" firstAttribute="centerX" secondItem="LaZ-ne-8v2" secondAttribute="centerX" type="default" id="5oT-tU-vPK"/>
+                            <constraint firstItem="kWw-7k-WDb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="7eP-U6-uQS"/>
                             <constraint firstAttribute="bottom" secondItem="Rjf-O9-R4x" secondAttribute="bottom" constant="10" id="Bqq-gj-W0a"/>
-                            <constraint firstItem="Rjf-O9-R4x" firstAttribute="trailing" secondItem="kWw-7k-WDb" secondAttribute="trailing" type="default" id="DCh-0E-U5v"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="DuF-m2-g6B"/>
                             <constraint firstItem="arr-hJ-THN" firstAttribute="centerY" secondItem="Gf1-P7-nzs" secondAttribute="centerY" type="default" id="HMZ-u7-5O8"/>
-                            <constraint firstAttribute="bottom" secondItem="kWw-7k-WDb" secondAttribute="bottom" constant="37" id="Jy4-Ns-f18"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="MP6-Y3-bxl"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="HrS-PS-eDZ"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Nre-iF-Ak3"/>
-                            <constraint firstItem="pbH-M0-gzz" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="OyA-HG-UhU"/>
-                            <constraint firstItem="pbH-M0-gzz" firstAttribute="top" secondItem="3" secondAttribute="top" constant="47" id="RS7-G7-jAI"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Sbu-2R-3U7"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="RUE-v3-93O"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="WJL-Gh-jCy"/>
-                            <constraint firstItem="pbH-M0-gzz" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="WOs-0r-AK5"/>
+                            <constraint firstItem="kWw-7k-WDb" firstAttribute="leading" secondItem="Rjf-O9-R4x" secondAttribute="leading" type="default" id="WSy-wg-szp"/>
                             <constraint firstAttribute="trailing" secondItem="arr-hJ-THN" secondAttribute="trailing" constant="33" id="Wna-rQ-djQ"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Znb-YX-2vc"/>
-                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="hQy-q0-Rhm"/>
-                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="303" id="kOV-s3-cCJ"/>
-                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="centerX" secondItem="kWw-7k-WDb" secondAttribute="centerX" type="default" id="mVH-Aa-OtJ"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="264" id="dEU-Ha-jyb"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="iAZ-yn-WD3"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="iav-C0-yQ3"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="jdF-Mh-IOZ"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="mEm-pK-vkr"/>
+                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="nKX-4z-hyt"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="zO3-bM-6am"/>
                         </constraints>
                     </view>
