@@ -15,6 +15,7 @@
 #import "TMNTAnnotationTwo.h"
 
 
+
 @interface TMNTViewController ()
 {
     TMNTAPIProcessor *yelpProcess;
@@ -65,7 +66,7 @@ const CGFloat scrollObjWidth	= 320.0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    myMapView.frame = CGRectMake(0, 44, 320, 460);
     //location work here
     [self startLocationUpdates];
     NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
@@ -186,7 +187,6 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)submitYelpSearch
 {
-    [self expandMapView];
     [yelpSearchActivityIndicator startAnimating];
     //perform yelp api call based on our location
     yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:userCurrentLocation];
@@ -241,45 +241,60 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    [self shrinkMapView];
-    
-    [view setHighlighted:YES];
-    
-    for (UIView *view in myScrollView.subviews)
+    if ([view.annotation isKindOfClass:[MKUserLocation class]])
     {
-        [view removeFromSuperview];
+        nil;
+    } else
+    {
+    
+        CGRect rect2 = CGRectMake(0, 44, 320, 460);
+        CGRect rect1 = myMapView.frame;
+        CGRect rect = CGRectMake(0, 44, 320, 372);
+        if (CGRectEqualToRect(rect, rect1) || CGRectEqualToRect(rect1, rect2)) {
+            [self shrinkMapView];
+        }
+
+
+        [view setHighlighted:YES];
+
+        for (UIView *view in myScrollView.subviews)
+        {
+            [view removeFromSuperview];
+        }
+        //persist stuff
+        [self createPlaceVisitedFromMKAnnotation:view];
+        
+        //testing....
+//        TMNTAnnotationTwo *testOne = (TMNTAnnotationTwo*)view;
+//        [self testFromTMNTAnnotation:testOne];
+
+        //get the lat and long of the yelp place clicked converted into number
+        longnum = [NSNumber numberWithFloat:view.annotation.coordinate.longitude];
+        latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
+
+        businessName = view.annotation.title;
+        zipToSegue = ((TMNTAnnotationTwo*)(view.annotation)).zip;
+
+        stateToSegue = ((TMNTAnnotationTwo*)(view.annotation)).state;
+        phoneToSegue = ((TMNTAnnotationTwo*)(view.annotation)).phoneNumber;
+        addressToSegue = ((TMNTAnnotationTwo*)(view.annotation)).address;
+        ratingToSegue = ((TMNTAnnotationTwo*)(view.annotation)).ratingImage;
+        thumbnailToSegue = ((TMNTAnnotationTwo*)(view.annotation)).thumbnail;
+
+        //get a flickrcall based on the location of the yelp places
+        [flickrPicsAcitivityIndicator startAnimating];
+        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:.25];
+        [searchField resignFirstResponder];
+        flickrProcess.delegate = self;
+        [flickrProcess getFlickrJSON];
+
+        NSLog(@"sup bro");
     }
-    //persist stuff
-    [self createPlaceVisitedFromMKAnnotation:view];
-    
-    //get the lat and long of the yelp place clicked converted into number
-    longnum = [NSNumber numberWithFloat:view.annotation.coordinate.longitude];
-    latnum = [NSNumber numberWithFloat:view.annotation.coordinate.latitude];
-    
-    businessName = view.annotation.title;
-    zipToSegue = ((TMNTAnnotationTwo*)(view.annotation)).zip;
-    
-    stateToSegue = ((TMNTAnnotationTwo*)(view.annotation)).state;
-    phoneToSegue = ((TMNTAnnotationTwo*)(view.annotation)).phoneNumber;
-    addressToSegue = ((TMNTAnnotationTwo*)(view.annotation)).address;
-    ratingToSegue = ((TMNTAnnotationTwo*)(view.annotation)).ratingImage;
-    thumbnailToSegue = ((TMNTAnnotationTwo*)(view.annotation)).thumbnail;
-    
-    //get a flickrcall based on the location of the yelp places
-    [flickrPicsAcitivityIndicator startAnimating];
-    flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:.25];
-    [searchField resignFirstResponder];
-    flickrProcess.delegate = self;
-    [flickrProcess getFlickrJSON];
-    
-    NSLog(@"sup bro");
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
-
     [self shouldExpandMapView];
-
 }
 
 - (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
@@ -446,7 +461,9 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)shouldExpandMapView
 {
-    [self performSelector:@selector(expandMapView) withObject:nil afterDelay:0.2];
+    if (myMapView.selectedAnnotations.count == 0) {
+            [self performSelector:@selector(expandMapView) withObject:nil afterDelay:0.2];
+    }
 }
 
 -(void)shrinkMapView
@@ -483,6 +500,12 @@ const CGFloat scrollObjWidth	= 320.0;
     }
 }
 
+//-(void) testFromTMNTAnnotation:(TMNTAnnotationTwo*)pin
+//{
+//        Test *test = [NSEntityDescription insertNewObjectForEntityForName:@"Test" inManagedObjectContext:myManagedObjectContext];
+//    test.zipCode = pin.zip;
+//}
+
 //create person better
 -(void) createPlaceVisitedFromMKAnnotation: (MKAnnotationView*)pin
 {
@@ -494,7 +517,12 @@ const CGFloat scrollObjWidth	= 320.0;
     placeVisited.latitude = latitudenum;
     placeVisited.longitude = longitudenum;
     placeVisited.title = pin.annotation.title;
-
+//    placeVisited.zipCode = ((TMNTAnnotationTwo *)pin.annotation).zip;
+//    placeVisited.state = ((TMNTAnnotationTwo *)pin.annotation).state;
+//    placeVisited.phoneNumber = ((TMNTAnnotationTwo *)pin.annotation).phoneNumber;
+//    placeVisited.address = ((TMNTAnnotationTwo *)pin.annotation).address;
+//    placeVisited.ratingImageURL = ((TMNTAnnotationTwo *)pin.annotation).ratingImage;
+//    placeVisited.thumbnailURL = ((TMNTAnnotationTwo *)pin.annotation).thumbnail;
     [self saveData];
 }
 

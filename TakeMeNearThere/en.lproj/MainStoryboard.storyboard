@@ -46,7 +46,7 @@
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="0Eb-v7-swm"/>
                             <constraint firstItem="pbH-M0-gzz" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="429-OG-pXB"/>
                             <constraint firstItem="Rjf-O9-R4x" firstAttribute="centerX" secondItem="LaZ-ne-8v2" secondAttribute="centerX" type="default" id="5oT-tU-vPK"/>
-                            <constraint firstItem="kWw-7k-WDb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="7eP-U6-uQS"/>
+                            <constraint firstItem="kWw-7k-WDb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="5zG-P3-OJO"/>
                             <constraint firstAttribute="bottom" secondItem="Rjf-O9-R4x" secondAttribute="bottom" constant="10" id="Bqq-gj-W0a"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="DuF-m2-g6B"/>
                             <constraint firstItem="arr-hJ-THN" firstAttribute="centerY" secondItem="Gf1-P7-nzs" secondAttribute="centerY" type="default" id="HMZ-u7-5O8"/>
@@ -57,12 +57,12 @@
                             <constraint firstItem="kWw-7k-WDb" firstAttribute="leading" secondItem="Rjf-O9-R4x" secondAttribute="leading" type="default" id="WSy-wg-szp"/>
                             <constraint firstAttribute="trailing" secondItem="arr-hJ-THN" secondAttribute="trailing" constant="33" id="Wna-rQ-djQ"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Znb-YX-2vc"/>
-                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="264" id="dEU-Ha-jyb"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="iAZ-yn-WD3"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="iav-C0-yQ3"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="jdF-Mh-IOZ"/>
                             <constraint firstItem="pbH-M0-gzz" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="mEm-pK-vkr"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="nKX-4z-hyt"/>
+                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="264" id="tH5-7g-cjd"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="zO3-bM-6am"/>
                         </constraints>
                     </view>

@@ -11,6 +11,7 @@
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
 		259FCB9516FA069C008D3A2B /* burger.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCB9416FA069C008D3A2B /* burger.png */; };
 		25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */; };
+		25A4DF3A16FCE79C002CCC51 /* PlaceVisited.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF3916FCE79C002CCC51 /* PlaceVisited.m */; };
 		8FBF3B8816EE94E500308CBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8716EE94E500308CBD /* UIKit.framework */; };
 		8FBF3B8A16EE94E500308CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8916EE94E500308CBD /* Foundation.framework */; };
 		8FBF3B8C16EE94E500308CBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */; };
@@ -29,7 +30,6 @@
 		D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */; };
 		D85E45C316F22D2600E9E3C7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */; };
 		D85E45C416F22D4100E9E3C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
-		D85E45C716F22E3C00E9E3C7 /* PlaceVisited.m in Sources */ = {isa = PBXBuildFile; fileRef = D85E45C616F22E3C00E9E3C7 /* PlaceVisited.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +64,8 @@
 		259FCB9416FA069C008D3A2B /* burger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burger.png; sourceTree = "<group>"; };
 		25A4DF1516FA3BA6002CCC51 /* TMNTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTDetailViewController.h; sourceTree = "<group>"; };
 		25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTDetailViewController.m; sourceTree = "<group>"; };
+		25A4DF3816FCE79C002CCC51 /* PlaceVisited.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceVisited.h; sourceTree = "<group>"; };
+		25A4DF3916FCE79C002CCC51 /* PlaceVisited.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceVisited.m; sourceTree = "<group>"; };
 		8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeNearThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF3B8716EE94E500308CBD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FBF3B8916EE94E500308CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,8 +91,6 @@
 		D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotationTwo.h; sourceTree = "<group>"; };
 		D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotationTwo.m; sourceTree = "<group>"; };
 		D85E45C216F22D2600E9E3C7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D85E45C516F22E3C00E9E3C7 /* PlaceVisited.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceVisited.h; sourceTree = "<group>"; };
-		D85E45C616F22E3C00E9E3C7 /* PlaceVisited.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceVisited.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,9 +153,9 @@
 				8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */,
 				25A4DF1516FA3BA6002CCC51 /* TMNTDetailViewController.h */,
 				25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */,
+				25A4DF3816FCE79C002CCC51 /* PlaceVisited.h */,
+				25A4DF3916FCE79C002CCC51 /* PlaceVisited.m */,
 				D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */,
-				D85E45C516F22E3C00E9E3C7 /* PlaceVisited.h */,
-				D85E45C616F22E3C00E9E3C7 /* PlaceVisited.m */,
 				8FBF3BBD16EE976900308CBD /* TMNTAPIProcessor.h */,
 				8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */,
 				8FBF3BBF16EE976900308CBD /* TMNTAppDelegate.h */,
@@ -291,9 +291,9 @@
 				8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */,
 				1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */,
 				D85E45C316F22D2600E9E3C7 /* Model.xcdatamodeld in Sources */,
-				D85E45C716F22E3C00E9E3C7 /* PlaceVisited.m in Sources */,
 				25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */,
 				D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */,
+				25A4DF3A16FCE79C002CCC51 /* PlaceVisited.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
