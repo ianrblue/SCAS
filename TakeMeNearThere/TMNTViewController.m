@@ -13,8 +13,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "TMNTDetailViewController.h"
 #import "TMNTAnnotationTwo.h"
-
-
+#import "TMNTTableViewController.h"
 
 @interface TMNTViewController ()
 {
@@ -42,6 +41,8 @@
     NSString *thumbnailOfPlace;
     NSString *thumbnailToSegue;
     
+    NSArray *historyPersistedArray;
+    
     //Create a CLLocationManager object which we will use to start updates
     CLLocationManager *myLocationManager;
     //also create a CLLocation instance variable that will hold our current location
@@ -50,6 +51,7 @@
     __weak IBOutlet UISearchBar *searchField;
    
     TMNTDetailViewController *detailViewController;
+    TMNTTableViewController *tableViewController;
     __weak IBOutlet UIView *mapBlackViewCover;
 }
 
@@ -70,7 +72,6 @@ const CGFloat scrollObjWidth	= 320.0;
     //location work here
     [self startLocationUpdates];
     NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
-    //currentLocation = [[TMNTLocationTest alloc] initWithCurrentLocationAndUpdates];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -92,6 +93,8 @@ const CGFloat scrollObjWidth	= 320.0;
     yelpSearchActivityIndicator.hidesWhenStopped = YES;
     myPageControl.hidesForSinglePage = YES;
     myPageControl.hidden = YES;
+
+    historyPersistedArray = [self getPersistedData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -570,6 +573,45 @@ const CGFloat scrollObjWidth	= 320.0;
         detailViewController.businessThumbnail = thumbnailToSegue;
         detailViewController.userLocation = userCurrentLocation;
     }
+    
+    if ([segue.identifier isEqualToString:@"annotationToTable"])
+    {
+        tableViewController = [segue destinationViewController];
+        tableViewController.myManagedObjectContext1 = myManagedObjectContext;
+        tableViewController.historyPersistedArray1 = historyPersistedArray;
+    }
+}
+
+
+-(NSArray*)getPersistedData
+{
+    //setting up the fetch
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PlaceVisited"
+                                                         inManagedObjectContext:self.myManagedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    NSFetchedResultsController *fetchResultsController;
+    
+    //manipulate the fetch
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects: nil];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"name contains[c] '%@'", myCustomSearchText]];
+    NSError *sadnessError;
+//    
+//    if ([myCustomSearchText isEqualToString:@""])
+//    {
+//        predicate = nil;
+//    }
+//    
+    //actually setting up the fetch
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setEntity:entityDescription];
+    //[fetchRequest setPredicate:predicate];
+    fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                 managedObjectContext:myManagedObjectContext
+                                                                   sectionNameKeyPath:nil
+                                                                            cacheName:nil];
+    [fetchResultsController performFetch:&sadnessError];
+    
+    return fetchResultsController.fetchedObjects;
 }
 
 @end

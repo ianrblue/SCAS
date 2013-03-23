@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DEP-kv-39I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DEP-kv-39I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" id="9iw-xz-BuA">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="MEU-2c-5CU">
                             <connections>
-                                <segue destination="MtE-PB-qQR" kind="push" id="PtE-DV-sNh"/>
+                                <segue destination="MtE-PB-qQR" kind="push" identifier="annotationToTable" id="PtE-DV-sNh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -91,20 +91,43 @@
         <!--Table View Controller-->
         <scene sceneID="sPe-K9-zVz">
             <objects>
-                <tableViewController id="MtE-PB-qQR" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wl1-WO-ZKJ">
+                <tableViewController id="MtE-PB-qQR" customClass="TMNTTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" id="wl1-WO-ZKJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <tabBar key="tableFooterView" contentMode="scaleToFill" id="z3t-R5-YFM">
+                            <rect key="frame" x="0.0" y="111" width="320" height="49"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <items>
+                                <tabBarItem systemItem="favorites" id="j6k-hR-o7z"/>
+                                <tabBarItem systemItem="more" id="ANS-sE-DWt"/>
+                            </items>
+                            <connections>
+                                <outlet property="delegate" destination="MtE-PB-qQR" id="fbD-Pl-YPt"/>
+                            </connections>
+                        </tabBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reuse" id="QTn-JP-lVz">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellIdentifierRolodex" rowHeight="89" id="QTn-JP-lVz">
+                                <rect key="frame" x="0.0" y="22" width="320" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaf-zh-Uqt">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="Iaf-zh-Uqt" firstAttribute="top" secondItem="QTn-JP-lVz" secondAttribute="top" constant="33" id="AJZ-bu-dKd"/>
+                                    <constraint firstItem="Iaf-zh-Uqt" firstAttribute="leading" secondItem="QTn-JP-lVz" secondAttribute="leading" constant="36" id="VCk-Ew-ylX"/>
+                                </constraints>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -113,6 +136,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="EMJ-9t-nkL"/>
+                    <connections>
+                        <outlet property="view" destination="wl1-WO-ZKJ" id="Zv9-fz-MBq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pW-9I-iPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,6 +311,9 @@
                 <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="TMNTTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTTableViewController.h"/>
         </class>
         <class className="TMNTViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTViewController.h"/>

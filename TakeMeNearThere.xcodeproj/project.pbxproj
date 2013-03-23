@@ -30,6 +30,7 @@
 		D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */; };
 		D85E45C316F22D2600E9E3C7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */; };
 		D85E45C416F22D4100E9E3C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
+		D8D79FB716FD218400BF2682 /* TMNTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D79FB616FD218400BF2682 /* TMNTTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotationTwo.h; sourceTree = "<group>"; };
 		D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotationTwo.m; sourceTree = "<group>"; };
 		D85E45C216F22D2600E9E3C7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D8D79FB516FD218400BF2682 /* TMNTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTTableViewController.h; sourceTree = "<group>"; };
+		D8D79FB616FD218400BF2682 /* TMNTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,22 +151,11 @@
 			isa = PBXGroup;
 			children = (
 				1D3C660116EE9CB100956EF2 /* TMNTDataSourceDelegate.h */,
-				1D3C660216EE9CB100956EF2 /* TMNTPlace.h */,
-				1D3C660316EE9CB100956EF2 /* TMNTPlace.m */,
-				8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */,
-				25A4DF1516FA3BA6002CCC51 /* TMNTDetailViewController.h */,
-				25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */,
-				25A4DF3816FCE79C002CCC51 /* PlaceVisited.h */,
-				25A4DF3916FCE79C002CCC51 /* PlaceVisited.m */,
-				D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */,
-				8FBF3BBD16EE976900308CBD /* TMNTAPIProcessor.h */,
-				8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */,
 				8FBF3BBF16EE976900308CBD /* TMNTAppDelegate.h */,
 				8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */,
-				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
-				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
-				D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */,
-				D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */,
+				D8D79FBB16FD21BE00BF2682 /* Core Data */,
+				D8D79FB916FD219200BF2682 /* View Controllers */,
+				D8D79FBC16FD21F400BF2682 /* Custom Classes */,
 				8FBF3B8E16EE94E500308CBD /* Supporting Files */,
 			);
 			path = TakeMeNearThere;
@@ -191,6 +183,43 @@
 				8FBF3BB316EE964900308CBD /* YelpKitCatalog.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D8D79FB916FD219200BF2682 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */,
+				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
+				8FBF3BC416EE976900308CBD /* TMNTViewController.m */,
+				25A4DF1516FA3BA6002CCC51 /* TMNTDetailViewController.h */,
+				25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */,
+				D8D79FB516FD218400BF2682 /* TMNTTableViewController.h */,
+				D8D79FB616FD218400BF2682 /* TMNTTableViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D8D79FBB16FD21BE00BF2682 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				25A4DF3916FCE79C002CCC51 /* PlaceVisited.m */,
+				25A4DF3816FCE79C002CCC51 /* PlaceVisited.h */,
+				D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		D8D79FBC16FD21F400BF2682 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8FBF3BBE16EE976900308CBD /* TMNTAPIProcessor.m */,
+				8FBF3BBD16EE976900308CBD /* TMNTAPIProcessor.h */,
+				D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */,
+				D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */,
+				1D3C660216EE9CB100956EF2 /* TMNTPlace.h */,
+				1D3C660316EE9CB100956EF2 /* TMNTPlace.m */,
+			);
+			name = "Custom Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +323,7 @@
 				25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */,
 				D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */,
 				25A4DF3A16FCE79C002CCC51 /* PlaceVisited.m in Sources */,
+				D8D79FB716FD218400BF2682 /* TMNTTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

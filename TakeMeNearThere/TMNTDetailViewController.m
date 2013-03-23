@@ -92,7 +92,7 @@
                        launchOptions:launchOptions];
     } else
     {
-        //NSURL *url = [NSURL URLWithString:@"http://maps.google.com/?q=New+York"];
+        //NSURL *url = [NSURL URLWithString:@"http://maps.google.com/?q="];
         //[[UIApplication sharedApplication] openURL:url];
     }
 }
