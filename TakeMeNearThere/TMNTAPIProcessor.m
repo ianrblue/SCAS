@@ -18,7 +18,11 @@
 //api method call for flickr
 - (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude andRadius: (float)radius
 {
-    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5", search, latitude, longitude, radius];
+
+//previously used flickr url
+//http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5
+    
+    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=595a830b232bffb907989f811e3b4ae4&text=%@&sort=&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5&format=json&nojsoncallback=1", search, latitude, longitude, radius];
     return self;
 }
 
