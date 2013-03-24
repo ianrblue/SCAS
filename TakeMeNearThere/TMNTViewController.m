@@ -572,6 +572,41 @@ const CGFloat scrollObjWidth	= 320.0;
     [self saveData];
 }
 
+-(NSArray*)getPersistedData
+{
+    //setting up the fetch
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PlaceVisited"
+                                                         inManagedObjectContext:self.myManagedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    NSFetchedResultsController *fetchResultsController;
+    
+    //manipulate the fetch
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects: nil];
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"name contains[c] '%@'", myCustomSearchText]];
+    NSError *sadnessError;
+    //
+    //    if ([myCustomSearchText isEqualToString:@""])
+    //    {
+    //        predicate = nil;
+    //    }
+    //
+    //actually setting up the fetch
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setEntity:entityDescription];
+    //[fetchRequest setPredicate:predicate];
+    fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                 managedObjectContext:myManagedObjectContext
+                                                                   sectionNameKeyPath:nil
+                                                                            cacheName:nil];
+    [fetchResultsController performFetch:&sadnessError];
+    
+    return fetchResultsController.fetchedObjects;
+}
+
+//received the data?
+
+
+
 //SEGUE STUFF
 #pragma mark -
 #pragma mark Segue
@@ -596,41 +631,10 @@ const CGFloat scrollObjWidth	= 320.0;
     {
         UITabBarController* tbc = [segue destinationViewController];
         tableViewController = (TMNTTableViewController *)[[tbc customizableViewControllers] objectAtIndex:1];
-
         tableViewController.myManagedObjectContext1 = myManagedObjectContext;
         tableViewController.historyPersistedArray1 = historyPersistedArray;
     }
 }
 
--(NSArray*)getPersistedData
-{
-    //setting up the fetch
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PlaceVisited"
-                                                         inManagedObjectContext:self.myManagedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    NSFetchedResultsController *fetchResultsController;
-    
-    //manipulate the fetch
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects: nil];
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"name contains[c] '%@'", myCustomSearchText]];
-    NSError *sadnessError;
-//    
-//    if ([myCustomSearchText isEqualToString:@""])
-//    {
-//        predicate = nil;
-//    }
-//    
-    //actually setting up the fetch
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    [fetchRequest setEntity:entityDescription];
-    //[fetchRequest setPredicate:predicate];
-    fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                 managedObjectContext:myManagedObjectContext
-                                                                   sectionNameKeyPath:nil
-                                                                            cacheName:nil];
-    [fetchResultsController performFetch:&sadnessError];
-    
-    return fetchResultsController.fetchedObjects;
-}
 
 @end
