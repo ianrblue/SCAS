@@ -1,22 +1,21 @@
 //
-//  TMNTTableViewController.m
+//  TMNTBookmarks.m
 //  TakeMeNearThere
 //
-//  Created by Nathan Levine on 3/22/13.
+//  Created by Ian Blue on 3/23/13.
 //  Copyright (c) 2013 Heroes in a Half Shell. All rights reserved.
 //
 
-#import "TMNTTableViewController.h"
+#import "TMNTBookmarks.h"
 #import "TMNTAppDelegate.h"
-#import <CoreData/CoreData.h>
-#import "PlaceVisited.h"
 
-@interface TMNTTableViewController ()
+@interface TMNTBookmarks ()
 
 @end
 
-@implementation TMNTTableViewController
-@synthesize historyPersistedArray1, myManagedObjectContext1;
+@implementation TMNTBookmarks
+
+@synthesize myManagedObjectContext2;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"HEY!!!!!!!! %@", historyPersistedArray1);
+    NSLog(@"BOOOOOKMARKKKKKKKSSSS");
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,46 +44,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    if (historyPersistedArray1 == nil)
-    {
-        return 0;
-    }
-    else
-    {
-        return historyPersistedArray1.count;
-    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifierRolodex"];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    PlaceVisited *place = [historyPersistedArray1 objectAtIndex:[indexPath row]];
-    NSString *placeName = place.title;
-//    NSLog(@"%@",placeName);
-//    placeTitleLabel.text = placeName;
     
-    UIView * titleViewToLabel = [customCell viewWithTag:100];
-    UILabel *titleLabel = (UILabel *) titleViewToLabel;
-    titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:12];
-    titleLabel.text = placeName;
-
-    
-    return customCell;
+    return cell;
 }
 
 /*

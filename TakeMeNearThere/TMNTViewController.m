@@ -95,6 +95,8 @@ const CGFloat scrollObjWidth	= 320.0;
     myPageControl.hidden = YES;
 
     historyPersistedArray = [self getPersistedData];
+    
+    NSLog(@"!!!!!!!!!!!!!!!%@", myManagedObjectContext);
 }
 
 - (void)didReceiveMemoryWarning
@@ -576,12 +578,13 @@ const CGFloat scrollObjWidth	= 320.0;
     
     if ([segue.identifier isEqualToString:@"annotationToTable"])
     {
-        tableViewController = [segue destinationViewController];
+        UITabBarController* tbc = [segue destinationViewController];
+        tableViewController = (TMNTTableViewController *)[[tbc customizableViewControllers] objectAtIndex:1];
+
         tableViewController.myManagedObjectContext1 = myManagedObjectContext;
         tableViewController.historyPersistedArray1 = historyPersistedArray;
     }
 }
-
 
 -(NSArray*)getPersistedData
 {
