@@ -10,7 +10,9 @@
 
 @interface TMNTDetailViewController ()
 {
-    __weak IBOutlet UILabel *businessNameLabel;
+    __weak IBOutlet UIButton *directionsBtnRef;
+    __weak IBOutlet UIButton *phoneBtnRef;
+    __weak IBOutlet UINavigationItem *navBar;
     __weak IBOutlet UILabel *longLabel;
     __weak IBOutlet UILabel *latLabel;
     __weak IBOutlet UILabel *zipLabel;
@@ -20,6 +22,7 @@
     __weak IBOutlet UIImageView *imageRatingView;
     __weak IBOutlet UIImageView *thumbnail;
 }
+
 - (IBAction)takeMeThereBtn:(UIButton *)sender;
 - (IBAction)phoneBtn:(UIButton *)sender;
 @end
@@ -40,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    businessNameLabel.text = businessNameForLabel;
+    navBar.title = businessNameForLabel;
     latLabel.text = [NSString stringWithFormat:@"%@",businessLat];
     longLabel.text = [NSString stringWithFormat:@"%@",businessLong];
     zipLabel.text = businessZip;
@@ -61,6 +64,7 @@
     
     coord.longitude = (CLLocationDegrees)[businessLong doubleValue];
     coord.latitude = (CLLocationDegrees)[businessLat doubleValue];
+    
 }
 
 - (void)didReceiveMemoryWarning
