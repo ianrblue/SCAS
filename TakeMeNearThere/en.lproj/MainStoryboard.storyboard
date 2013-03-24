@@ -171,7 +171,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" id="kER-Mk-MA2" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pkH-rX-SAQ"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="53l-jc-pxB">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -337,43 +337,6 @@
     <resources>
         <image name="button_accessory_image_selected@2x.png" width="20" height="26"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TMNTDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="phoneBtn:" candidateClass="UIButton"/>
-                <relationship kind="action" name="takeMeThereBtn:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="businessNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="imageRatingView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="latLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TMNTTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTTableViewController.h"/>
-        </class>
-        <class className="TMNTViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clickPageControl:"/>
-                <relationship kind="outlet" name="flickrPicsAcitivityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="mapBlackViewCover" candidateClass="UIView"/>
-                <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="myPageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchField" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="yelpSearchActivityIndicator" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

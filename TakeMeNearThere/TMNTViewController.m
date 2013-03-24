@@ -71,6 +71,7 @@ const CGFloat scrollObjWidth	= 320.0;
     myMapView.frame = CGRectMake(0, 44, 320, 460);
     //location work here
     [self startLocationUpdates];
+    
     NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
 }
 
@@ -288,7 +289,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
         //get a flickrcall based on the location of the yelp places
         [flickrPicsAcitivityIndicator startAnimating];
-        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:.25];
+        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:5];
         [searchField resignFirstResponder];
         flickrProcess.delegate = self;
         [flickrProcess getFlickrJSON];
