@@ -19,9 +19,13 @@
 {
     TMNTAPIProcessor *yelpProcess;
     NSMutableArray *yelpData;
-    
+   
+    //added by ian for updated searchfield text
+    NSString *flickrSearchString;
+    NSString *yelpSearchString;
     
     TMNTAPIProcessor *flickrProcess;
+    TMNTAPIProcessor *flickrProcess2;
     NSMutableArray *flickrData;
     UIImage *photoImage;
     NSString *nameOfPlace;
@@ -155,6 +159,7 @@ const CGFloat scrollObjWidth	= 320.0;
     [searchBar resignFirstResponder];
 }
 
+
 #pragma mark -
 #pragma mark Yelp
 //YELP CALL
@@ -193,9 +198,10 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)submitYelpSearch
 {
+    yelpSearchString = [searchField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [yelpSearchActivityIndicator startAnimating];
     //perform yelp api call based on our location
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:searchField.text andLocation:userCurrentLocation];
+    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:yelpSearchString andLocation:userCurrentLocation];
     //NSLog(@"tets%f",currentLocation.coordinate.latitude);
     //set ourselves as the delgeate
     yelpProcess.delegate = self;
@@ -233,7 +239,7 @@ const CGFloat scrollObjWidth	= 320.0;
         photoURL= [NSURL URLWithString:fullPhotoString];
         [arrayOfPhotoStrings addObject:photoURL];
     }
-    
+
     //after you grab the array run the scroll view setup
     [self scrollViewSetUp];
     
@@ -289,11 +295,20 @@ const CGFloat scrollObjWidth	= 320.0;
 
         //get a flickrcall based on the location of the yelp places
         [flickrPicsAcitivityIndicator startAnimating];
-        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:searchField.text andLatitude:latnum andLongitude:longnum andRadius:5];
-        [searchField resignFirstResponder];
-        flickrProcess.delegate = self;
-        [flickrProcess getFlickrJSON];
+       flickrSearchString = [searchField.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 
+//        NSString *flickrBusinessName = [businessName stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        
+        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:2];
+//        if (flickrProcess.flickrPhotosArray.count < 5) {
+//            flickrProcess2 = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:5];
+//            flickrProcess2.delegate = self;
+//            [flickrProcess2 getFlickrJSON];
+//        } else {
+//            flickrProcess.delegate = self;
+//            [flickrProcess getFlickrJSON];
+//        }
+        [searchField resignFirstResponder];
         NSLog(@"sup bro");
     }
 }
