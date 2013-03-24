@@ -538,12 +538,15 @@ const CGFloat scrollObjWidth	= 320.0;
     placeVisited.latitude = latitudenum;
     placeVisited.longitude = longitudenum;
     placeVisited.title = pin.annotation.title;
-//    placeVisited.zipCode = ((TMNTAnnotationTwo *)pin.annotation).zip;
-//    placeVisited.state = ((TMNTAnnotationTwo *)pin.annotation).state;
-//    placeVisited.phoneNumber = ((TMNTAnnotationTwo *)pin.annotation).phoneNumber;
-//    placeVisited.address = ((TMNTAnnotationTwo *)pin.annotation).address;
-//    placeVisited.ratingImageURL = ((TMNTAnnotationTwo *)pin.annotation).ratingImage;
-//    placeVisited.thumbnailURL = ((TMNTAnnotationTwo *)pin.annotation).thumbnail;
+    placeVisited.zipCode = ((TMNTAnnotationTwo *)pin.annotation).zip;
+    placeVisited.thumbnailURL = ((TMNTAnnotationTwo *)pin.annotation).thumbnail;
+    placeVisited.address = ((TMNTAnnotationTwo *)pin.annotation).address;
+    placeVisited.phone = ((TMNTAnnotationTwo *)pin.annotation).phoneNumber;
+    placeVisited.state = ((TMNTAnnotationTwo *)pin.annotation).state;
+    placeVisited.ratingURL = ((TMNTAnnotationTwo *)pin.annotation).thumbnail;
+    //placeVisited.isBookmarked = ((TMNTAnnotationTwo *)pin.annotation).SOMETHING;
+    //placeVisited.viewDate = ((TMNTAnnotationTwo *)pin.annotation).SOMETHING;
+
     [self saveData];
 }
 
