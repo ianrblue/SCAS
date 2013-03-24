@@ -21,6 +21,8 @@
     __weak IBOutlet UILabel *addressLabel;
     __weak IBOutlet UIImageView *imageRatingView;
     __weak IBOutlet UIImageView *thumbnail;
+    
+    NSString *formattedPhone;
 }
 
 - (IBAction)takeMeThereBtn:(UIButton *)sender;
@@ -47,7 +49,15 @@
     latLabel.text = [NSString stringWithFormat:@"%@",businessLat];
     longLabel.text = [NSString stringWithFormat:@"%@",businessLong];
     zipLabel.text = businessZip;
-    phoneLabel.text = businessPhoneNumber;
+    
+    //format the phone string
+    NSString *firstThreeCharsPhone = [businessPhoneNumber substringToIndex:3];
+    NSString *lastSevenCharsPhone = [businessPhoneNumber substringFromIndex:3];
+    NSString *midThreeCharsPhone = [lastSevenCharsPhone substringToIndex:3];
+    NSString *lastFourCharsPhone = [businessPhoneNumber substringFromIndex:6];
+    formattedPhone = [NSString stringWithFormat:@"(%@) %@ - %@",firstThreeCharsPhone, midThreeCharsPhone, lastFourCharsPhone];
+    phoneLabel.text = formattedPhone;
+    
     stateLabel.text = businessState;
     addressLabel.text = businessAddress;
     
