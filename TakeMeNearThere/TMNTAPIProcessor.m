@@ -22,9 +22,9 @@
 //previously used flickr url
 //http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5
     
-    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=595a830b232bffb907989f811e3b4ae4&tags=%@&sort=&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5&format=json&nojsoncallback=1", search, latitude, longitude, radius];
-    return self;
+    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8d9c465237c96ca6f763d59140f98355&tags=%@&sort=&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5&format=json&nojsoncallback=1", search, latitude, longitude, radius];
     NSLog(@"%@",stringAPICall);
+    return self;
 }
 
 //api method call for yelp
