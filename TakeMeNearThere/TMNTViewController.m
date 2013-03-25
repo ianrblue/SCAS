@@ -637,7 +637,7 @@ const CGFloat scrollObjWidth	= 320.0;
         detailViewController.userLocation = userCurrentLocation;
         detailViewController.myManagedObjectContext = myManagedObjectContext;
         detailViewController.persistedData = historyPersistedArray;
-        //detailViewController.placevisted = placeVisited;
+        detailViewController.placevisted = placeVisited;
     }
     
     if ([segue.identifier isEqualToString:@"annotationToTable"])
