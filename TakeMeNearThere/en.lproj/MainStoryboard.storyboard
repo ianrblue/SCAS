@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="2231" y="828"/>
         </scene>
-        <!--Bookmarks - Item 1-->
+        <!--Bookmarks - Bookmarks-->
         <scene sceneID="4xT-zV-bLn">
             <objects>
-                <viewController id="Dwc-BR-Udv" customClass="TMNTBookmarks" sceneMemberID="viewController">
+                <viewController title="Bookmarks" id="Dwc-BR-Udv" customClass="TMNTBookmarks" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" id="HDX-IP-VX5">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,7 +149,7 @@
                             <outlet property="delegate" destination="Dwc-BR-Udv" id="6ta-Zv-T3h"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="xGP-Z2-Feb"/>
+                    <tabBarItem key="tabBarItem" title="Bookmark" id="xGP-Z2-Feb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CkK-SA-Cvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -367,6 +367,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="phoneBtn:" destination="UQZ-KB-1aM" eventType="touchUpInside" id="QkL-CP-YmT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KL2-l5-aqO">
                                 <rect key="frame" x="162" y="135" width="121" height="44"/>
@@ -395,7 +398,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="sgw-K2-1ND"/>
                     <connections>
+                        <outlet property="addressLabel" destination="uIo-CZ-QBv" id="9yO-4A-A79"/>
+                        <outlet property="navBar" destination="sgw-K2-1ND" id="msh-ru-QPt"/>
                         <outlet property="phoneLabel" destination="qwN-Sh-6BI" id="Ujl-bZ-doV"/>
+                        <outlet property="ratingImageView" destination="Cxo-To-WDT" id="0ek-DQ-EL1"/>
+                        <outlet property="stateLabel" destination="Cmx-Vi-yEL" id="DIJ-Zw-tif"/>
+                        <outlet property="thumbnailImageView" destination="pjg-3z-hvo" id="17a-cs-IM4"/>
+                        <outlet property="zipLabel" destination="A2U-LB-RmN" id="GXf-Ti-Tbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCa-At-wm7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -434,7 +443,15 @@
         <class className="TMNTSecondVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTSecondVC.h"/>
             <relationships>
+                <relationship kind="action" name="directionsBtn:" candidateClass="UIButton"/>
+                <relationship kind="action" name="phoneBtn:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="stateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="zipLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="TMNTTableViewController" superclassName="UITableViewController">

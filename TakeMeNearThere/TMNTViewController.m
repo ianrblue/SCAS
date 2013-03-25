@@ -381,7 +381,7 @@ const CGFloat scrollObjWidth	= 320.0;
         myAnnotation.coordinate = placeCoordinate;
         // TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
         myAnnotation.title = nameOfPlace;
-        myAnnotation.zip = zipOfPlace;
+       // myAnnotation.zip = zipOfPlace;
         
         //add to map
         [myMapView addAnnotation:myAnnotation];
@@ -554,7 +554,7 @@ const CGFloat scrollObjWidth	= 320.0;
     placeVisited.address = ((TMNTAnnotationTwo *)pin.annotation).address;
     placeVisited.phone = ((TMNTAnnotationTwo *)pin.annotation).phoneNumber;
     placeVisited.state = ((TMNTAnnotationTwo *)pin.annotation).state;
-    placeVisited.ratingURL = ((TMNTAnnotationTwo *)pin.annotation).thumbnail;
+    placeVisited.ratingURL = ((TMNTAnnotationTwo *)pin.annotation).ratingImage;
     placeVisited.isBookmarked = [NSNumber numberWithBool:bookmark];
     //placeVisited.viewDate = ((TMNTAnnotationTwo *)pin.annotation).SOMETHING;
 
@@ -650,7 +650,7 @@ const CGFloat scrollObjWidth	= 320.0;
     {
         UITabBarController* tbc = [segue destinationViewController];
         historyTableViewController = (TMNTTableViewController *)[[tbc customizableViewControllers] objectAtIndex:1];
-        historyTableViewController.myManagedObjectContext1 = myManagedObjectContext;
+        //historyTableViewController.myManagedObjectContext1 = myManagedObjectContext;
         historyTableViewController.historyPersistedArray1 = historyPersistedArray;
         //historyTableViewController.placeVisted = placeVisited;
         

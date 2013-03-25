@@ -12,8 +12,5 @@
 @interface TMNTSecondVC : UIViewController
 
 @property PlaceVisited *placeVisited;
-@property (strong, nonatomic) NSArray *historyPersistedArray2;
-@property (strong, nonatomic) NSString *phoneThatIsATitleTest;
-
 
 @end
