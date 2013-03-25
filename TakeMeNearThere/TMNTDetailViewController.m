@@ -57,7 +57,7 @@
     NSString *lastSevenCharsPhone = [businessPhoneNumber substringFromIndex:3];
     NSString *midThreeCharsPhone = [lastSevenCharsPhone substringToIndex:3];
     NSString *lastFourCharsPhone = [businessPhoneNumber substringFromIndex:6];
-    formattedPhone = [NSString stringWithFormat:@"(%@) %@ - %@",firstThreeCharsPhone, midThreeCharsPhone, lastFourCharsPhone];
+    formattedPhone = [NSString stringWithFormat:@"(%@) %@-%@",firstThreeCharsPhone, midThreeCharsPhone, lastFourCharsPhone];
     phoneLabel.text = formattedPhone;
     
     stateLabel.text = businessState;

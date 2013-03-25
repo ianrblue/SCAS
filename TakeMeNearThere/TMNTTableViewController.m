@@ -14,8 +14,8 @@
 
 @interface TMNTTableViewController ()
 {
-     TMNTSecondVC *secondViewController;
-    NSString *phoneStringTest;
+    TMNTSecondVC *secondViewController;
+    NSString *placeName;
 }
 
 
@@ -80,7 +80,7 @@
     
     // Configure the cell...
     PlaceVisited *place = [historyPersistedArray1 objectAtIndex:[indexPath row]];
-    NSString *placeName = place.title;
+    placeName = place.title;
 //    NSLog(@"%@",placeName);
 //    placeTitleLabel.text = placeName;
     
@@ -89,7 +89,7 @@
     titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:12];
     titleLabel.text = placeName;
     
-    phoneStringTest = [[historyPersistedArray1 objectAtIndex:[indexPath row]]title];
+    //phoneStringTest = [[historyPersistedArray1 objectAtIndex:[indexPath row]]title];
     //phoneStringTest= placeName;
     
     return customCell;
@@ -144,11 +144,10 @@
 {
     if ([segue.identifier isEqualToString:@"historyToSecondDetail"])
     {
-        secondViewController = segue.destinationViewController;
-        secondViewController.placeVisited = placeVisted;
-        secondViewController.historyPersistedArray2 = historyPersistedArray1;
-        secondViewController.phoneThatIsATitleTest = phoneStringTest;
-    }
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PlaceVisited *place = [historyPersistedArray1 objectAtIndex:[indexPath row]];
+        [[segue destinationViewController] setPlaceVisited:place];
 
+    }
 }
 @end
