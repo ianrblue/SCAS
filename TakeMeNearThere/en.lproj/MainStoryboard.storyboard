@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="DEP-kv-39I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="DEP-kv-39I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -398,6 +398,9 @@
         <image name="greyButtonHighlight@2x.png" width="72" height="72"/>
     </resources>
     <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="TMNTBookmarks" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTBookmarks.h"/>
         </class>
@@ -443,6 +446,7 @@
                 <relationship kind="action" name="clickPageControl:"/>
                 <relationship kind="outlet" name="flickrPicsAcitivityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="mapBlackViewCover" candidateClass="UIView"/>
+                <relationship kind="outlet" name="mapViewHeightContraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myPageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
