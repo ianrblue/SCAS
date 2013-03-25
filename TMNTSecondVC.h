@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "PlaceVisited.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface TMNTSecondVC : UIViewController
 
-@property PlaceVisited *placeVisited;
+@property PlaceVisited *placeVisitedSecondDetail;
+@property (assign, nonatomic) CLLocation *userLocation;
+@property (assign, nonatomic) CLLocationCoordinate2D coord;
 
 @end

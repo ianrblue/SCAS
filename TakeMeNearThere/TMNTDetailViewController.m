@@ -72,7 +72,7 @@
     UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlStringForThumbnail]];
     [thumbnail setImage:thumbnailImage];
     
-    NSLog(@"%@",businessZip);
+    //NSLog(@"%@",businessZip);
 	// Do any additional setup after loading the view.
     
     coord.longitude = (CLLocationDegrees)[businessLong doubleValue];
@@ -119,7 +119,7 @@
                        launchOptions:launchOptions];
     } else
     {
-        //NSURL *url = [NSURL URLWithString:@"http://maps.google.com/?q="];
+        //NSURL *url = [NSURL URLWithString:@"http://maps.google.com/maps?q=\'%f,%f\'", coord.latitude, coord.longitude];
         //[[UIApplication sharedApplication] openURL:url];
     }
 }

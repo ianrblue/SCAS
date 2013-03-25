@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "PlaceVisited.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface TMNTTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -17,5 +19,6 @@
 @property (strong, nonatomic) NSArray *historyPersistedArray1;
 @property NSManagedObjectContext *myManagedObjectContext1;
 @property PlaceVisited *placeVisted;
+@property (assign, nonatomic) CLLocation *userLocationHistory;
 
 @end

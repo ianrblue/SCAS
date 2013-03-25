@@ -649,15 +649,19 @@ const CGFloat scrollObjWidth	= 320.0;
     if ([segue.identifier isEqualToString:@"annotationToTable"])
     {
         UITabBarController* tbc = [segue destinationViewController];
+        
         historyTableViewController = (TMNTTableViewController *)[[tbc customizableViewControllers] objectAtIndex:1];
         //historyTableViewController.myManagedObjectContext1 = myManagedObjectContext;
         historyTableViewController.historyPersistedArray1 = historyPersistedArray;
         //historyTableViewController.placeVisted = placeVisited;
+        historyTableViewController.userLocationHistory = userCurrentLocation;
         
         bookmarkViewController = (TMNTBookmarks *)[[tbc customizableViewControllers] objectAtIndex:0];
         bookmarkViewController.myManagedObjectContext2 = myManagedObjectContext;
-        bookmarkViewController.placeVisted = placeVisited;
+        //bookmarkViewController.placeVisted = placeVisited;
         bookmarkViewController.historyPersistedArray1 = historyPersistedArray;
+        bookmarkViewController.userLocationBookmarks = userCurrentLocation;
+
     }
 }
 

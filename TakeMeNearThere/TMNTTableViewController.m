@@ -22,7 +22,7 @@
 @end
 
 @implementation TMNTTableViewController
-@synthesize historyPersistedArray1, myManagedObjectContext1, placeVisted;
+@synthesize historyPersistedArray1, myManagedObjectContext1, placeVisted, userLocationHistory;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -146,8 +146,8 @@
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PlaceVisited *place = [historyPersistedArray1 objectAtIndex:[indexPath row]];
-        [[segue destinationViewController] setPlaceVisited:place];
-
+        [[segue destinationViewController] setPlaceVisitedSecondDetail:place];
+        [[segue destinationViewController] setUserLocation:userLocationHistory];
     }
 }
 @end

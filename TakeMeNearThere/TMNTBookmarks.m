@@ -9,7 +9,6 @@
 #import "TMNTBookmarks.h"
 #import "TMNTAppDelegate.h"
 #import <CoreData/CoreData.h>
-#import "PlaceVisited.h"
 #import "TMNTSecondVC.h"
 
 @interface TMNTBookmarks ()
@@ -22,7 +21,7 @@
 
 @implementation TMNTBookmarks
 
-@synthesize myManagedObjectContext2, placeVisted, historyPersistedArray1;
+@synthesize myManagedObjectContext2, placeVisted, historyPersistedArray1, userLocationBookmarks;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -174,20 +173,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [tableView deselectRowAtIndexPath: indexPath animated:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"bookmarksToSecondDetail"])
     {
-        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PlaceVisited *place = [bookmarkArray objectAtIndex:[indexPath row]];
+        [[segue destinationViewController] setPlaceVisitedSecondDetail:place];
+        [[segue destinationViewController] setUserLocation:userLocationBookmarks];
     }
 }
 @end
