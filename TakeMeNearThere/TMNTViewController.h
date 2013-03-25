@@ -19,6 +19,7 @@
     __weak IBOutlet UIPageControl *myPageControl;
     __weak IBOutlet UIActivityIndicatorView *yelpSearchActivityIndicator;
     __weak IBOutlet UIActivityIndicatorView *flickrPicsAcitivityIndicator;
+    __weak IBOutlet NSLayoutConstraint *mapViewHeightContraint;
 }
 
 @property (strong, nonatomic) NSMutableArray *returnedArray;

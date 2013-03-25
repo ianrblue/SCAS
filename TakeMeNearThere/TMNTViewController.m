@@ -500,10 +500,16 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)shrinkMapView
 {
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:.5];
-        myMapView.frame = CGRectMake(0, 44, 320, 220);
-        [UIView commitAnimations];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.25];
+    //myMapView.frame = CGRectMake(0, 44, 320, 220);
+
+    //do this instead
+    mapViewHeightContraint.constant = 220;
+    [myMapView layoutIfNeeded];
+
+    [UIView commitAnimations];
+    //[[self navigationController] setNavigationBarHidden:YES animated:YES];
 }
 
 -(void)expandMapView
@@ -511,9 +517,14 @@ const CGFloat scrollObjWidth	= 320.0;
     if (myMapView.selectedAnnotations.count == 0)
     {
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.5];
-    myMapView.frame = CGRectMake(0, 44, 320, 460);
+    [UIView setAnimationDuration:.25];
+//    myMapView.frame = CGRectMake(0, 44, 320, 460);
+        
+    mapViewHeightContraint.constant = 460;
+    [myMapView layoutIfNeeded];
+        
     [UIView commitAnimations];
+    //[[self navigationController] setNavigationBarHidden:NO animated:YES];
     }
 }
 
