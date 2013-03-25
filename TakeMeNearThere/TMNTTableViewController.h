@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlaceVisited.h"
 
 @interface TMNTTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -15,5 +16,6 @@
 }
 @property (strong, nonatomic) NSArray *historyPersistedArray1;
 @property NSManagedObjectContext *myManagedObjectContext1;
+@property PlaceVisited *placeVisted;
 
 @end

@@ -24,6 +24,7 @@
     
     stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=595a830b232bffb907989f811e3b4ae4&tags=%@&sort=&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5&format=json&nojsoncallback=1", search, latitude, longitude, radius];
     return self;
+    NSLog(@"%@",stringAPICall);
 }
 
 //api method call for yelp

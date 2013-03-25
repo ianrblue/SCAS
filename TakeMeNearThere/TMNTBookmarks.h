@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlaceVisited.h"
 
-@interface TMNTBookmarks : UITableViewController
+@interface TMNTBookmarks : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property NSManagedObjectContext *myManagedObjectContext2;
+@property PlaceVisited *placeVisted;
+@property (strong, nonatomic) NSArray *historyPersistedArray1;
+
 
 @end

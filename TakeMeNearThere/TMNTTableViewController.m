@@ -9,14 +9,20 @@
 #import "TMNTTableViewController.h"
 #import "TMNTAppDelegate.h"
 #import <CoreData/CoreData.h>
-#import "PlaceVisited.h"
+#import "TMNTSecondVC.h"
+
 
 @interface TMNTTableViewController ()
+{
+     TMNTSecondVC *secondViewController;
+    NSString *phoneStringTest;
+}
+
 
 @end
 
 @implementation TMNTTableViewController
-@synthesize historyPersistedArray1, myManagedObjectContext1;
+@synthesize historyPersistedArray1, myManagedObjectContext1, placeVisted;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -82,7 +88,9 @@
     UILabel *titleLabel = (UILabel *) titleViewToLabel;
     titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:12];
     titleLabel.text = placeName;
-
+    
+    phoneStringTest = [[historyPersistedArray1 objectAtIndex:[indexPath row]]title];
+    //phoneStringTest= placeName;
     
     return customCell;
 }
@@ -96,19 +104,18 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
+        }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -130,13 +137,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [tableView deselectRowAtIndexPath: indexPath animated:YES];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"historyToSecondDetail"])
+    {
+        secondViewController = segue.destinationViewController;
+        secondViewController.placeVisited = placeVisted;
+        secondViewController.historyPersistedArray2 = historyPersistedArray1;
+        secondViewController.phoneThatIsATitleTest = phoneStringTest;
+    }
+
+}
 @end

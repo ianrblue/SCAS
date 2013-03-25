@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "PlaceVisited.h"
 
 @interface TMNTDetailViewController : UIViewController
 
@@ -25,5 +26,7 @@
 @property (assign, nonatomic) CLLocation *userLocation;
 @property (assign, nonatomic) CLLocationCoordinate2D coord;
 
-
+@property NSManagedObjectContext *myManagedObjectContext;
+@property (strong, nonatomic) NSArray *persistedData;
+@property PlaceVisited *placevisted;
 @end

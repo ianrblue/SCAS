@@ -21,9 +21,11 @@
     __weak IBOutlet UILabel *addressLabel;
     __weak IBOutlet UIImageView *imageRatingView;
     __weak IBOutlet UIImageView *thumbnail;
+    BOOL bookmark;
     
     NSString *formattedPhone;
 }
+- (IBAction)bookmarkButton:(id)sender;
 
 - (IBAction)takeMeThereBtn:(UIButton *)sender;
 - (IBAction)phoneBtn:(UIButton *)sender;
@@ -31,7 +33,7 @@
 
 @implementation TMNTDetailViewController
 
-@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState, businessThumbnail, userLocation, coord;
+@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState, businessThumbnail, userLocation, coord, myManagedObjectContext, persistedData, placevisted;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,6 +62,7 @@
     
     stateLabel.text = businessState;
     addressLabel.text = businessAddress;
+    bookmark = YES;
     
     NSURL *urlStringForRating = [NSURL URLWithString:businessImageRating];
     UIImage *ratingImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlStringForRating]];
@@ -81,6 +84,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)bookmarkButton:(id)sender
+{
+    placevisted.isBookmarked = [NSNumber numberWithBool:bookmark];
+    NSError *error;
+    if (![myManagedObjectContext save:&error])
+    {
+        NSLog(@"failed to save error: %@", [error userInfo]);
+    }
 }
 
 - (IBAction)takeMeThereBtn:(id)sender

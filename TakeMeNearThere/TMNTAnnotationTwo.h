@@ -20,6 +20,7 @@
 @property (assign, nonatomic) NSString *phoneNumber;
 @property (assign, nonatomic) NSString *ratingImage;
 @property (assign, nonatomic) NSString *thumbnail;
+@property (assign, nonatomic) BOOL bookmark;
 
 
 - initWithPosition:(CLLocationCoordinate2D *)coords
@@ -28,6 +29,7 @@
         andAddress: (NSString *)address2
     andPhoneNumber: (NSString*)phone2
     andRatingImage: (NSString*)RatingImage2
-      andThumbnail: (NSString*)thumbnail2;
+      andThumbnail: (NSString*)thumbnail2
+       andBookmark: (BOOL)bookmark2;
 
 @end

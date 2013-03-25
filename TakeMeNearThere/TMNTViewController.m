@@ -14,6 +14,7 @@
 #import "TMNTDetailViewController.h"
 #import "TMNTAnnotationTwo.h"
 #import "TMNTTableViewController.h"
+#import "TMNTBookmarks.h"
 
 @interface TMNTViewController ()
 {
@@ -44,6 +45,8 @@
     NSString *ratingToSegue;
     NSString *thumbnailOfPlace;
     NSString *thumbnailToSegue;
+    BOOL bookmark;
+    PlaceVisited *placeVisited;
     
     NSArray *historyPersistedArray;
     
@@ -55,7 +58,8 @@
     __weak IBOutlet UISearchBar *searchField;
    
     TMNTDetailViewController *detailViewController;
-    TMNTTableViewController *tableViewController;
+    TMNTTableViewController *historyTableViewController;
+    TMNTBookmarks *bookmarkViewController;
     __weak IBOutlet UIView *mapBlackViewCover;
 }
 
@@ -76,7 +80,7 @@ const CGFloat scrollObjWidth	= 320.0;
     //location work here
     [self startLocationUpdates];
     
-    NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
+    //NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -98,10 +102,8 @@ const CGFloat scrollObjWidth	= 320.0;
     yelpSearchActivityIndicator.hidesWhenStopped = YES;
     myPageControl.hidesForSinglePage = YES;
     myPageControl.hidden = YES;
-
-    historyPersistedArray = [self getPersistedData];
     
-    NSLog(@"!!!!!!!!!!!!!!!%@", myManagedObjectContext);
+    bookmark = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -243,7 +245,7 @@ const CGFloat scrollObjWidth	= 320.0;
     //after you grab the array run the scroll view setup
     [self scrollViewSetUp];
     
-    NSLog(@"arrayOfPhotoStrings: %@", arrayOfPhotoStrings);
+    NSLog(@"arrayOfPhotoStrings = %@", arrayOfPhotoStrings);
     return arrayOfPhotoStrings;
 }
 
@@ -300,6 +302,8 @@ const CGFloat scrollObjWidth	= 320.0;
 //        NSString *flickrBusinessName = [businessName stringByReplacingOccurrencesOfString:@" " withString:@"+"];
         
         flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:2];
+        flickrProcess.delegate = self;
+        [flickrProcess getFlickrJSON];
 //        if (flickrProcess.flickrPhotosArray.count < 5) {
 //            flickrProcess2 = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:5];
 //            flickrProcess2.delegate = self;
@@ -309,7 +313,7 @@ const CGFloat scrollObjWidth	= 320.0;
 //            [flickrProcess getFlickrJSON];
 //        }
         [searchField resignFirstResponder];
-        NSLog(@"sup bro");
+        NSLog(@"ANNOTATION SELECTED");
     }
 }
 
@@ -366,7 +370,8 @@ const CGFloat scrollObjWidth	= 320.0;
                                                                           andAddress:addressOfPlace
                                                                       andPhoneNumber:phoneOfPlace
                                                                       andRatingImage:ratingImageOfPlace
-                                                                        andThumbnail:thumbnailOfPlace];
+                                                                        andThumbnail:thumbnailOfPlace
+                                                                         andBookmark:bookmark];
         //MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = placeCoordinate;
         // TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
@@ -389,7 +394,7 @@ const CGFloat scrollObjWidth	= 320.0;
     }
     
     
-    NSLog(@"mapViewForAnnotation: %f", annotation.coordinate.latitude);
+    //NSLog(@"mapViewForAnnotation: %f", annotation.coordinate.latitude);
     MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"myAnnotation"];
     
     if (annotationView == nil)
@@ -530,7 +535,7 @@ const CGFloat scrollObjWidth	= 320.0;
 //create person better
 -(void) createPlaceVisitedFromMKAnnotation: (MKAnnotationView*)pin
 {
-    PlaceVisited *placeVisited = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceVisited" inManagedObjectContext:myManagedObjectContext];
+    placeVisited = [NSEntityDescription insertNewObjectForEntityForName:@"PlaceVisited" inManagedObjectContext:myManagedObjectContext];
    
     NSNumber *longitudenum = [NSNumber numberWithFloat:pin.annotation.coordinate.longitude];
     NSNumber *latitudenum = [NSNumber numberWithFloat:pin.annotation.coordinate.latitude];
@@ -544,7 +549,7 @@ const CGFloat scrollObjWidth	= 320.0;
     placeVisited.phone = ((TMNTAnnotationTwo *)pin.annotation).phoneNumber;
     placeVisited.state = ((TMNTAnnotationTwo *)pin.annotation).state;
     placeVisited.ratingURL = ((TMNTAnnotationTwo *)pin.annotation).thumbnail;
-    //placeVisited.isBookmarked = ((TMNTAnnotationTwo *)pin.annotation).SOMETHING;
+    placeVisited.isBookmarked = [NSNumber numberWithBool:bookmark];
     //placeVisited.viewDate = ((TMNTAnnotationTwo *)pin.annotation).SOMETHING;
 
     [self saveData];
@@ -554,8 +559,8 @@ const CGFloat scrollObjWidth	= 320.0;
 -(PlaceVisited *)getPlaceVisitedWithName: (NSString*)name
 {
     //come back to this badboy
-    PlaceVisited *placeVisited ;
-    return placeVisited;
+    PlaceVisited *placeVisited1 ;
+    return placeVisited1;
 }
 
 //UPDATE!!!
@@ -568,9 +573,9 @@ const CGFloat scrollObjWidth	= 320.0;
 //}
 
 //DELETE!!!
--(void)deletePlaceVisited: (PlaceVisited*)placeVisited
+-(void)deletePlaceVisited: (PlaceVisited*)placeVisited1
 {
-    [self.myManagedObjectContext deleteObject:placeVisited];
+    [self.myManagedObjectContext deleteObject:placeVisited1];
     
     [self saveData];
 }
@@ -615,6 +620,8 @@ const CGFloat scrollObjWidth	= 320.0;
 #pragma mark Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    historyPersistedArray = [self getPersistedData];
+    
     if ([segue.identifier isEqualToString:@"annotationToDetail"])
     {
         detailViewController = [segue destinationViewController];
@@ -628,14 +635,23 @@ const CGFloat scrollObjWidth	= 320.0;
         detailViewController.businessAddress = addressToSegue;
         detailViewController.businessThumbnail = thumbnailToSegue;
         detailViewController.userLocation = userCurrentLocation;
+        detailViewController.myManagedObjectContext = myManagedObjectContext;
+        detailViewController.persistedData = historyPersistedArray;
+        //detailViewController.placevisted = placeVisited;
     }
     
     if ([segue.identifier isEqualToString:@"annotationToTable"])
     {
         UITabBarController* tbc = [segue destinationViewController];
-        tableViewController = (TMNTTableViewController *)[[tbc customizableViewControllers] objectAtIndex:1];
-        tableViewController.myManagedObjectContext1 = myManagedObjectContext;
-        tableViewController.historyPersistedArray1 = historyPersistedArray;
+        historyTableViewController = (TMNTTableViewController *)[[tbc customizableViewControllers] objectAtIndex:1];
+        historyTableViewController.myManagedObjectContext1 = myManagedObjectContext;
+        historyTableViewController.historyPersistedArray1 = historyPersistedArray;
+        //historyTableViewController.placeVisted = placeVisited;
+        
+        bookmarkViewController = (TMNTBookmarks *)[[tbc customizableViewControllers] objectAtIndex:0];
+        bookmarkViewController.myManagedObjectContext2 = myManagedObjectContext;
+        bookmarkViewController.placeVisted = placeVisited;
+        bookmarkViewController.historyPersistedArray1 = historyPersistedArray;
     }
 }
 

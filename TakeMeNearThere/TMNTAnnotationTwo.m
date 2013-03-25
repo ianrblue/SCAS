@@ -10,7 +10,7 @@
 
 @implementation TMNTAnnotationTwo
 
-@synthesize coordinate,title,subtitle, zip, state, address, phoneNumber, ratingImage, thumbnail;
+@synthesize coordinate,title,subtitle, zip, state, address, phoneNumber, ratingImage, thumbnail, bookmark;
 
 - initWithPosition:(CLLocationCoordinate2D *)coords
             andZip: (NSString*)zip2
@@ -18,7 +18,8 @@
         andAddress: (NSString *)address2
     andPhoneNumber: (NSString*)phone2
     andRatingImage: (NSString*)ratingImage2
-      andThumbnail: (NSString*)thumbnail2;
+      andThumbnail: (NSString*)thumbnail2
+       andBookmark: (BOOL)bookmark2;
 {
     if (self = [super init])
     {
@@ -29,6 +30,7 @@
         phoneNumber = phone2;
         ratingImage = ratingImage2;
         thumbnail = thumbnail2;
+        bookmark = bookmark2;
     }
     return self;
 }
