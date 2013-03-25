@@ -565,7 +565,7 @@ const CGFloat scrollObjWidth	= 320.0;
     placeVisited.address = ((TMNTAnnotationTwo *)pin.annotation).address;
     placeVisited.phone = ((TMNTAnnotationTwo *)pin.annotation).phoneNumber;
     placeVisited.state = ((TMNTAnnotationTwo *)pin.annotation).state;
-    placeVisited.ratingURL = ((TMNTAnnotationTwo *)pin.annotation).thumbnail;
+    placeVisited.ratingURL = ((TMNTAnnotationTwo *)pin.annotation).ratingImage;
     placeVisited.isBookmarked = [NSNumber numberWithBool:bookmark];
     //placeVisited.viewDate = ((TMNTAnnotationTwo *)pin.annotation).SOMETHING;
 
