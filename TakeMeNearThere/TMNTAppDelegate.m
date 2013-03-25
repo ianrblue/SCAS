@@ -31,7 +31,6 @@
         managedObjectContext.persistentStoreCoordinator = myPersistentStoreCoordinator;
     }
 
-    
     return YES;
 }
 							

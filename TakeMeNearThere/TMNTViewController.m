@@ -261,13 +261,18 @@ const CGFloat scrollObjWidth	= 320.0;
     } else
     {
     
-        CGRect rect2 = CGRectMake(0, 44, 320, 460);
-        CGRect rect1 = myMapView.frame;
-        CGRect rect = CGRectMake(0, 44, 320, 372);
-        if (CGRectEqualToRect(rect, rect1) || CGRectEqualToRect(rect1, rect2)) {
-            [self shrinkMapView];
-        }
-
+        //
+        // Deprecated, map view was coming in at different
+        // sizes, now just manually shrink
+        //
+//        CGRect rect2 = CGRectMake(0, 44, 320, 460);
+//        CGRect rect1 = myMapView.frame;
+//        CGRect rect = CGRectMake(0, 44, 320, 372);
+//        if (CGRectEqualToRect(rect, rect1) || CGRectEqualToRect(rect1, rect2)) {
+//            [self shrinkMapView];
+//        }
+        
+        [self shrinkMapView];
 
         [view setHighlighted:YES];
 
@@ -301,7 +306,7 @@ const CGFloat scrollObjWidth	= 320.0;
 
 //        NSString *flickrBusinessName = [businessName stringByReplacingOccurrencesOfString:@" " withString:@"+"];
         
-        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:2];
+        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:5];
         flickrProcess.delegate = self;
         [flickrProcess getFlickrJSON];
 //        if (flickrProcess.flickrPhotosArray.count < 5) {
@@ -433,6 +438,7 @@ const CGFloat scrollObjWidth	= 320.0;
     const NSUInteger numImages	= arrayOfPhotoStrings.count;
     [myScrollView setContentSize:CGSizeMake((numImages * scrollObjWidth),   [myScrollView bounds].size.height)];
     
+    
     CGFloat xOrigin = 0.0f;
     
     //using fast enumeration take every URL we bring over and convert it to an image and then add that image to the imageview
@@ -460,10 +466,9 @@ const CGFloat scrollObjWidth	= 320.0;
     }
     [flickrPicsAcitivityIndicator stopAnimating];
     //    [myScrollView addSubview:myPageControl];
-        myPageControl.numberOfPages = arrayOfPhotoStrings.count;
-    //    myPageControl.currentPage = 0;
-    
-    
+    myPageControl.numberOfPages = arrayOfPhotoStrings.count;
+    myPageControl.currentPage = 0;
+    [myScrollView setContentOffset:CGPointMake(0,0) animated:NO];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -487,7 +492,8 @@ const CGFloat scrollObjWidth	= 320.0;
 
 -(void)shouldExpandMapView
 {
-    if (myMapView.selectedAnnotations.count == 0) {
+    if (myMapView.selectedAnnotations.count == 0)
+    {
             [self performSelector:@selector(expandMapView) withObject:nil afterDelay:0.2];
     }
 }
