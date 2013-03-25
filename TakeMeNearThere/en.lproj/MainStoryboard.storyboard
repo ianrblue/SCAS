@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="2231" y="828"/>
         </scene>
-        <!--Bookmarks - Bookmarks-->
+        <!--Bookmarks - Item 1-->
         <scene sceneID="4xT-zV-bLn">
             <objects>
-                <viewController title="Bookmarks" id="Dwc-BR-Udv" customClass="TMNTBookmarks" sceneMemberID="viewController">
+                <viewController id="Dwc-BR-Udv" customClass="TMNTBookmarks" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" id="HDX-IP-VX5">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,7 +172,7 @@
                             <outlet property="delegate" destination="Dwc-BR-Udv" id="6ta-Zv-T3h"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Bookmark" id="xGP-Z2-Feb"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="xGP-Z2-Feb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CkK-SA-Cvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -422,9 +422,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="phoneBtn:" destination="UQZ-KB-1aM" eventType="touchUpInside" id="QkL-CP-YmT"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KL2-l5-aqO">
                                 <constraints>
@@ -479,13 +476,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="sgw-K2-1ND"/>
                     <connections>
-                        <outlet property="addressLabel" destination="uIo-CZ-QBv" id="9yO-4A-A79"/>
-                        <outlet property="navBar" destination="sgw-K2-1ND" id="msh-ru-QPt"/>
                         <outlet property="phoneLabel" destination="qwN-Sh-6BI" id="Ujl-bZ-doV"/>
-                        <outlet property="ratingImageView" destination="Cxo-To-WDT" id="0ek-DQ-EL1"/>
-                        <outlet property="stateLabel" destination="Cmx-Vi-yEL" id="DIJ-Zw-tif"/>
-                        <outlet property="thumbnailImageView" destination="pjg-3z-hvo" id="17a-cs-IM4"/>
-                        <outlet property="zipLabel" destination="A2U-LB-RmN" id="GXf-Ti-Tbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCa-At-wm7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,6 +490,9 @@
         <image name="greyButtonHighlight@2x.png" width="72" height="72"/>
     </resources>
     <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="TMNTBookmarks" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTBookmarks.h"/>
         </class>
@@ -544,6 +538,7 @@
                 <relationship kind="action" name="clickPageControl:"/>
                 <relationship kind="outlet" name="flickrPicsAcitivityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="mapBlackViewCover" candidateClass="UIView"/>
+                <relationship kind="outlet" name="mapViewHeightContraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myPageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="myScrollView" candidateClass="UIScrollView"/>
@@ -552,3 +547,12 @@
             </relationships>
         </class>
     </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="WRj-BV-cdr"/>
+    </inferredMetricsTieBreakers>
+</document>
