@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "PlaceVisited.h"
+#import <Social/Social.h>
 
 @interface TMNTDetailViewController : UIViewController
 

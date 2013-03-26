@@ -21,6 +21,7 @@
 }
 - (IBAction)phoneBtn:(UIButton *)sender;
 - (IBAction)directionsBtn:(UIButton *)sender;
+- (IBAction)tweetBtn:(id)sender;
 
 @end
 
@@ -110,6 +111,26 @@
         //NSURL *url = [NSURL URLWithString:@"http://maps.google.com/maps?q=\'%f,%f\'", coord.latitude, coord.longitude];
         //[[UIApplication sharedApplication] openURL:url];
     }
+}
+
+- (IBAction)tweetBtn:(id)sender
+{
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+        {
+            SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            [tweetSheet setInitialText:@"Tweet about your experience:)"];
+            [self presentViewController:tweetSheet animated:YES completion:nil];
+        }
+        else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"Sorry"
+                                      message:@"You can't send a tweet right now"
+                                      delegate:self
+                                      cancelButtonTitle:@"OK"                                                   
+                                      otherButtonTitles:nil];
+            [alertView show];
+        }
 }
 
 + (BOOL)openMapsWithItems:(NSArray *)mapItems launchOptions:(NSDictionary *)launchOptions

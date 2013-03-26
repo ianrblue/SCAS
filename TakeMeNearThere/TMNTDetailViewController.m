@@ -13,8 +13,6 @@
     __weak IBOutlet UIButton *directionsBtnRef;
     __weak IBOutlet UIButton *phoneBtnRef;
     __weak IBOutlet UINavigationItem *navBar;
-    __weak IBOutlet UILabel *longLabel;
-    __weak IBOutlet UILabel *latLabel;
     __weak IBOutlet UILabel *zipLabel;
     __weak IBOutlet UILabel *phoneLabel;
     __weak IBOutlet UILabel *stateLabel;
@@ -26,7 +24,7 @@
     NSString *formattedPhone;
 }
 - (IBAction)bookmarkButton:(id)sender;
-
+- (IBAction)tweetStuffBtn:(UIButton *)sender;
 - (IBAction)takeMeThereBtn:(UIButton *)sender;
 - (IBAction)phoneBtn:(UIButton *)sender;
 @end
@@ -48,8 +46,6 @@
 {
     [super viewDidLoad];
     navBar.title = businessNameForLabel;
-    latLabel.text = [NSString stringWithFormat:@"%@",businessLat];
-    longLabel.text = [NSString stringWithFormat:@"%@",businessLong];
     zipLabel.text = businessZip;
     
     //format the phone string
@@ -93,6 +89,26 @@
     if (![myManagedObjectContext save:&error])
     {
         NSLog(@"failed to save error: %@", [error userInfo]);
+    }
+}
+
+- (IBAction)tweetStuffBtn:(UIButton *)sender
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"Tweet about your experience:)"];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Sorry"
+                                  message:@"You can't send a tweet right now"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
     }
 }
 
