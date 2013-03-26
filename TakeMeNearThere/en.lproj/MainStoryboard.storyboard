@@ -301,6 +301,11 @@
                                     <action selector="tweetStuffBtn:" destination="Idb-qu-XXf" eventType="touchUpInside" id="Zha-5j-gIM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skh-4z-3QM">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -311,9 +316,11 @@
                             <constraint firstItem="7ac-qs-8Td" firstAttribute="bottom" secondItem="Vx7-Rr-90r" secondAttribute="bottom" type="default" id="7DG-5a-NY1"/>
                             <constraint firstItem="Rhy-zO-cXj" firstAttribute="leading" secondItem="YwG-5b-mo5" secondAttribute="leading" type="default" id="8bx-ho-but"/>
                             <constraint firstAttribute="trailing" secondItem="Vx7-Rr-90r" secondAttribute="trailing" constant="37" id="9BC-jj-48i"/>
+                            <constraint firstItem="skh-4z-3QM" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" type="default" id="9TQ-gK-AXb"/>
                             <constraint firstItem="7ac-qs-8Td" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="135" id="Asr-sr-gv0"/>
                             <constraint firstItem="ysh-mg-ZNb" firstAttribute="leading" secondItem="Rhy-zO-cXj" secondAttribute="leading" type="default" id="Dbk-SY-MrU"/>
                             <constraint firstItem="Rhy-zO-cXj" firstAttribute="baseline" secondItem="Stu-HP-LgZ" secondAttribute="baseline" type="default" id="Dk0-f5-uxV"/>
+                            <constraint firstAttribute="trailing" secondItem="skh-4z-3QM" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="E29-jm-mm3"/>
                             <constraint firstItem="7ac-qs-8Td" firstAttribute="top" secondItem="Vx7-Rr-90r" secondAttribute="top" type="default" id="EHD-23-IIv"/>
                             <constraint firstItem="BKD-ab-IVS" firstAttribute="leading" secondItem="ysh-mg-ZNb" secondAttribute="leading" type="default" id="Gjc-Hd-V0I"/>
                             <constraint firstItem="BKD-ab-IVS" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="111" id="K00-pf-Egg"/>
@@ -330,6 +337,7 @@
                     <navigationItem key="navigationItem" id="ddG-fF-bjJ"/>
                     <connections>
                         <outlet property="addressLabel" destination="ysh-mg-ZNb" id="o2D-30-hU7"/>
+                        <outlet property="cityLabel" destination="skh-4z-3QM" id="h9Q-Sg-iFd"/>
                         <outlet property="directionsBtnRef" destination="Vx7-Rr-90r" id="aDq-OZ-Apb"/>
                         <outlet property="imageRatingView" destination="YwG-5b-mo5" id="xNA-0E-oZI"/>
                         <outlet property="navBar" destination="ddG-fF-bjJ" id="Xy6-a7-Hfy"/>
@@ -512,10 +520,9 @@
                 <relationship kind="action" name="takeMeThereBtn:" candidateClass="UIButton"/>
                 <relationship kind="action" name="tweetStuffBtn:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="directionsBtnRef" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageRatingView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="latLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="longLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="navBar" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="phoneBtnRef" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>

@@ -21,7 +21,7 @@
 @property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSString *ratingImage;
 @property (strong, nonatomic) NSString *thumbnail;
-
+@property (assign, nonatomic) NSString *city;
 
 @property (strong, nonatomic) NSDictionary *dictionaryPlace;
 

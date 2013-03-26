@@ -11,6 +11,7 @@
 @interface TMNTDetailViewController ()
 {
     __weak IBOutlet UIButton *directionsBtnRef;
+    __weak IBOutlet UILabel *cityLabel;
     __weak IBOutlet UIButton *phoneBtnRef;
     __weak IBOutlet UINavigationItem *navBar;
     __weak IBOutlet UILabel *zipLabel;
@@ -31,7 +32,7 @@
 
 @implementation TMNTDetailViewController
 
-@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState, businessThumbnail, userLocation, coord, myManagedObjectContext, persistedData, placevisted;
+@synthesize businessNameForLabel, businessLong, businessLat, businessZip, businessAddress, businessImageRating, businessPhoneNumber, businessState, businessThumbnail, userLocation, coord, myManagedObjectContext, persistedData, placevisted, businessCity;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,6 +60,7 @@
     stateLabel.text = businessState;
     addressLabel.text = businessAddress;
     bookmark = YES;
+    cityLabel.text = businessCity;
     
     NSURL *urlStringForRating = [NSURL URLWithString:businessImageRating];
     UIImage *ratingImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlStringForRating]];

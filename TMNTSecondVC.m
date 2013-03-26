@@ -108,8 +108,8 @@
                        launchOptions:launchOptions];
     } else
     {
-        //NSURL *url = [NSURL URLWithString:@"http://maps.google.com/maps?q=\'%f,%f\'", coord.latitude, coord.longitude];
-        //[[UIApplication sharedApplication] openURL:url];
+       // NSString* url = [NSString stringWithFormat: @"http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", startCoordinate.latitude, startCoordinate.longitude, coord.latitude, endCoordinate.longitude];
+        //[[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
     }
 }
 

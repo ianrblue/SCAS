@@ -45,6 +45,9 @@
     NSString *ratingToSegue;
     NSString *thumbnailOfPlace;
     NSString *thumbnailToSegue;
+    NSString *cityOfPlace;
+    NSString *cityToSegue;
+    
     BOOL bookmark;
     PlaceVisited *placeVisited;
     
@@ -192,6 +195,7 @@ const CGFloat scrollObjWidth	= 320.0;
         place.phoneNumber = [placeDictionary valueForKey:@"phone"];
         place.ratingImage = [placeDictionary valueForKey:@"rating_img_url"];
         place.thumbnail = [placeDictionary valueForKey:@"photo_url"];
+        place.city = [placeDictionary valueForKey:@"city"];
         
         [returnedArray addObject:place];
     }
@@ -299,6 +303,7 @@ const CGFloat scrollObjWidth	= 320.0;
         addressToSegue = ((TMNTAnnotationTwo*)(view.annotation)).address;
         ratingToSegue = ((TMNTAnnotationTwo*)(view.annotation)).ratingImage;
         thumbnailToSegue = ((TMNTAnnotationTwo*)(view.annotation)).thumbnail;
+        cityToSegue = ((TMNTAnnotationTwo*)(view.annotation)).city;
 
         //get a flickrcall based on the location of the yelp places
         [flickrPicsAcitivityIndicator startAnimating];
@@ -361,6 +366,7 @@ const CGFloat scrollObjWidth	= 320.0;
         phoneOfPlace = [[returnedArray objectAtIndex:i] phoneNumber];
         ratingImageOfPlace = [[returnedArray objectAtIndex:i] ratingImage];
         thumbnailOfPlace = [[returnedArray objectAtIndex:i] thumbnail];
+        cityOfPlace = [[returnedArray objectAtIndex:i] city];
         
         
         //coordinate make
@@ -376,7 +382,7 @@ const CGFloat scrollObjWidth	= 320.0;
                                                                       andPhoneNumber:phoneOfPlace
                                                                       andRatingImage:ratingImageOfPlace
                                                                         andThumbnail:thumbnailOfPlace
-                                                                         andBookmark:bookmark];
+                                                                         andBookmark:bookmark andCity:cityOfPlace];
         //MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc]init];
         myAnnotation.coordinate = placeCoordinate;
         // TMNTAnnotation *myAnnotation = [[TMNTAnnotation alloc] initWithPosition:&placeCoordinate];
@@ -567,6 +573,8 @@ const CGFloat scrollObjWidth	= 320.0;
     placeVisited.state = ((TMNTAnnotationTwo *)pin.annotation).state;
     placeVisited.ratingURL = ((TMNTAnnotationTwo *)pin.annotation).ratingImage;
     placeVisited.isBookmarked = [NSNumber numberWithBool:bookmark];
+    placeVisited.city = ((TMNTAnnotationTwo *)pin.annotation).city;
+    
     //placeVisited.viewDate = ((TMNTAnnotationTwo *)pin.annotation).SOMETHING;
 
     [self saveData];
@@ -655,6 +663,7 @@ const CGFloat scrollObjWidth	= 320.0;
         detailViewController.myManagedObjectContext = myManagedObjectContext;
         detailViewController.persistedData = historyPersistedArray;
         detailViewController.placevisted = placeVisited;
+        detailViewController.businessCity = cityToSegue;
     }
     
     if ([segue.identifier isEqualToString:@"annotationToTable"])

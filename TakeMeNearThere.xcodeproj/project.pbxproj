@@ -12,7 +12,6 @@
 		259FCB9516FA069C008D3A2B /* burger.png in Resources */ = {isa = PBXBuildFile; fileRef = 259FCB9416FA069C008D3A2B /* burger.png */; };
 		25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */; };
 		25A4DF4A16FE7059002CCC51 /* TMNTBookmarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF4916FE7058002CCC51 /* TMNTBookmarks.m */; };
-		25A4DF5C16FFB132002CCC51 /* PlaceVisited.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF5B16FFB132002CCC51 /* PlaceVisited.m */; };
 		25A4DF6917000027002CCC51 /* TMNTSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF6817000026002CCC51 /* TMNTSecondVC.m */; };
 		8FBF3B8816EE94E500308CBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8716EE94E500308CBD /* UIKit.framework */; };
 		8FBF3B8A16EE94E500308CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8916EE94E500308CBD /* Foundation.framework */; };
@@ -30,6 +29,7 @@
 		8FBF3BC616EE976900308CBD /* TMNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC016EE976900308CBD /* TMNTAppDelegate.m */; };
 		8FBF3BC816EE976900308CBD /* TMNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3BC416EE976900308CBD /* TMNTViewController.m */; };
 		D81FFF8D17012C440012C96C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81FFF8C17012C440012C96C /* Social.framework */; };
+		D81FFF9717014CB10012C96C /* PlaceVisited.m in Sources */ = {isa = PBXBuildFile; fileRef = D81FFF9617014CB10012C96C /* PlaceVisited.m */; };
 		D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */; };
 		D85E45C316F22D2600E9E3C7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */; };
 		D85E45C416F22D4100E9E3C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB816EE96A900308CBD /* CoreData.framework */; };
@@ -71,8 +71,6 @@
 		25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTDetailViewController.m; sourceTree = "<group>"; };
 		25A4DF4816FE7058002CCC51 /* TMNTBookmarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTBookmarks.h; sourceTree = "<group>"; };
 		25A4DF4916FE7058002CCC51 /* TMNTBookmarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTBookmarks.m; sourceTree = "<group>"; };
-		25A4DF5A16FFB132002CCC51 /* PlaceVisited.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceVisited.h; sourceTree = "<group>"; };
-		25A4DF5B16FFB132002CCC51 /* PlaceVisited.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceVisited.m; sourceTree = "<group>"; };
 		25A4DF6717000026002CCC51 /* TMNTSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMNTSecondVC.h; path = ../TMNTSecondVC.h; sourceTree = "<group>"; };
 		25A4DF6817000026002CCC51 /* TMNTSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMNTSecondVC.m; path = ../TMNTSecondVC.m; sourceTree = "<group>"; };
 		8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeNearThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +96,8 @@
 		8FBF3BC316EE976900308CBD /* TMNTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTViewController.h; sourceTree = "<group>"; };
 		8FBF3BC416EE976900308CBD /* TMNTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTViewController.m; sourceTree = "<group>"; };
 		D81FFF8C17012C440012C96C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D81FFF9517014CB10012C96C /* PlaceVisited.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceVisited.h; sourceTree = "<group>"; };
+		D81FFF9617014CB10012C96C /* PlaceVisited.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceVisited.m; sourceTree = "<group>"; };
 		D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotationTwo.h; sourceTree = "<group>"; };
 		D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotationTwo.m; sourceTree = "<group>"; };
 		D85E45C216F22D2600E9E3C7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -219,9 +219,9 @@
 		D8D79FBB16FD21BE00BF2682 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				D81FFF9517014CB10012C96C /* PlaceVisited.h */,
+				D81FFF9617014CB10012C96C /* PlaceVisited.m */,
 				D85E45C116F22D2600E9E3C7 /* Model.xcdatamodeld */,
-				25A4DF5A16FFB132002CCC51 /* PlaceVisited.h */,
-				25A4DF5B16FFB132002CCC51 /* PlaceVisited.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -342,8 +342,8 @@
 				D850CF3C16FB62DE00BF53D7 /* TMNTAnnotationTwo.m in Sources */,
 				D8D79FB716FD218400BF2682 /* TMNTTableViewController.m in Sources */,
 				25A4DF4A16FE7059002CCC51 /* TMNTBookmarks.m in Sources */,
-				25A4DF5C16FFB132002CCC51 /* PlaceVisited.m in Sources */,
 				25A4DF6917000027002CCC51 /* TMNTSecondVC.m in Sources */,
+				D81FFF9717014CB10012C96C /* PlaceVisited.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

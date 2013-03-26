@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSString *businessThumbnail;
 @property (assign, nonatomic) CLLocation *userLocation;
 @property (assign, nonatomic) CLLocationCoordinate2D coord;
+@property (strong, nonatomic) NSString *businessCity;
 
 @property NSManagedObjectContext *myManagedObjectContext;
 @property (strong, nonatomic) NSArray *persistedData;
