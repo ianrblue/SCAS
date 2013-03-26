@@ -108,13 +108,29 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         // Delete the row from the data source
+        
+        placeVisted = [historyPersistedArray1 objectAtIndex:[indexPath row]];
+        
+        [self.myManagedObjectContext1 deleteObject:placeVisted];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+       // [self.myManagedObjectContext deleteObject:placeVisited1];
+        NSError *error;
+        if (![myManagedObjectContext1 save:&error])
+        {
+            NSLog(@"failed to save error: %@", [error userInfo]);
+        }
+        //historyPersistedArray1 = [self fetchBookmarks];
+        
+        [tableView reloadData];
+    }
+//    else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//    }   
 }
 
 /*

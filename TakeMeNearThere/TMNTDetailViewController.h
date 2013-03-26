@@ -12,7 +12,7 @@
 #import "PlaceVisited.h"
 #import <Social/Social.h>
 
-@interface TMNTDetailViewController : UIViewController
+@interface TMNTDetailViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSString *businessNameForLabel;
 @property (strong, nonatomic) NSNumber *businessLat;

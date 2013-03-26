@@ -88,6 +88,14 @@
     {
         NSLog(@"failed to save error: %@", [error userInfo]);
     }
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved"
+                        message:nil
+                       delegate:self
+              cancelButtonTitle:@"Dismiss"
+              otherButtonTitles:nil, nil];
+    
+    [alert show];
+    
 }
 
 - (IBAction)tweetStuffBtn:(UIButton *)sender
