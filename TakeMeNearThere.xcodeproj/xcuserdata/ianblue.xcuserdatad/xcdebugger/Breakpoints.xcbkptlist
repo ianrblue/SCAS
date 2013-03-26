@@ -52,8 +52,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "223"
          endingLineNumber = "223"
-         landmarkName = "-grabFlickrArray:"
-         landmarkType = "5">
+         landmarkName = "@implementation TMNTViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -78,7 +78,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "503"
          endingLineNumber = "503"
-         landmarkName = "-shrinkMapView"
+         landmarkName = "-shouldExpandMapView"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -104,8 +104,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "431"
          endingLineNumber = "431"
-         landmarkName = "-scrollViewSetUp"
-         landmarkType = "5">
+         landmarkName = "@implementation TMNTViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
