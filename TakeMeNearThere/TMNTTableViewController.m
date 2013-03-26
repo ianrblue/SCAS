@@ -104,6 +104,36 @@
 }
 */
 
+-(NSArray*)getPersistedData
+{
+    //setting up the fetch
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"PlaceVisited"
+                                                         inManagedObjectContext:self.myManagedObjectContext1];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    NSFetchedResultsController *fetchResultsController;
+    
+    //manipulate the fetch
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects: nil];
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"name contains[c] '%@'", myCustomSearchText]];
+    NSError *sadnessError;
+    //
+    //    if ([myCustomSearchText isEqualToString:@""])
+    //    {
+    //        predicate = nil;
+    //    }
+    //
+    //actually setting up the fetch
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setEntity:entityDescription];
+    //[fetchRequest setPredicate:predicate];
+    fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                 managedObjectContext:myManagedObjectContext1
+                                                                   sectionNameKeyPath:nil
+                                                                            cacheName:nil];
+    [fetchResultsController performFetch:&sadnessError];
+    
+    return fetchResultsController.fetchedObjects;
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,15 +146,15 @@
         
         [self.myManagedObjectContext1 deleteObject:placeVisted];
         
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
        // [self.myManagedObjectContext deleteObject:placeVisited1];
         NSError *error;
         if (![myManagedObjectContext1 save:&error])
         {
             NSLog(@"failed to save error: %@", [error userInfo]);
         }
-        //historyPersistedArray1 = [self fetchBookmarks];
+        historyPersistedArray1 = [self getPersistedData];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         [tableView reloadData];
     }
