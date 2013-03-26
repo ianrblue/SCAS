@@ -86,7 +86,7 @@
     
     UIView * titleViewToLabel = [customCell viewWithTag:100];
     UILabel *titleLabel = (UILabel *) titleViewToLabel;
-    titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:12];
+    titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
     titleLabel.text = placeName;
     
     //phoneStringTest = [[historyPersistedArray1 objectAtIndex:[indexPath row]]title];
