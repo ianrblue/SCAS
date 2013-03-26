@@ -15,7 +15,6 @@
     __weak IBOutlet UILabel *phoneLabel;
     __weak IBOutlet UIImageView *thumbnailImageView;
     __weak IBOutlet UIImageView *ratingImageView;
-    __weak IBOutlet UILabel *zipLabel;
     __weak IBOutlet UILabel *stateLabel;
     __weak IBOutlet UILabel *addressLabel;
 }
@@ -58,9 +57,8 @@
     NSString *lastFourCharsPhone = [placeVisitedSecondDetail.phone substringFromIndex:6];
     NSString *formattedPhone = [NSString stringWithFormat:@"(%@) %@-%@",firstThreeCharsPhone, midThreeCharsPhone, lastFourCharsPhone];
     phoneLabel.text = formattedPhone;
-    zipLabel.text = placeVisitedSecondDetail.zipCode;
     addressLabel.text = placeVisitedSecondDetail.address;
-    stateLabel.text = placeVisitedSecondDetail.state;
+    stateLabel.text = [NSString stringWithFormat:@"%@, %@ %@", placeVisitedSecondDetail.city, placeVisitedSecondDetail.state, placeVisitedSecondDetail.zipCode];
     
     NSURL *urlStringForRating = [NSURL URLWithString:placeVisitedSecondDetail.ratingURL];
     UIImage *ratingImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlStringForRating]];

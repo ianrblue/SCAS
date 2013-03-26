@@ -11,10 +11,8 @@
 @interface TMNTDetailViewController ()
 {
     __weak IBOutlet UIButton *directionsBtnRef;
-    __weak IBOutlet UILabel *cityLabel;
     __weak IBOutlet UIButton *phoneBtnRef;
     __weak IBOutlet UINavigationItem *navBar;
-    __weak IBOutlet UILabel *zipLabel;
     __weak IBOutlet UILabel *phoneLabel;
     __weak IBOutlet UILabel *stateLabel;
     __weak IBOutlet UILabel *addressLabel;
@@ -47,7 +45,6 @@
 {
     [super viewDidLoad];
     navBar.title = businessNameForLabel;
-    zipLabel.text = businessZip;
     
     //format the phone string
     NSString *firstThreeCharsPhone = [businessPhoneNumber substringToIndex:3];
@@ -57,10 +54,9 @@
     formattedPhone = [NSString stringWithFormat:@"(%@) %@-%@",firstThreeCharsPhone, midThreeCharsPhone, lastFourCharsPhone];
     phoneLabel.text = formattedPhone;
     
-    stateLabel.text = businessState;
+    stateLabel.text = [NSString stringWithFormat:@"%@, %@ %@", businessCity, businessState, businessZip];
     addressLabel.text = businessAddress;
     bookmark = YES;
-    cityLabel.text = businessCity;
     
     NSURL *urlStringForRating = [NSURL URLWithString:businessImageRating];
     UIImage *ratingImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlStringForRating]];
