@@ -98,15 +98,32 @@ const CGFloat scrollObjWidth	= 320.0;
     //make ourselves the delegate for the coredata stuff
     TMNTAppDelegate *tmntAppDelegate = (TMNTAppDelegate*) [[UIApplication sharedApplication] delegate];
     self.myManagedObjectContext = tmntAppDelegate.myManagedObjectContext;
-
-    [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+    
+    MKCoordinateSpan spanToCheck =
+    {
+        .latitudeDelta = 2.3f,
+        .longitudeDelta = 2.3f
+    };
+    
+    if (myMapView.region.span.latitudeDelta > spanToCheck.latitudeDelta)//you enter the vc normally
+    {
+        [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+    } else //if you are coming back from the detailVC
+    {
+        CLLocationCoordinate2D pinCoords = CLLocationCoordinate2DMake((CLLocationDegrees)latnum.doubleValue, (CLLocationDegrees)longnum.doubleValue);
+        MKCoordinateRegion newRegion = {pinCoords , myMapView.region.span};
+        [myMapView setRegion:newRegion animated:YES];
+    }
     
     //hide yelpacitvityindicator till it is used
     yelpSearchActivityIndicator.hidesWhenStopped = YES;
     myPageControl.hidesForSinglePage = YES;
     myPageControl.hidden = YES;
-    
     bookmark = NO;
+    
+    if (![searchField resignFirstResponder]) {
+        [searchField resignFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -162,6 +179,10 @@ const CGFloat scrollObjWidth	= 320.0;
     [myMapView removeAnnotations:myMapView.annotations];
     [self submitYelpSearch];
     [searchBar resignFirstResponder];
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    [searchField resignFirstResponder];
 }
 
 
@@ -259,6 +280,9 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    MKCoordinateRegion newRegion = {view.annotation.coordinate, myMapView.region.span};
+    [myMapView setRegion:newRegion animated:YES];
+    
     if ([view.annotation isKindOfClass:[MKUserLocation class]])
     {
         nil;
@@ -322,7 +346,10 @@ const CGFloat scrollObjWidth	= 320.0;
 //            flickrProcess.delegate = self;
 //            [flickrProcess getFlickrJSON];
 //        }
-        [searchField resignFirstResponder];
+        if (![searchField resignFirstResponder])
+        {
+            [searchField resignFirstResponder];
+        }
         NSLog(@"ANNOTATION SELECTED");
     }
 }
@@ -330,12 +357,20 @@ const CGFloat scrollObjWidth	= 320.0;
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
     [self shouldExpandMapView];
+    if (![searchField resignFirstResponder])
+    {
+        [searchField resignFirstResponder];
+    }
 }
 
 - (void)updateMapViewWithNewCenter:(CLLocationCoordinate2D)newCoodinate
 {
-    
-    MKCoordinateRegion newRegion = {newCoodinate, myMapView.region.span};
+    MKCoordinateSpan span =
+    {
+        .latitudeDelta = 0.01810686f,
+        .longitudeDelta = 0.01810686f
+    };
+    MKCoordinateRegion newRegion = {newCoodinate, span};
     [myMapView setRegion:newRegion];
 }
 
