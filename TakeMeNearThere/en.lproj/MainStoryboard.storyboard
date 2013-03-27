@@ -31,11 +31,13 @@
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rjf-O9-R4x"/>
                             <mapView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufj-DT-Tqj">
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="460" type="user" id="61y-sZ-uAo"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="M0p-9K-ph3"/>
+                                    <outletCollection property="gestureRecognizers" destination="NZj-9g-qb3" appends="YES" id="Aar-ae-ToO"/>
                                 </connections>
                             </mapView>
                             <searchBar contentMode="redraw" placeholder="e.g. pizza or architecture" translatesAutoresizingMaskIntoConstraints="NO" id="Gf1-P7-nzs">
@@ -99,6 +101,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NZj-9g-qb3">
+                    <connections>
+                        <action selector="tapMapGesture:" destination="2" id="Uhh-dD-DAY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1145" y="109"/>
         </scene>
@@ -159,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izv-z2-5Tc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2231" y="828"/>
+            <point key="canvasLocation" x="2231" y="856"/>
         </scene>
         <!--InfoVC-->
         <scene sceneID="cWz-l3-npa">
@@ -171,7 +178,10 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrH-Rb-lKK">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Version: 
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="368" id="u4t-2J-YHe"/>
+                                </constraints>
+                                <mutableString key="text">Version: 
 1.0
 
 Authors:
@@ -181,26 +191,35 @@ Zanette Sanders
 Michaelangelo Schab
 
 Application Overview:
-Where To Next is a simple app providing local recommendations for things to do and nearby places to go based off of citizen photos. You make the discovery. You select a picture and decide 'where to next' from your current location. You create your own journey.
+Where To Next is a simple app providing local recommendations for things to do and nearby places to go based off of citizen photos. You make the discovery. You select a picture and decide 'where to next' from your current location. You create your own journey. 
 
-Also, feel free to send your comments, questions and feedback to team at: info@mobilemakers.co</string>
+Meet Next!
+
+Next is a cute little critter that likes to explore big cities.  He was born at Mobile Makers by crazy uncle Spawrks, the authors' mentor. Next quickly outgrew his doodle hood and has since evolved into WhereToNext's biggest evangelist.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="NEXT.png" translatesAutoresizingMaskIntoConstraints="NO" id="bi4-SP-sb9">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="113" id="MRa-8H-Nuz"/>
+                                    <constraint firstAttribute="width" constant="116" id="c69-l3-Mw5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="bottom" secondItem="4cO-41-1uM" secondAttribute="bottom" type="default" id="8ez-hf-isg"/>
-                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="leading" secondItem="4cO-41-1uM" secondAttribute="leading" type="default" id="LbM-69-Nid"/>
-                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="trailing" secondItem="4cO-41-1uM" secondAttribute="trailing" type="default" id="ZxT-de-XdQ"/>
-                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="top" secondItem="4cO-41-1uM" secondAttribute="top" type="default" id="fHC-T6-9T8"/>
+                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="trailing" secondItem="4cO-41-1uM" secondAttribute="trailing" type="default" id="6z7-rH-QBh"/>
+                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="top" secondItem="4cO-41-1uM" secondAttribute="top" type="default" id="D9U-Mb-z7O"/>
+                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="leading" secondItem="4cO-41-1uM" secondAttribute="leading" type="default" id="Lky-kG-33h"/>
+                            <constraint firstItem="bi4-SP-sb9" firstAttribute="bottom" secondItem="4cO-41-1uM" secondAttribute="bottom" type="default" id="OX8-8F-ufI"/>
+                            <constraint firstAttribute="trailing" secondItem="bi4-SP-sb9" secondAttribute="trailing" constant="7" id="Scq-fL-m1W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mqN-Lu-Mi5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7it-pI-mdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3016" y="-595"/>
+            <point key="canvasLocation" x="3300" y="-177"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="4xT-zV-bLn">
@@ -258,7 +277,7 @@ Also, feel free to send your comments, questions and feedback to team at: info@m
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CkK-SA-Cvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2231" y="109"/>
+            <point key="canvasLocation" x="2231" y="133"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="o6I-dv-SiM">
@@ -635,6 +654,9 @@ Also, feel free to send your comments, questions and feedback to team at: info@m
             <point key="canvasLocation" x="2761" y="537"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NEXT.png" width="140" height="140"/>
+    </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -683,6 +705,7 @@ Also, feel free to send your comments, questions and feedback to team at: info@m
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clickPageControl:"/>
+                <relationship kind="action" name="tapMapGesture:"/>
                 <relationship kind="outlet" name="flickrPicsAcitivityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="mapBlackViewCover" candidateClass="UIView"/>
                 <relationship kind="outlet" name="mapViewHeightContraint" candidateClass="NSLayoutConstraint"/>
@@ -700,7 +723,7 @@ Also, feel free to send your comments, questions and feedback to team at: info@m
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="WRj-BV-cdr"/>
         <segue reference="VMh-yL-kSt"/>
-        <segue reference="eXL-Lm-aDN"/>
     </inferredMetricsTieBreakers>
 </document>

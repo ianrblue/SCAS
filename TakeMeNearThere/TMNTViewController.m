@@ -67,6 +67,7 @@
     TMNTBookmarks *bookmarkViewController;
     __weak IBOutlet UIView *mapBlackViewCover;
 }
+- (IBAction)tapMapGesture:(id)sender;
 
 @end
 
@@ -84,7 +85,6 @@ const CGFloat scrollObjWidth	= 320.0;
     myMapView.frame = CGRectMake(0, 44, 320, 460);
     //location work here
     [self startLocationUpdates];
-    
     //NSLog(@"user location lat in viewdidload is: %f", userCurrentLocation.coordinate.latitude);
 }
 
@@ -486,10 +486,6 @@ const CGFloat scrollObjWidth	= 320.0;
 //SCROLLVIEW STUFF & PAGECNTROL
 -(void)scrollViewSetUp
 {
-    
-    //make little bar white. (UI)
-    myScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    
     //unhide pagecontrol
     myPageControl.hidden = NO;
     
@@ -739,4 +735,11 @@ const CGFloat scrollObjWidth	= 320.0;
 }
 
 
+- (IBAction)tapMapGesture:(id)sender
+{
+    if (![searchField resignFirstResponder])
+    {
+        [searchField resignFirstResponder];
+    }
+}
 @end
