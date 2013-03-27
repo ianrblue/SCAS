@@ -54,30 +54,49 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbH-M0-gzz" userLabel="Black View">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdP-C3-gEw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="L86-p9-O0A"/>
+                                    <constraint firstAttribute="height" constant="29" id="XTr-mv-wUY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="^">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="centerUserLocBtn:" destination="2" eventType="touchUpInside" id="P2d-IH-DJz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IO1-aE-pJI" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="2kB-lj-bcr"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="53c-fE-SVN"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="3" secondAttribute="top" constant="44" type="user" id="5tV-I5-5Vi"/>
+                            <constraint firstAttribute="trailing" secondItem="KdP-C3-gEw" secondAttribute="trailing" constant="12" id="9D0-wS-CUH"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Alx-nI-2Ao"/>
+                            <constraint firstItem="Rjf-O9-R4x" firstAttribute="centerX" secondItem="LaZ-ne-8v2" secondAttribute="centerX" type="default" id="EJv-VO-Gaq"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="G0S-e4-DKO"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GdJ-bq-07m"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="H7g-7w-2m4"/>
+                            <constraint firstAttribute="bottom" secondItem="Rjf-O9-R4x" secondAttribute="bottom" constant="10" id="Hzv-Yr-LDK"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="JlR-PF-706"/>
-                            <constraint firstAttribute="bottom" secondItem="Rjf-O9-R4x" secondAttribute="bottom" constant="10" id="NQk-Ev-mr4"/>
-                            <constraint firstItem="pbH-M0-gzz" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="OQi-Fv-4u5"/>
-                            <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="pbH-M0-gzz" secondAttribute="top" type="default" id="PdB-Tm-7mM"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Mkf-tA-NvA"/>
+                            <constraint firstItem="KdP-C3-gEw" firstAttribute="top" secondItem="3" secondAttribute="top" constant="51" id="NQo-sD-dwO"/>
                             <constraint firstAttribute="trailing" secondItem="arr-hJ-THN" secondAttribute="trailing" constant="33" id="SVc-nh-IJ8"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Ung-X7-A8L"/>
                             <constraint firstItem="IO1-aE-pJI" firstAttribute="top" secondItem="LaZ-ne-8v2" secondAttribute="top" type="default" id="V2n-xt-2ea"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="WGO-P2-fA1"/>
-                            <constraint firstItem="pbH-M0-gzz" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="ejD-zx-cn2"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="top" secondItem="Gf1-P7-nzs" secondAttribute="bottom" type="default" id="Ybr-Ta-C1n"/>
+                            <constraint firstItem="pbH-M0-gzz" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="h6f-A2-oFi"/>
                             <constraint firstItem="IO1-aE-pJI" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="ikp-4g-D3l"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="kg8-r4-QRR"/>
-                            <constraint firstItem="pbH-M0-gzz" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="lKN-f6-wd2"/>
                             <constraint firstItem="IO1-aE-pJI" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="pCz-Z0-6SR"/>
                             <constraint firstItem="IO1-aE-pJI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="264" id="rCJ-zg-sAn"/>
-                            <constraint firstItem="Rjf-O9-R4x" firstAttribute="centerX" secondItem="IO1-aE-pJI" secondAttribute="centerX" type="default" id="udq-7M-djr"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="centerY" secondItem="arr-hJ-THN" secondAttribute="centerY" type="default" id="zgO-SJ-BC9"/>
                         </constraints>
                     </view>
@@ -181,7 +200,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="368" id="u4t-2J-YHe"/>
                                 </constraints>
-                                <mutableString key="text">Version: 
+                                <string key="text">Version: 
 1.0
 
 Authors:
@@ -194,7 +213,7 @@ Application Overview:
 Where To Next is a simple app providing local recommendations for things to do and nearby places to go based off of citizen photos. You make the discovery. You select a picture and decide 'where to next' from your current location. You create your own journey. Feel free to send your comments, questions and feedback to team at: teamscas@gmail.com.
 
 Meet Next!
-Next is a cute little critter that likes to explore big cities.  He was born at Mobile Makers by crazy uncle Spawrks, the authors' mentor. Next quickly outgrew his doodle hood and has since evolved into WhereToNext's biggest evangelist.</mutableString>
+Next is a cute little critter that likes to explore big cities.  He was born at Mobile Makers by crazy uncle Spawrks, the authors' mentor. Next quickly outgrew his doodle hood and has since evolved into WhereToNext's biggest evangelist.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

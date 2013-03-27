@@ -68,6 +68,8 @@
     __weak IBOutlet UIView *mapBlackViewCover;
 }
 - (IBAction)tapMapGesture:(id)sender;
+- (IBAction)centerUserLocBtn:(UIButton *)sender;
+
 
 @end
 
@@ -398,7 +400,7 @@ const CGFloat scrollObjWidth	= 320.0;
     };
 
     MKCoordinateRegion newRegion = {newCoodinate, span};
-    [myMapView setRegion:newRegion];
+    [myMapView setRegion:newRegion animated:YES];
 }
 
 #pragma mark -
@@ -750,5 +752,10 @@ const CGFloat scrollObjWidth	= 320.0;
     {
         [searchField resignFirstResponder];
     }
+}
+
+- (IBAction)centerUserLocBtn:(UIButton *)sender
+{
+    [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
 }
 @end
