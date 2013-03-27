@@ -152,7 +152,6 @@ const CGFloat scrollObjWidth	= 320.0;
     //update location, firehose of updates, no longer
     //[myLocationManager startMonitoringSignificantLocationChanges];
     [myLocationManager startUpdatingLocation];
-    
 }
 -(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -171,6 +170,12 @@ const CGFloat scrollObjWidth	= 320.0;
 		   fromLocation:(CLLocation *)oldLocation
 {
     userCurrentLocation = newLocation;
+    
+    CLLocationDistance kilometers = [newLocation distanceFromLocation:oldLocation] / 1000;
+    if (kilometers > .1)
+    {
+        [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+    }
 }
 
 #pragma mark -
@@ -195,6 +200,16 @@ const CGFloat scrollObjWidth	= 320.0;
 - (void)grabYelpArray:(NSArray *)data
 {
     yelpData = [self createPlacesArray:data];
+    if (returnedArray.count == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Sorry"
+                              message:@"No results found"
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
     [self addPinsToMap];
 }
 
@@ -372,6 +387,7 @@ const CGFloat scrollObjWidth	= 320.0;
         .latitudeDelta = 0.01810686f,
         .longitudeDelta = 0.01810686f
     };
+
     MKCoordinateRegion newRegion = {newCoodinate, span};
     [myMapView setRegion:newRegion];
 }
@@ -381,17 +397,17 @@ const CGFloat scrollObjWidth	= 320.0;
 //PIN STUFF
 -(void)addPinsToMap
 {
-    //make region our area
-    MKCoordinateSpan span =
-    {
-        .latitudeDelta = 0.01810686f,
-        .longitudeDelta = 0.01810686f
-    };
-    
-    MKCoordinateRegion myRegion = {userCurrentLocation.coordinate, span};
-    //set region to mapview
-    [myMapView setRegion:myRegion];
-    
+//    //make region our area
+//    MKCoordinateSpan span =
+//    {
+//        .latitudeDelta = 0.01810686f,
+//        .longitudeDelta = 0.01810686f
+//    };
+//    
+//    MKCoordinateRegion myRegion = {userCurrentLocation.coordinate, span};
+//    //set region to mapview
+//    [myMapView setRegion:myRegion];
+    [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
     
     for (int i = 0; i < returnedArray.count; i++)
     {
