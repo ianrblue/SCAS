@@ -302,7 +302,16 @@ const CGFloat scrollObjWidth	= 320.0;
     
     if ([view.annotation isKindOfClass:[MKUserLocation class]])
     {
-        nil;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:.25];
+        //    myMapView.frame = CGRectMake(0, 44, 320, 460);
+        
+        mapViewHeightContraint.constant = 460;
+        [myMapView layoutIfNeeded];
+        
+        [UIView commitAnimations];
+        [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+
     } else
     {
     
