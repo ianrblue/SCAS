@@ -16,6 +16,8 @@
 #import "TMNTTableViewController.h"
 #import "TMNTBookmarks.h"
 
+//#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 @interface TMNTViewController ()
 {
     TMNTAPIProcessor *yelpProcess;
@@ -545,8 +547,12 @@ const CGFloat scrollObjWidth	= 320.0;
     [UIView setAnimationDuration:.25];
     //myMapView.frame = CGRectMake(0, 44, 320, 220);
 
-    //do this instead
+//    if( IS_IPHONE_5 )
+//    {mapViewHeightContraint.constant = 220;}
+//    else
+//    {mapViewHeightContraint.constant = 100;}
     mapViewHeightContraint.constant = 220;
+    
     [myMapView layoutIfNeeded];
 
     [UIView commitAnimations];

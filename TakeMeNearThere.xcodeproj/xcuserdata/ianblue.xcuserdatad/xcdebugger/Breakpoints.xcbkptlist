@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "385920831.592974"
+         timestampString = "386050337.037665"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "471"
-         endingLineNumber = "471"
+         startingLineNumber = "473"
+         endingLineNumber = "473"
          landmarkName = "-scrollViewSetUp"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "385916986.344113"
+         timestampString = "386050337.037665"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "248"
-         endingLineNumber = "248"
+         startingLineNumber = "250"
+         endingLineNumber = "250"
          landmarkName = "-grabFlickrArray:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "385916990.85738"
+         timestampString = "386050337.037665"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "249"
-         endingLineNumber = "249"
+         startingLineNumber = "251"
+         endingLineNumber = "251"
          landmarkName = "-grabFlickrArray:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "385917006.505377"
+         timestampString = "386050337.037665"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "223"
-         endingLineNumber = "223"
+         startingLineNumber = "225"
+         endingLineNumber = "225"
          landmarkName = "-createPlacesArray:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "385920831.592974"
+         timestampString = "386050337.037665"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "503"
-         endingLineNumber = "503"
+         startingLineNumber = "505"
+         endingLineNumber = "505"
          landmarkName = "-scrollViewSetUp"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "385919724.796646"
+         timestampString = "386050337.037665"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "224"
-         endingLineNumber = "224"
+         startingLineNumber = "226"
+         endingLineNumber = "226"
          landmarkName = "-createPlacesArray:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "385920831.592974"
+         timestampString = "386050337.037665"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "431"
-         endingLineNumber = "431"
+         startingLineNumber = "433"
+         endingLineNumber = "433"
          landmarkName = "-addPinsToMap"
          landmarkType = "5">
       </FileBreakpoint>

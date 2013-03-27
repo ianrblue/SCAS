@@ -12,6 +12,18 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view alpha="0.99999999999999989" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IO1-aE-pJI" userLabel="Invisible View">
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-7k-WDb">
+                                        <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kWw-7k-WDb" firstAttribute="leading" secondItem="IO1-aE-pJI" secondAttribute="leading" constant="141" id="0HH-pm-ahR"/>
+                                    <constraint firstItem="kWw-7k-WDb" firstAttribute="centerY" secondItem="IO1-aE-pJI" secondAttribute="centerY" type="default" id="c9W-LL-Eh8"/>
+                                </constraints>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-ne-8v2">
                                 <connections>
                                     <outlet property="delegate" destination="2" id="SNS-DY-fqi"/>
@@ -26,9 +38,6 @@
                                     <outlet property="delegate" destination="2" id="M0p-9K-ph3"/>
                                 </connections>
                             </mapView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-7k-WDb">
-                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                             <searchBar contentMode="redraw" placeholder="e.g. pizza or architecture" translatesAutoresizingMaskIntoConstraints="NO" id="Gf1-P7-nzs">
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -40,16 +49,15 @@
                                 </connections>
                             </searchBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="arr-hJ-THN"/>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbH-M0-gzz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbH-M0-gzz" userLabel="Black View">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Rjf-O9-R4x" firstAttribute="centerX" secondItem="LaZ-ne-8v2" secondAttribute="centerX" type="default" id="2mL-D3-hz1"/>
+                            <constraint firstItem="IO1-aE-pJI" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="2kB-lj-bcr"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="53c-fE-SVN"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="3" secondAttribute="top" constant="44" type="user" id="5tV-I5-5Vi"/>
-                            <constraint firstItem="kWw-7k-WDb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="6sp-Xv-RgS"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="G0S-e4-DKO"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="GdJ-bq-07m"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="H7g-7w-2m4"/>
@@ -59,12 +67,15 @@
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="top" secondItem="pbH-M0-gzz" secondAttribute="top" type="default" id="PdB-Tm-7mM"/>
                             <constraint firstAttribute="trailing" secondItem="arr-hJ-THN" secondAttribute="trailing" constant="33" id="SVc-nh-IJ8"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Ung-X7-A8L"/>
+                            <constraint firstItem="IO1-aE-pJI" firstAttribute="top" secondItem="LaZ-ne-8v2" secondAttribute="top" type="default" id="V2n-xt-2ea"/>
                             <constraint firstItem="LaZ-ne-8v2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="WGO-P2-fA1"/>
-                            <constraint firstItem="Rjf-O9-R4x" firstAttribute="leading" secondItem="kWw-7k-WDb" secondAttribute="leading" type="default" id="blb-nW-PjL"/>
                             <constraint firstItem="pbH-M0-gzz" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="ejD-zx-cn2"/>
+                            <constraint firstItem="IO1-aE-pJI" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="ikp-4g-D3l"/>
                             <constraint firstItem="ufj-DT-Tqj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="kg8-r4-QRR"/>
-                            <constraint firstItem="LaZ-ne-8v2" firstAttribute="top" secondItem="3" secondAttribute="top" constant="264" id="lEw-6P-UF8"/>
                             <constraint firstItem="pbH-M0-gzz" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="lKN-f6-wd2"/>
+                            <constraint firstItem="IO1-aE-pJI" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="pCz-Z0-6SR"/>
+                            <constraint firstItem="IO1-aE-pJI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="264" id="rCJ-zg-sAn"/>
+                            <constraint firstItem="Rjf-O9-R4x" firstAttribute="centerX" secondItem="IO1-aE-pJI" secondAttribute="centerX" type="default" id="udq-7M-djr"/>
                             <constraint firstItem="Gf1-P7-nzs" firstAttribute="centerY" secondItem="arr-hJ-THN" secondAttribute="centerY" type="default" id="zgO-SJ-BC9"/>
                         </constraints>
                     </view>
