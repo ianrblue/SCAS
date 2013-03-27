@@ -89,6 +89,12 @@
     titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
     titleLabel.text = placeName;
     
+    NSString *placeAddress = place.address;
+    UIView * addressViewToLabel = [customCell viewWithTag:110];
+    UILabel *addressLabel = (UILabel *) addressViewToLabel;
+    addressLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:17];
+    addressLabel.text = placeAddress;
+    
     //phoneStringTest = [[historyPersistedArray1 objectAtIndex:[indexPath row]]title];
     //phoneStringTest= placeName;
     

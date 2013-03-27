@@ -116,6 +116,12 @@
     titleLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
     titleLabel.text = placeName;
     
+    NSString *placeAddress = place.address;
+    UIView * addressViewToLabel = [customCell viewWithTag:111];
+    UILabel *addressLabel = (UILabel *) addressViewToLabel;
+    addressLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:17];
+    addressLabel.text = placeAddress;
+    
     
     return customCell;
 }
