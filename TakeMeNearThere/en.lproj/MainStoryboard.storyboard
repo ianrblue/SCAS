@@ -161,6 +161,47 @@
             </objects>
             <point key="canvasLocation" x="2231" y="828"/>
         </scene>
+        <!--InfoVC-->
+        <scene sceneID="cWz-l3-npa">
+            <objects>
+                <viewController id="RB3-NO-ZgK" customClass="TMNTInfoVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4cO-41-1uM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrH-Rb-lKK">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Version: 
+1.0
+
+Authors:
+Ian Blue
+Nathan Levine
+Zanette Sanders
+Michaelangelo Schab
+
+Application Overview:
+Where To Next is a simple app providing local recommendations for things to do and nearby places to go based off of citizen photos. You make the discovery. You select a picture and decide 'where to next' from your current location. You create your own journey.
+
+Also, feel free to send your comments, questions and feedback to team at: info@mobilemakers.co</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="bottom" secondItem="4cO-41-1uM" secondAttribute="bottom" type="default" id="8ez-hf-isg"/>
+                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="leading" secondItem="4cO-41-1uM" secondAttribute="leading" type="default" id="LbM-69-Nid"/>
+                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="trailing" secondItem="4cO-41-1uM" secondAttribute="trailing" type="default" id="ZxT-de-XdQ"/>
+                            <constraint firstItem="rrH-Rb-lKK" firstAttribute="top" secondItem="4cO-41-1uM" secondAttribute="top" type="default" id="fHC-T6-9T8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mqN-Lu-Mi5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7it-pI-mdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3016" y="-595"/>
+        </scene>
         <!--Bookmarks-->
         <scene sceneID="4xT-zV-bLn">
             <objects>
@@ -361,13 +402,28 @@
                                     <action selector="takeMeThereBtn:" destination="Idb-qu-XXf" eventType="touchUpInside" id="G8W-FB-8TC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLV-xl-D44">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RB3-NO-ZgK" kind="push" id="VMh-yL-kSt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85193233522130107" green="0.8795384863350485" blue="0.9027622767857143" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vLV-xl-D44" secondAttribute="trailing" constant="6" id="0KZ-qf-7Gx"/>
                             <constraint firstItem="4nq-Y2-EOC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="162" type="user" id="2o3-sT-Y3p"/>
                             <constraint firstItem="ZLe-yi-kFY" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="36" id="48v-2w-eDC"/>
                             <constraint firstItem="YwG-5b-mo5" firstAttribute="top" secondItem="QL8-a9-TZ0" secondAttribute="top" constant="111" id="5JB-Si-t3P"/>
                             <constraint firstItem="tex-V2-TNS" firstAttribute="centerX" secondItem="dib-51-IHU" secondAttribute="centerX" type="default" id="6cG-MY-9kk"/>
+                            <constraint firstAttribute="bottom" secondItem="vLV-xl-D44" secondAttribute="bottom" constant="5" id="7TU-BZ-YJb"/>
                             <constraint firstItem="4nq-Y2-EOC" firstAttribute="centerX" secondItem="QL8-a9-TZ0" secondAttribute="centerX" type="default" id="9dH-QT-f7U"/>
                             <constraint firstItem="tex-V2-TNS" firstAttribute="leading" secondItem="Nad-ak-Shi" secondAttribute="leading" type="default" id="A1B-v0-yjd"/>
                             <constraint firstItem="dib-51-IHU" firstAttribute="leading" secondItem="QL8-a9-TZ0" secondAttribute="leading" constant="11" id="A8r-OY-c6t"/>
@@ -526,12 +582,26 @@
                                     <action selector="takeMeThereBtn:" destination="Idb-qu-XXf" eventType="touchUpInside" id="sqf-Av-jxS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy1-qe-BHD">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RB3-NO-ZgK" kind="push" id="VOJ-E2-4lH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8519323352" green="0.87953848629999998" blue="0.90276227679999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pjg-3z-hvo" firstAttribute="centerY" secondItem="YKt-i3-lHI" secondAttribute="centerY" type="default" id="6rN-j0-Mhn"/>
                             <constraint firstItem="eSh-6K-50k" firstAttribute="trailing" secondItem="2jN-55-dSm" secondAttribute="trailing" type="default" id="6rZ-ze-abW"/>
                             <constraint firstItem="I83-Rx-Kc5" firstAttribute="centerX" secondItem="YKt-i3-lHI" secondAttribute="centerX" type="default" id="7Mt-po-J7e"/>
+                            <constraint firstAttribute="trailing" secondItem="cy1-qe-BHD" secondAttribute="trailing" constant="6" id="GkQ-ii-5Jt"/>
                             <constraint firstItem="YKt-i3-lHI" firstAttribute="top" secondItem="0hY-Ka-8gR" secondAttribute="top" constant="25" id="IaS-nw-bYf"/>
                             <constraint firstItem="eSh-6K-50k" firstAttribute="top" secondItem="0hY-Ka-8gR" secondAttribute="top" constant="284" type="user" id="NzU-ZD-yBt"/>
                             <constraint firstItem="eSh-6K-50k" firstAttribute="leading" secondItem="2jN-55-dSm" secondAttribute="leading" type="default" id="Pla-Y1-vjZ"/>
@@ -541,6 +611,7 @@
                             <constraint firstItem="I83-Rx-Kc5" firstAttribute="top" secondItem="0hY-Ka-8gR" secondAttribute="top" constant="223" id="gxs-8E-O0K"/>
                             <constraint firstItem="2jN-55-dSm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0hY-Ka-8gR" secondAttribute="top" constant="162" type="user" id="hmD-Hn-xiN"/>
                             <constraint firstItem="pjg-3z-hvo" firstAttribute="leading" secondItem="0hY-Ka-8gR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iyx-mc-JkX"/>
+                            <constraint firstAttribute="bottom" secondItem="cy1-qe-BHD" secondAttribute="bottom" constant="5" id="mM4-pf-2sM"/>
                             <constraint firstItem="2jN-55-dSm" firstAttribute="top" secondItem="0hY-Ka-8gR" secondAttribute="top" constant="162" id="qhM-gP-00i"/>
                             <constraint firstItem="Cxo-To-WDT" firstAttribute="top" secondItem="0hY-Ka-8gR" secondAttribute="top" constant="111" id="qqx-ct-2fB"/>
                             <constraint firstItem="eSh-6K-50k" firstAttribute="centerX" secondItem="0hY-Ka-8gR" secondAttribute="centerX" type="default" id="uAx-5l-vui"/>
@@ -588,6 +659,9 @@
                 <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
             </relationships>
         </class>
+        <class className="TMNTInfoVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTInfoVC.h"/>
+        </class>
         <class className="TMNTSecondVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TMNTSecondVC.h"/>
             <relationships>
@@ -626,6 +700,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WRj-BV-cdr"/>
+        <segue reference="VMh-yL-kSt"/>
+        <segue reference="eXL-Lm-aDN"/>
     </inferredMetricsTieBreakers>
 </document>

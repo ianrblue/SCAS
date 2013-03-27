@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D3C660416EE9CB100956EF2 /* TMNTPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3C660316EE9CB100956EF2 /* TMNTPlace.m */; };
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
+		2559F7A417035BA900548577 /* TMNTInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2559F7A317035BA900548577 /* TMNTInfoVC.m */; };
 		25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */; };
 		25A4DF4A16FE7059002CCC51 /* TMNTBookmarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF4916FE7058002CCC51 /* TMNTBookmarks.m */; };
 		25A4DF6917000027002CCC51 /* TMNTSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF6817000026002CCC51 /* TMNTSecondVC.m */; };
@@ -64,6 +65,8 @@
 		1D3C660216EE9CB100956EF2 /* TMNTPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTPlace.h; sourceTree = "<group>"; };
 		1D3C660316EE9CB100956EF2 /* TMNTPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTPlace.m; sourceTree = "<group>"; };
 		1D3C660516EE9EE900956EF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2559F7A217035BA900548577 /* TMNTInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTInfoVC.h; sourceTree = "<group>"; };
+		2559F7A317035BA900548577 /* TMNTInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTInfoVC.m; sourceTree = "<group>"; };
 		25A4DF1516FA3BA6002CCC51 /* TMNTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTDetailViewController.h; sourceTree = "<group>"; };
 		25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTDetailViewController.m; sourceTree = "<group>"; };
 		25A4DF4816FE7058002CCC51 /* TMNTBookmarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTBookmarks.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */,
+				2559F7A217035BA900548577 /* TMNTInfoVC.h */,
+				2559F7A317035BA900548577 /* TMNTInfoVC.m */,
 				25A4DF4816FE7058002CCC51 /* TMNTBookmarks.h */,
 				25A4DF4916FE7058002CCC51 /* TMNTBookmarks.m */,
 				8FBF3BC316EE976900308CBD /* TMNTViewController.h */,
@@ -336,6 +341,7 @@
 				25A4DF4A16FE7059002CCC51 /* TMNTBookmarks.m in Sources */,
 				25A4DF6917000027002CCC51 /* TMNTSecondVC.m in Sources */,
 				D81FFF9717014CB10012C96C /* PlaceVisited.m in Sources */,
+				2559F7A417035BA900548577 /* TMNTInfoVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
