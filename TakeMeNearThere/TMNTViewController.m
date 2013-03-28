@@ -109,16 +109,6 @@ const CGFloat scrollObjWidth	= 320.0;
         .longitudeDelta = 2.3f
     };
     
-    if (myMapView.region.span.latitudeDelta > spanToCheck.latitudeDelta)//you enter the vc normally
-    {
-        [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
-    } else //if you are coming back from the detailVC
-    {
-        CLLocationCoordinate2D pinCoords = CLLocationCoordinate2DMake((CLLocationDegrees)latnum.doubleValue, (CLLocationDegrees)longnum.doubleValue);
-        MKCoordinateRegion newRegion = {pinCoords , myMapView.region.span};
-        [myMapView setRegion:newRegion animated:YES];
-    }
-    
     //hide yelpacitvityindicator till it is used
     yelpSearchActivityIndicator.hidesWhenStopped = YES;
     myPageControl.hidesForSinglePage = YES;
