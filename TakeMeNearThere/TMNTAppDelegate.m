@@ -14,6 +14,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.window.bounds];
+    UIImage *image = [UIImage imageNamed:@"Default.png"];
+    if (!image) {
+        NSLog(@"We failed at loading screen");
+    }
+    imageView.image = image;
+    [self.window addSubview:imageView];
+    [self.window makeKeyAndVisible];
+    [self.window bringSubviewToFront:imageView];
+    [self performSelector:@selector(removeSplash:) withObject:imageView afterDelay:2];
+    
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"Model" withExtension:@"momd"];
@@ -33,7 +46,18 @@
 
     return YES;
 }
-							
+
+-(void)removeSplash:(UIImageView*)splashView
+{
+//    splashView.alpha = 1.0;
+//    [UIView animateWithDuration:4 animations:^void(void)
+//     {
+//         splashView.center = CGPointMake(splashView.center.x-10, splashView.center.y-100);
+//     }];
+    [splashView removeFromSuperview];
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

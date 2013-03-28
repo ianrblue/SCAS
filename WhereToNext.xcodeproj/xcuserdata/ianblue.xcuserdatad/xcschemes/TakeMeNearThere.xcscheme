@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
-               BuildableName = "TakeMeNearThere.app"
-               BlueprintName = "TakeMeNearThere"
-               ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+               BuildableName = "WhereToNext.app"
+               BlueprintName = "WhereToNext"
+               ReferencedContainer = "container:WhereToNext.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
-            BuildableName = "TakeMeNearThere.app"
-            BlueprintName = "TakeMeNearThere"
-            ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+            BuildableName = "WhereToNext.app"
+            BlueprintName = "WhereToNext"
+            ReferencedContainer = "container:WhereToNext.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
-            BuildableName = "TakeMeNearThere.app"
-            BlueprintName = "TakeMeNearThere"
-            ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+            BuildableName = "WhereToNext.app"
+            BlueprintName = "WhereToNext"
+            ReferencedContainer = "container:WhereToNext.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
-            BuildableName = "TakeMeNearThere.app"
-            BlueprintName = "TakeMeNearThere"
-            ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+            BuildableName = "WhereToNext.app"
+            BlueprintName = "WhereToNext"
+            ReferencedContainer = "container:WhereToNext.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

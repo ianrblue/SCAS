@@ -11,6 +11,9 @@
 		1D3C660616EE9EE900956EF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3C660516EE9EE900956EF2 /* CoreLocation.framework */; };
 		2559F7A417035BA900548577 /* TMNTInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2559F7A317035BA900548577 /* TMNTInfoVC.m */; };
 		2559F7AB170375E500548577 /* NEXT.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7AA170375E500548577 /* NEXT.png */; };
+		2559F7BD1703A2AE00548577 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7BA1703A2AE00548577 /* Default-568h@2x.png */; };
+		2559F7BE1703A2AE00548577 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7BB1703A2AE00548577 /* default.png */; };
+		2559F7BF1703A2AE00548577 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7BC1703A2AE00548577 /* default@2x.png */; };
 		25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */; };
 		25A4DF4A16FE7059002CCC51 /* TMNTBookmarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF4916FE7058002CCC51 /* TMNTBookmarks.m */; };
 		25A4DF6917000027002CCC51 /* TMNTSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF6817000026002CCC51 /* TMNTSecondVC.m */; };
@@ -19,9 +22,6 @@
 		8FBF3B8C16EE94E500308CBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */; };
 		8FBF3B9216EE94E500308CBD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9016EE94E500308CBD /* InfoPlist.strings */; };
 		8FBF3B9416EE94E500308CBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9316EE94E500308CBD /* main.m */; };
-		8FBF3B9A16EE94E500308CBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9916EE94E500308CBD /* Default.png */; };
-		8FBF3B9C16EE94E500308CBD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9B16EE94E500308CBD /* Default@2x.png */; };
-		8FBF3B9E16EE94E500308CBD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */; };
 		8FBF3BA116EE94E500308CBD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBF3B9F16EE94E500308CBD /* MainStoryboard.storyboard */; };
 		8FBF3BB716EE96A400308CBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BB616EE96A400308CBD /* MapKit.framework */; };
 		8FBF3BBB16EE96B200308CBD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBF3BBA16EE96B200308CBD /* QuartzCore.framework */; };
@@ -69,23 +69,23 @@
 		2559F7A217035BA900548577 /* TMNTInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTInfoVC.h; sourceTree = "<group>"; };
 		2559F7A317035BA900548577 /* TMNTInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTInfoVC.m; sourceTree = "<group>"; };
 		2559F7AA170375E500548577 /* NEXT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NEXT.png; sourceTree = "<group>"; };
+		2559F7BA1703A2AE00548577 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2559F7BB1703A2AE00548577 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		2559F7BC1703A2AE00548577 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		25A4DF1516FA3BA6002CCC51 /* TMNTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTDetailViewController.h; sourceTree = "<group>"; };
 		25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTDetailViewController.m; sourceTree = "<group>"; };
 		25A4DF4816FE7058002CCC51 /* TMNTBookmarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTBookmarks.h; sourceTree = "<group>"; };
 		25A4DF4916FE7058002CCC51 /* TMNTBookmarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTBookmarks.m; sourceTree = "<group>"; };
 		25A4DF6717000026002CCC51 /* TMNTSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMNTSecondVC.h; path = ../TMNTSecondVC.h; sourceTree = "<group>"; };
 		25A4DF6817000026002CCC51 /* TMNTSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMNTSecondVC.m; path = ../TMNTSecondVC.m; sourceTree = "<group>"; };
-		8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeMeNearThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FBF3B8416EE94E500308CBD /* WhereToNext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereToNext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF3B8716EE94E500308CBD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FBF3B8916EE94E500308CBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8FBF3B8B16EE94E500308CBD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8FBF3B8F16EE94E500308CBD /* TakeMeNearThere-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TakeMeNearThere-Info.plist"; sourceTree = "<group>"; };
+		8FBF3B8F16EE94E500308CBD /* WhereToNext-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WhereToNext-Info.plist"; sourceTree = "<group>"; };
 		8FBF3B9116EE94E500308CBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8FBF3B9316EE94E500308CBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8FBF3B9516EE94E500308CBD /* TakeMeNearThere-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TakeMeNearThere-Prefix.pch"; sourceTree = "<group>"; };
-		8FBF3B9916EE94E500308CBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8FBF3B9B16EE94E500308CBD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8FBF3B9516EE94E500308CBD /* WhereToNext-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhereToNext-Prefix.pch"; sourceTree = "<group>"; };
 		8FBF3BA016EE94E500308CBD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8FBF3BAA16EE964800308CBD /* YelpKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YelpKit.xcodeproj; path = YelpKit/YelpKit.xcodeproj; sourceTree = "<group>"; };
 		8FBF3BB616EE96A400308CBD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -140,7 +140,7 @@
 		8FBF3B8516EE94E500308CBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */,
+				8FBF3B8416EE94E500308CBD /* WhereToNext.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,13 +178,13 @@
 			isa = PBXGroup;
 			children = (
 				2559F7AA170375E500548577 /* NEXT.png */,
-				8FBF3B8F16EE94E500308CBD /* TakeMeNearThere-Info.plist */,
+				8FBF3B8F16EE94E500308CBD /* WhereToNext-Info.plist */,
 				8FBF3B9016EE94E500308CBD /* InfoPlist.strings */,
+				2559F7BA1703A2AE00548577 /* Default-568h@2x.png */,
+				2559F7BB1703A2AE00548577 /* default.png */,
+				2559F7BC1703A2AE00548577 /* default@2x.png */,
 				8FBF3B9316EE94E500308CBD /* main.m */,
-				8FBF3B9516EE94E500308CBD /* TakeMeNearThere-Prefix.pch */,
-				8FBF3B9916EE94E500308CBD /* Default.png */,
-				8FBF3B9B16EE94E500308CBD /* Default@2x.png */,
-				8FBF3B9D16EE94E500308CBD /* Default-568h@2x.png */,
+				8FBF3B9516EE94E500308CBD /* WhereToNext-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -244,9 +244,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8FBF3B8316EE94E500308CBD /* TakeMeNearThere */ = {
+		8FBF3B8316EE94E500308CBD /* WhereToNext */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "TakeMeNearThere" */;
+			buildConfigurationList = 8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "WhereToNext" */;
 			buildPhases = (
 				8FBF3B8016EE94E500308CBD /* Sources */,
 				8FBF3B8116EE94E500308CBD /* Frameworks */,
@@ -257,9 +257,9 @@
 			dependencies = (
 				8FBF3BB516EE969A00308CBD /* PBXTargetDependency */,
 			);
-			name = TakeMeNearThere;
+			name = WhereToNext;
 			productName = TakeMeNearThere;
-			productReference = 8FBF3B8416EE94E500308CBD /* TakeMeNearThere.app */;
+			productReference = 8FBF3B8416EE94E500308CBD /* WhereToNext.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -270,9 +270,9 @@
 			attributes = {
 				CLASSPREFIX = TMNT;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Heroes in a Half Shell";
+				ORGANIZATIONNAME = SCAS;
 			};
-			buildConfigurationList = 8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "TakeMeNearThere" */;
+			buildConfigurationList = 8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "WhereToNext" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -290,7 +290,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				8FBF3B8316EE94E500308CBD /* TakeMeNearThere */,
+				8FBF3B8316EE94E500308CBD /* WhereToNext */,
 			);
 		};
 /* End PBXProject section */
@@ -318,11 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBF3B9216EE94E500308CBD /* InfoPlist.strings in Resources */,
-				8FBF3B9A16EE94E500308CBD /* Default.png in Resources */,
-				8FBF3B9C16EE94E500308CBD /* Default@2x.png in Resources */,
-				8FBF3B9E16EE94E500308CBD /* Default-568h@2x.png in Resources */,
 				8FBF3BA116EE94E500308CBD /* MainStoryboard.storyboard in Resources */,
 				2559F7AB170375E500548577 /* NEXT.png in Resources */,
+				2559F7BD1703A2AE00548577 /* Default-568h@2x.png in Resources */,
+				2559F7BE1703A2AE00548577 /* default.png in Resources */,
+				2559F7BF1703A2AE00548577 /* default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,9 +449,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TakeMeNearThere/TakeMeNearThere-Prefix.pch";
-				INFOPLIST_FILE = "TakeMeNearThere/TakeMeNearThere-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TakeMeNearThere/WhereToNext-Prefix.pch";
+				INFOPLIST_FILE = "TakeMeNearThere/WhereToNext-Info.plist";
+				PRODUCT_NAME = WhereToNext;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -460,9 +460,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TakeMeNearThere/TakeMeNearThere-Prefix.pch";
-				INFOPLIST_FILE = "TakeMeNearThere/TakeMeNearThere-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TakeMeNearThere/WhereToNext-Prefix.pch";
+				INFOPLIST_FILE = "TakeMeNearThere/WhereToNext-Info.plist";
+				PRODUCT_NAME = WhereToNext;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -470,7 +470,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "TakeMeNearThere" */ = {
+		8FBF3B7F16EE94E500308CBD /* Build configuration list for PBXProject "WhereToNext" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FBF3BA516EE94E500308CBD /* Debug */,
@@ -479,7 +479,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "TakeMeNearThere" */ = {
+		8FBF3BA716EE94E500308CBD /* Build configuration list for PBXNativeTarget "WhereToNext" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FBF3BA816EE94E500308CBD /* Debug */,

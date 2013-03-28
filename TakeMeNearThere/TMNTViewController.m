@@ -125,8 +125,27 @@ const CGFloat scrollObjWidth	= 320.0;
     myPageControl.hidden = YES;
     bookmark = NO;
     
-    if (![searchField resignFirstResponder]) {
+    if (![searchField resignFirstResponder])
+    {
         [searchField resignFirstResponder];
+    }
+    
+    //added by Ian. Nate's code.
+    if (myMapView.region.span.latitudeDelta > spanToCheck.latitudeDelta && myMapView.userLocation.location)//you enter the vc normally
+        
+    {
+        
+        [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+        
+    } else if (myMapView.userLocation.location) //if you are coming back from the detailVC
+        
+    {
+        CLLocationCoordinate2D pinCoords = CLLocationCoordinate2DMake((CLLocationDegrees)latnum.doubleValue, (CLLocationDegrees)longnum.doubleValue);
+        
+        MKCoordinateRegion newRegion = {pinCoords , myMapView.region.span};
+    
+        [myMapView setRegion:newRegion animated:YES];
+        
     }
 }
 

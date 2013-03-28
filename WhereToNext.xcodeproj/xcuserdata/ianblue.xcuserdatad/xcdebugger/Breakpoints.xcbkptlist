@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "386094993.481094"
+         timestampString = "386137290.22082"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "449"
-         endingLineNumber = "449"
+         startingLineNumber = "468"
+         endingLineNumber = "468"
          landmarkName = "-addPinsToMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -40,6 +40,19 @@
          startingLineNumber = "51"
          endingLineNumber = "51"
          landmarkName = "-getFlickrJSON"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TakeMeNearThere/TMNTAppDelegate.m"
+         timestampString = "386120229.981769"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
+         landmarkName = "-removeSplash:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
