@@ -14,6 +14,8 @@
 		2559F7BD1703A2AE00548577 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7BA1703A2AE00548577 /* Default-568h@2x.png */; };
 		2559F7BE1703A2AE00548577 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7BB1703A2AE00548577 /* Default.png */; };
 		2559F7BF1703A2AE00548577 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7BC1703A2AE00548577 /* Default@2x.png */; };
+		2559F7D51704A67500548577 /* scas_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7D41704A67500548577 /* scas_114.png */; };
+		2559F7D81704A86200548577 /* scas57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2559F7D71704A86200548577 /* scas57.png */; };
 		25A4DF1716FA3BA6002CCC51 /* TMNTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */; };
 		25A4DF4A16FE7059002CCC51 /* TMNTBookmarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF4916FE7058002CCC51 /* TMNTBookmarks.m */; };
 		25A4DF6917000027002CCC51 /* TMNTSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4DF6817000026002CCC51 /* TMNTSecondVC.m */; };
@@ -72,6 +74,8 @@
 		2559F7BA1703A2AE00548577 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2559F7BB1703A2AE00548577 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2559F7BC1703A2AE00548577 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2559F7D41704A67500548577 /* scas_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scas_114.png; sourceTree = "<group>"; };
+		2559F7D71704A86200548577 /* scas57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scas57.png; sourceTree = "<group>"; };
 		25A4DF1516FA3BA6002CCC51 /* TMNTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTDetailViewController.h; sourceTree = "<group>"; };
 		25A4DF1616FA3BA6002CCC51 /* TMNTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTDetailViewController.m; sourceTree = "<group>"; };
 		25A4DF4816FE7058002CCC51 /* TMNTBookmarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTBookmarks.h; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		8FBF3B7B16EE94E500308CBD = {
 			isa = PBXGroup;
 			children = (
+				2559F7D71704A86200548577 /* scas57.png */,
+				2559F7D41704A67500548577 /* scas_114.png */,
 				8FBF3BAA16EE964800308CBD /* YelpKit.xcodeproj */,
 				8FBF3B8D16EE94E500308CBD /* TakeMeNearThere */,
 				8FBF3B8616EE94E500308CBD /* Frameworks */,
@@ -325,6 +331,8 @@
 				2559F7BD1703A2AE00548577 /* Default-568h@2x.png in Resources */,
 				2559F7BE1703A2AE00548577 /* Default.png in Resources */,
 				2559F7BF1703A2AE00548577 /* Default@2x.png in Resources */,
+				2559F7D51704A67500548577 /* scas_114.png in Resources */,
+				2559F7D81704A86200548577 /* scas57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +437,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ian Blue";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ian Blue";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -442,6 +451,8 @@
 					"-ObjC",
 					"-all_load",
 				);
+				PROVISIONING_PROFILE = "607A7EC5-37C5-40D2-B88A-0C40E34BD7A1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "607A7EC5-37C5-40D2-B88A-0C40E34BD7A1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
