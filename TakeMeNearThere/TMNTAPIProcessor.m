@@ -30,7 +30,7 @@
 //api method call for yelp
 - (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation*)userLocation andKey: (NSString *)key
 {
-    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&lat=%f&long=%f&radius=.2&limit=10&ywsid=%@",search, userLocation.coordinate.latitude, userLocation.coordinate.longitude, key];
+    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&lat=%f&long=%f&radius=.4&limit=10&ywsid=%@",search, userLocation.coordinate.latitude, userLocation.coordinate.longitude, key];
     return self;
 }
 

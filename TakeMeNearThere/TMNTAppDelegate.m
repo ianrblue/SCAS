@@ -15,16 +15,38 @@
 {
     // Override point for customization after application launch.
     
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.window.bounds];
-    UIImage *image = [UIImage imageNamed:@"Default.png"];
-    if (!image) {
-        NSLog(@"We failed at loading screen");
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenHeight = screenSize.height;
+    
+    //Setup for loading page
+    UIImageView *imageView =[[UIImageView alloc]initWithFrame:self.window.bounds];
+    
+    if (screenHeight == 480)
+    {
+        //Device is iPhone 4 or 4S in point height
+        UIImage *image = [UIImage imageNamed:@"Default@2x.png"];
+        if (!image)
+        {
+            NSLog(@" we failed to load the image during the screen thing in the didFinish.. in the AppDelegate at line 64");
+        }
+        imageView.image = image;
+    
     }
-    imageView.image = image;
+    if (screenHeight == 568)
+    {
+        //Device is iPhone 5 in point height
+        UIImage *image = [UIImage imageNamed:@"Default-568h@2x.png"];
+        if (!image)
+        {
+            NSLog(@" we failed to load the image during the screen thing in the didFinish.. in the AppDelegate at line 74");
+        }
+        imageView.image = image;
+    }
     [self.window addSubview:imageView];
     [self.window makeKeyAndVisible];
     [self.window bringSubviewToFront:imageView];
-    [self performSelector:@selector(removeSplash:) withObject:imageView afterDelay:2];
+    [self performSelector:@selector(removeSplash:) withObject:imageView afterDelay:1];
     
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -50,11 +72,16 @@
 -(void)removeSplash:(UIImageView*)splashView
 {
     splashView.alpha = 1.0;
-    [UIView animateWithDuration:4 animations:^
-     {
-         splashView.alpha = 0.0f;
-     }];
-    [splashView removeFromSuperview];
+    [UIView animateWithDuration:1.5 animations:^{
+        splashView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [splashView removeFromSuperview];
+    }];
+//    [UIView animateWithDuration:0.5 animations:^
+//     {
+//         splashView.alpha = 0.0f;
+//     }];
+    
 }
 
 

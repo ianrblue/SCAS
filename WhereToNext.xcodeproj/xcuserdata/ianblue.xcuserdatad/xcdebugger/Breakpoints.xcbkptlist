@@ -21,12 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTViewController.m"
-         timestampString = "386137290.22082"
+         timestampString = "386172331.999433"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "468"
-         endingLineNumber = "468"
-         landmarkName = "-addPinsToMap"
+         startingLineNumber = "458"
+         endingLineNumber = "458"
+         landmarkName = "-updateMapViewWithNewCenter:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TakeMeNearThere/TMNTAppDelegate.m"
-         timestampString = "386120229.981769"
+         timestampString = "386178465.836864"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
          landmarkName = "-removeSplash:"
          landmarkType = "5">
       </FileBreakpoint>
