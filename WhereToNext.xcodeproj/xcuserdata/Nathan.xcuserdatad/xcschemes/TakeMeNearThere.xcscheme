@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
                BuildableName = "TakeMeNearThere.app"
-               BlueprintName = "TakeMeNearThere"
-               ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+               BlueprintName = "WhereToNext"
+               ReferencedContainer = "container:WhereToNext.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
             BuildableName = "TakeMeNearThere.app"
-            BlueprintName = "TakeMeNearThere"
-            ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+            BlueprintName = "WhereToNext"
+            ReferencedContainer = "container:WhereToNext.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
             BuildableName = "TakeMeNearThere.app"
-            BlueprintName = "TakeMeNearThere"
-            ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+            BlueprintName = "WhereToNext"
+            ReferencedContainer = "container:WhereToNext.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8FBF3B8316EE94E500308CBD"
             BuildableName = "TakeMeNearThere.app"
-            BlueprintName = "TakeMeNearThere"
-            ReferencedContainer = "container:TakeMeNearThere.xcodeproj">
+            BlueprintName = "WhereToNext"
+            ReferencedContainer = "container:WhereToNext.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

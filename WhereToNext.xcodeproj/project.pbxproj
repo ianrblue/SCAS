@@ -103,6 +103,7 @@
 		D850CF3A16FB62DE00BF53D7 /* TMNTAnnotationTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTAnnotationTwo.h; sourceTree = "<group>"; };
 		D850CF3B16FB62DE00BF53D7 /* TMNTAnnotationTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTAnnotationTwo.m; sourceTree = "<group>"; };
 		D85E45C216F22D2600E9E3C7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D8B50D9517048DA4005D2588 /* TakeMeNearThere copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TakeMeNearThere copy-Info.plist"; path = "/Users/Nathan/Desktop/GitRepos/SCAS/TakeMeNearThere copy-Info.plist"; sourceTree = "<absolute>"; };
 		D8D79FB516FD218400BF2682 /* TMNTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMNTTableViewController.h; sourceTree = "<group>"; };
 		D8D79FB616FD218400BF2682 /* TMNTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMNTTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +135,7 @@
 				8FBF3B8D16EE94E500308CBD /* TakeMeNearThere */,
 				8FBF3B8616EE94E500308CBD /* Frameworks */,
 				8FBF3B8516EE94E500308CBD /* Products */,
+				D8B50D9517048DA4005D2588 /* TakeMeNearThere copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
