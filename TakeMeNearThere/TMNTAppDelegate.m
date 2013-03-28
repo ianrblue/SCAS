@@ -49,11 +49,11 @@
 
 -(void)removeSplash:(UIImageView*)splashView
 {
-//    splashView.alpha = 1.0;
-//    [UIView animateWithDuration:4 animations:^void(void)
-//     {
-//         splashView.center = CGPointMake(splashView.center.x-10, splashView.center.y-100);
-//     }];
+    splashView.alpha = 1.0;
+    [UIView animateWithDuration:4 animations:^
+     {
+         splashView.alpha = 0.0f;
+     }];
     [splashView removeFromSuperview];
 }
 

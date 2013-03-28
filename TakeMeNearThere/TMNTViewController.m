@@ -256,7 +256,33 @@ const CGFloat scrollObjWidth	= 320.0;
     yelpSearchString = [searchField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [yelpSearchActivityIndicator startAnimating];
     //perform yelp api call based on our location
-    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:yelpSearchString andLocation:userCurrentLocation];
+    NSString *keyString = @"";
+    switch (arc4random()%4)
+    {
+        case 0:
+            //nathans second key
+            keyString = @"Q3gkiZiXWA1AKNyIe0OCfQ";
+            break;
+        case 1:
+            //ians first key
+            keyString = @"05IugMsft6wGtb0DNA4e0w";
+            break;
+        case 2:
+            //mikes first key
+            keyString = @"lHqlTgOyV_wUoTw1Q9n6ow";
+            break;
+        case 3:
+            //Zanettes first key
+            keyString = @"22zVYdmgxecWfWb6EHA5gw";
+            break;
+            
+        default:
+            //nathan's first key
+            keyString = @"hKYEqadqiwVuSzVbo7EjmQ";
+            break;
+    }
+    
+    yelpProcess = [[TMNTAPIProcessor alloc]initWithYelpSearch:yelpSearchString andLocation:userCurrentLocation andKey:keyString];
     //NSLog(@"tets%f",currentLocation.coordinate.latitude);
     //set ourselves as the delgeate
     yelpProcess.delegate = self;
@@ -371,8 +397,35 @@ const CGFloat scrollObjWidth	= 320.0;
        flickrSearchString = [searchField.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 
 //        NSString *flickrBusinessName = [businessName stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        NSString *flickrKeyString = @"";
+        switch (arc4random()%4)
+        {
+            case 0:
+                //nathans second key
+                flickrKeyString = @"ee8ee137dd0fba36523ecdecd2f3a630";
+                break;
+            case 1:
+                //nathans third key
+                flickrKeyString = @"ab9a8ea597bbc2bf065a6b2429404e3d";
+                break;
+            case 2:
+                //nathans fourth key
+                flickrKeyString = @"8ca9d0e63f56c17f786fc354454876f2";
+                break;
+            case 3:
+                //mikes first key
+                flickrKeyString = @"f232dda243c411d7ce3523ebd326f9c3";
+                break;
+                
+            default:
+                //nathan's first key
+                flickrKeyString = @"ea823870ec743df13267c3ee3311fbcb";
+                break;
+        }
+
         
-        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:5];
+        flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrKey:flickrKeyString Search:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:5];
+        //flickrProcess = [[TMNTAPIProcessor alloc]initWithFlickrSearch:flickrSearchString andLatitude:latnum andLongitude:longnum andRadius:5];
         flickrProcess.delegate = self;
         [flickrProcess getFlickrJSON];
 //        if (flickrProcess.flickrPhotosArray.count < 5) {
@@ -765,6 +818,8 @@ const CGFloat scrollObjWidth	= 320.0;
 
 - (IBAction)centerUserLocBtn:(UIButton *)sender
 {
-    [self updateMapViewWithNewCenter:userCurrentLocation.coordinate];
+    MKCoordinateRegion newRegion = {userCurrentLocation.coordinate, myMapView.region.span};
+    
+    [myMapView setRegion:newRegion animated:YES];
 }
 @end

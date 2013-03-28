@@ -19,9 +19,9 @@
 @property (strong, nonatomic) NSArray *yelpBusinessesArray;
 @property (strong, nonatomic) id <TMNTDataSourceDelegate> delegate;
 
-- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude andRadius: (float)radius;
+- (TMNTAPIProcessor*)initWithFlickrKey:(NSString*)key Search:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude andRadius: (float)radius;
 
-- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation*)userLocation;
+- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation*)userLocation andKey: (NSString *)key;
 
 //the getter and the setting of the json from flickr
 - (void)getFlickrJSON;

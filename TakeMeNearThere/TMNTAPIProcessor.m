@@ -16,21 +16,21 @@
 
 
 //api method call for flickr
-- (TMNTAPIProcessor*)initWithFlickrSearch:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude andRadius: (float)radius
+- (TMNTAPIProcessor*)initWithFlickrKey:(NSString*)key Search:(NSString*)search andLatitude:(NSNumber*)latitude andLongitude: (NSNumber *)longitude andRadius: (float)radius
 {
 
 //previously used flickr url
 //http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=bd02a7a94fbe1f4c40a1661af4cb7bbe&tags=%@&format=json&nojsoncallback=1&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5
     
-    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8d9c465237c96ca6f763d59140f98355&tags=%@&sort=&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5&format=json&nojsoncallback=1", search, latitude, longitude, radius];
+    stringAPICall = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&tags=%@&sort=&lat=%@&lon=%@&radius=%f&extras=geo&per_page=5&format=json&nojsoncallback=1",key, search, latitude, longitude, radius];
     NSLog(@"%@",stringAPICall);
     return self;
 }
 
 //api method call for yelp
-- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation*)userLocation
+- (TMNTAPIProcessor*)initWithYelpSearch:(NSString*)search andLocation:(CLLocation*)userLocation andKey: (NSString *)key
 {
-    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&lat=%f&long=%f&radius=.2&limit=10&ywsid=22zVYdmgxecWfWb6EHA5gw",search, userLocation.coordinate.latitude, userLocation.coordinate.longitude];
+    stringAPICall = [NSString stringWithFormat:@"http://api.yelp.com/business_review_search?term=%@&lat=%f&long=%f&radius=.2&limit=10&ywsid=%@",search, userLocation.coordinate.latitude, userLocation.coordinate.longitude, key];
     return self;
 }
 
